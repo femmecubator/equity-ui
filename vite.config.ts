@@ -2,6 +2,7 @@
 
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import react from '@vitejs/plugin-react'
 import { peerDependencies } from './package.json'
 
 export default defineConfig({
@@ -18,7 +19,15 @@ export default defineConfig({
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
   },
-  plugins: [dts()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  plugins: [
+    dts(), // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+    react({
+      jsxImportSource: '@emotion/react',
+      babel: {
+        plugins: ['@emotion/babel-plugin'],
+      }, // To enable emotion's Babel plugin for use of css prop.
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
