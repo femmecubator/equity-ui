@@ -20,14 +20,14 @@ export default defineConfig({
     emptyOutDir: true, // Clears the output directory before building.
   },
   plugins: [
-    dts(),
+    dts(), // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
     react({
       jsxImportSource: '@emotion/react',
       babel: {
         plugins: ['@emotion/babel-plugin'],
       }, // To enable emotion's Babel plugin for use of css prop.
     }),
-  ], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
