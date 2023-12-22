@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <div
       css={css`
-        border: 1px solid hotpink;
+        border: 1px solid purple;
       `}
     >
       <StyledButton
