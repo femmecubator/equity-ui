@@ -1,14 +1,14 @@
-import React, { MouseEventHandler } from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import React, { MouseEventHandler } from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export type ButtonProps = {
-  text?: string
-  primary?: boolean
-  disabled?: boolean
-  size?: 'small' | 'medium' | 'large'
-  onClick?: MouseEventHandler<HTMLButtonElement>
-}
+  text?: string;
+  primary?: boolean;
+  disabled?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+};
 
 const StyledButton = styled.button<ButtonProps>`
   border: 0;
@@ -27,7 +27,7 @@ const StyledButton = styled.button<ButtonProps>`
       : props.size === 'medium'
         ? '9px 30px 11px'
         : '14px 30px 16px'};
-`
+`;
 
 const Button: React.FC<ButtonProps> = ({
   size,
@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
         {text}
       </StyledButton>
     </div>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

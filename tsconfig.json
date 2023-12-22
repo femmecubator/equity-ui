@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES5", // Specifies the JavaScript version to target when transpiling code.
+    "target": "ES2022", // Specifies the JavaScript version to target when transpiling code.
     "useDefineForClassFields": true, // Enables the use of 'define' for class fields.
     "lib": ["ES2020", "DOM", "DOM.Iterable"], // Specifies the libraries available for the code.
     "module": "ESNext", // Defines the module system to use for code generation.
-    "skipLibCheck": true, // Skips type checking of declaration files.
+    "skipLibCheck": false, // Skips type checking of declaration files.
 
     /* Bundler mode */
     "moduleResolution": "bundler", // Specifies how modules are resolved when bundling.
@@ -16,10 +16,15 @@
 
     /* Linting */
     "strict": true, // Enables strict type checking.
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true, // Flags unused local variables.
     "noUnusedParameters": true, // Flags unused function parameters.
     "noFallthroughCasesInSwitch": true, // Requires handling all cases in a switch statement.
     "declaration": true, // Generates declaration files for TypeScript.
+
+    "esModuleInterop": true,
+    "allowJs": true,
+    "moduleDetection": "force",
 
     "types": [
       "@testing-library/jest-dom",

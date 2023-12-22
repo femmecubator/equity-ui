@@ -1,9 +1,7 @@
-/// <reference types="vitest" />
-
-import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
-import react from '@vitejs/plugin-react'
-import { peerDependencies } from './package.json'
+import { defineConfig } from 'vitest/config';
+import dts from 'vite-plugin-dts';
+import react from '@vitejs/plugin-react';
+import { peerDependencies } from './package.json';
 
 export default defineConfig({
   build: {
@@ -20,7 +18,9 @@ export default defineConfig({
     emptyOutDir: true, // Clears the output directory before building.
   },
   plugins: [
-    dts(), // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+    dts({
+      insertTypesEntry: true,
+    }), // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
     react({
       jsxImportSource: '@emotion/react',
       babel: {
@@ -34,4 +34,4 @@ export default defineConfig({
     setupFiles: './setupTests.ts',
   },
   assetsInclude: ['/sb-preview/runtime.js'],
-})
+});

@@ -1,5 +1,6 @@
-import { FC } from 'react'
-import Button, { ButtonProps } from '../Button'
+import { FC } from 'react';
+import Button, { ButtonProps } from '../Button';
+import React from 'react';
 
 const Example: FC<ButtonProps> = ({
   disabled = false,
@@ -25,7 +26,7 @@ const Example: FC<ButtonProps> = ({
         primary={primary}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Example
+export default Example;
