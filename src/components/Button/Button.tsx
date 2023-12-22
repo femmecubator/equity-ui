@@ -1,6 +1,5 @@
 import React, { MouseEventHandler } from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
 export type ButtonProps = {
   text?: string;
@@ -38,22 +37,16 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <div
-      css={css`
-        border: 1px solid hotpink;
-      `}
+    <StyledButton
+      type="button"
+      onClick={onClick}
+      primary={primary}
+      disabled={disabled}
+      size={size}
+      {...props}
     >
-      <StyledButton
-        type="button"
-        onClick={onClick}
-        primary={primary}
-        disabled={disabled}
-        size={size}
-        {...props}
-      >
-        {text}
-      </StyledButton>
-    </div>
+      {text}
+    </StyledButton>
   );
 };
 
