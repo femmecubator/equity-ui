@@ -30,6 +30,9 @@ jobs:
     needs: bump-version
     if: ${{ github.event_name }} == 'workflow_run' && ${{ github.workflow }} == 'Bump Version' && ${{ github.workflow.conclusion }} == 'success'
     steps:
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install dependencies
         run: pnpm i -D @actions/core @actions/github axios
       # Node.js script can be anywhere. A good convention is to put local GitHub Actions
