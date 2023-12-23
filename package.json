@@ -15,7 +15,7 @@
   "scripts": {
     "build": "vite build",
     "format": "prettier --write .",
-    "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignor",
+    "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore",
     "lint:fix": "pnpm lint e --fix",
     "test": "vitest run",
     "test-watch": "vitest",
