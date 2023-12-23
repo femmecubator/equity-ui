@@ -1,0 +1,43 @@
+name: 'Bump Version'
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - synchronize
+      - edited
+      - ready_for_review
+      - labeled
+      - reopened
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+        with:
+          access_token: ${{ github.token }}
+      - uses: 'actions/checkout@v3'
+      - name: Pull Request Version Bump
+        id: bump
+        uses: fadi-quader-mox/pr-version-bump@v1.0.0
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  remove-labels:
+    runs-on: ubuntu-latest
+    needs: bump-version
+    if: ${{ github.event_name }} == 'workflow_run' && ${{ github.workflow }} == 'Bump Version' && ${{ github.workflow.conclusion }} == 'success'
+    steps:
+      - name: Remove PR Labels
+        uses: octokit/rest.js@v6
+        with:
+          script: |
+            const octokit = new (require('@octokit/rest'))();
+            await octokit.issues.removeLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+          GITHUB_TOKEN: ${{ github.token }}
