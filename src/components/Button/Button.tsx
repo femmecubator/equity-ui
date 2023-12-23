@@ -1,11 +1,12 @@
 import React, { MouseEventHandler } from 'react';
 import styled from '@emotion/styled';
+import { ComponentSize } from '../../shared/types';
 
 export type ButtonProps = {
   text?: string;
   primary?: boolean;
   disabled?: boolean;
-  size?: 'small' | 'medium' | 'large';
+  size?: ComponentSize;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 

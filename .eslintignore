@@ -1,12 +1,6 @@
-**/*.stories.*
-**/*.test.*
-**/*.d.test
-/src/stories
 /dist
 /.github
 /node_modules
 *.md
 *.json
 *.yaml
-**/*.config.*
-setupTest.js

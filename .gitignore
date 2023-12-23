@@ -1,5 +1,6 @@
 node_modules
 dist
+.env
 
 #storybook build directory
 storybook-static
