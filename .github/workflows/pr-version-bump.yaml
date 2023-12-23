@@ -37,7 +37,13 @@ jobs:
         uses: dev-hanz-ops/install-gh-cli-action@v0.1.0
         with:
           gh-cli-version: 2.32.0
+          
+      - name: Extract label name
+        id: extract-label
+        run: |
+          echo "::set-output name=label::$(echo '${{ github.event | tojson }}' | jq -r '.label.name')"
 
       - name: Remove label
         run: |
-          gh issue edit ${{ github.event.number }} --remove-label ${{ github.event.label.name }}
+          label_name="${{ steps.extract-label.outputs.label }}"
+          gh issue edit ${{ github.event.number }} --remove-label "$label_name"
