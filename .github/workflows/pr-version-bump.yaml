@@ -30,6 +30,12 @@ jobs:
     needs: bump-version
     if: ${{ github.event_name }} == 'workflow_run' && ${{ github.workflow }} == 'Bump Version' && ${{ github.workflow.conclusion }} == 'success'
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - uses: pnpm/action-setup@v2
         with:
           version: 8
