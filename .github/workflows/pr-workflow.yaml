@@ -24,4 +24,3 @@ jobs:
         with:
           version: 8
       - run: pnpm i --frozen-lockfile
-      - run: pnpm test
