@@ -1,6 +1,6 @@
 {
   "name": "@femmecubator/equity-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -70,5 +70,8 @@
   },
   "peerDependencies": {
     "react": "^18.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
