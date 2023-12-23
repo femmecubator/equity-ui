@@ -31,7 +31,7 @@ jobs:
     if: ${{ github.event_name }} == 'workflow_run' && ${{ github.workflow }} == 'Bump Version' && ${{ github.workflow.conclusion }} == 'success'
     steps:
       - name: Remove PR Labels
-        uses: octokit/rest.js@v6
+        uses: octokit/rest.js@latest
         with:
           script: |
             const octokit = new (require('@octokit/rest'))();
