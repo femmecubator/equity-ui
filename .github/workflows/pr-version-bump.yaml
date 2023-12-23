@@ -40,4 +40,4 @@ jobs:
 
       - name: Remove label
         run: |
-          gh issue remove-label ${{ github.event.issue.number }} "${{ github.event.label.name }}"
+          gh issue edit ${{ github.event.issue.number }} --remove-label "${{ github.event.label.name }}"
