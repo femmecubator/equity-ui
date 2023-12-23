@@ -30,27 +30,14 @@ jobs:
     needs: bump-version
     if: ${{ github.event_name }} == 'workflow_run' && ${{ github.workflow }} == 'Bump Version' && ${{ github.workflow.conclusion }} == 'success'
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up GitHub CLI
+        uses: actions/setup-gh@v0
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Install dependencies
-        run: pnpm i -D @actions/core @actions/github @octokit/action axios
-      # Node.js script can be anywhere. A good convention is to put local GitHub Actions
-      # into the `.github/actions` folder
+          cli-version: 2.1.0
+
       - name: Remove label
         run: |
-              const { Octokit } = require('@octokit/action');
-              const axios = require('axios');
-              const octokit = new Octokit({ auth: ${{github.token}} });
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
-      owner: ${{ github.repository_owner }}
-      repo: ${{ github.repository }}
-      issue: ${{ github.event.number }}
-      label: ${{ github.event.label.name }}
+          gh issue remove-label ${{ github.event.issue.number }} "${{ github.event.label.name }}"
