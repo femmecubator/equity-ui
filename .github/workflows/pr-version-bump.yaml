@@ -30,14 +30,9 @@ jobs:
     needs: bump-version
     if: ${{ github.event_name }} == 'workflow_run' && ${{ github.workflow }} == 'Bump Version' && ${{ github.workflow.conclusion }} == 'success'
     steps:
-      - name: Remove PR Labels
-        uses: octokit/rest.js@v20.0.2
-        with:
-          script: |
-            const octokit = new (require('@octokit/rest'))();
-            await octokit.issues.removeLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-          GITHUB_TOKEN: ${{ github.token }}
+      - run: pnpm install @octokit/action
+      # Node.js script can be anywhere. A good convention is to put local GitHub Actions
+      # into the `.github/actions` folder
+      - run: node .github/actions/octokit-script.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
