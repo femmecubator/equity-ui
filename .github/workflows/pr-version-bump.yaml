@@ -45,9 +45,9 @@ jobs:
       # into the `.github/actions` folder
       - name: Remove label
         run: |
-          const { Octokit } = require('@octokit/action');
-          const axios = require('axios');
-          const octokit = new Octokit({ auth: ${{github.token}} });
+              const { Octokit } = require('@octokit/action');
+              const axios = require('axios');
+              const octokit = new Octokit({ auth: ${{github.token}} });
     env:
       GITHUB_TOKEN: ${{ github.token }}
       owner: ${{ github.repository_owner }}
