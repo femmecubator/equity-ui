@@ -47,23 +47,7 @@ jobs:
         run: |
           const { Octokit } = require('@octokit/action');
           const axios = require('axios');
-          const token = process.env.GITHUB_TOKEN;
-          const octokit = new Octokit({ auth: token });
-          const { owner, repo, issue, label } = process.env;
-
-          try {
-            await octokit.issues.removeLabel({
-              owner,
-              repo,
-              issue_number: issue,
-              name: label,
-            });
-
-            console.log(`Label '${label}' removed successfully.`);
-          } catch (error) {
-            console.error(`Error removing label: ${error.message}`);
-            process.exit(1);
-          }
+          const octokit = new Octokit({ auth: ${{github.token}} });
     env:
       GITHUB_TOKEN: ${{ github.token }}
       owner: ${{ github.repository_owner }}
