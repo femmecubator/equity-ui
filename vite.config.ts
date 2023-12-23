@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import dts from 'vite-plugin-dts';
 import react from '@vitejs/plugin-react';
 import { peerDependencies } from './package.json';
@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: './src/index.ts', // Specifies the entry point for building the library.
-      name: 'equity-ui', // Sets the name of the generated library.
+      name: 'equity-', // Sets the name of the generated library.
       fileName: (format) => `index.${format}.js`, // Generates the output file name based on the format.
       formats: ['cjs', 'es'], // Specifies the output formats (CommonJS and ES modules).
     },
