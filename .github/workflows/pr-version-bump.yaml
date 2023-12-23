@@ -38,12 +38,13 @@ jobs:
         with:
           gh-cli-version: 2.32.0
           
-      - name: Extract label name
-        id: extract-label
-        run: |
-          echo "::set-output name=label::$(echo '${{ github.event | tojson }}' | jq -r '.label.name')"
-
       - name: Remove label
         run: |
-          label_name="${{ steps.extract-label.outputs.label }}"
-          gh issue edit ${{ github.event.number }} --remove-label "$label_name"
+          labels=$(echo "${{ github.event.issue.labels }}" | jq -c '.[].name')
+
+          # Iterate over labels and remove each one
+          IFS=',' read -ra label_array <<< "$labels"
+          for label_name in "${label_array[@]}"; do
+            echo "Removing label: $label_name from issue number: $issue_number"
+            gh issue edit $issue_number --remove-label "$label_name"
+          done
