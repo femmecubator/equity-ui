@@ -13,7 +13,7 @@
   "author": "femmecubator",
   "license": "ISC",
   "scripts": {
-    "build": "vite build",
+    "build": "pnpm clean & vite build",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore",
     "lint:fix": "pnpm lint e --fix",
@@ -22,7 +22,8 @@
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean": "rm -rf dist"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
