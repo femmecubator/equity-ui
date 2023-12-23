@@ -34,9 +34,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up GitHub CLI
-        uses: actions/setup-gh@v0
+        uses: dev-hanz-ops/install-gh-cli-action@v0.1.0
         with:
-          cli-version: 2.1.0
+          gh-cli-version: 2.32.0
 
       - name: Remove label
         run: |
