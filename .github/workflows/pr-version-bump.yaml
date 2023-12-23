@@ -1,0 +1,50 @@
+name: 'Bump Version'
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - synchronize
+      - edited
+      - ready_for_review
+      - labeled
+      - reopened
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+        with:
+          access_token: ${{ github.token }}
+      - uses: 'actions/checkout@v3'
+      - name: Pull Request Version Bump
+        id: bump
+        uses: fadi-quader-mox/pr-version-bump@v1.0.0
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  # remove-labels:
+  #   runs-on: ubuntu-latest
+  #   needs: bump-version
+  #   if: ${{ github.event_name }} == 'workflow_run' && ${{ github.workflow }} == 'Bump Version' && ${{ github.workflow.conclusion }} == 'success'
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+
+  #     - name: Set up GitHub CLI
+  #       uses: dev-hanz-ops/install-gh-cli-action@v0.1.0
+  #       with:
+  #         gh-cli-version: 2.32.0
+          
+  #     - name: Remove label
+  #       run: |
+  #         labels=$(echo "${{ github.event.issue.labels }}" | jq -c '.[].name')
+
+  #         # Iterate over labels and remove each one
+  #         IFS=',' read -ra label_array <<< "$labels"
+  #         for label_name in "${label_array[@]}"; do
+  #           echo "Removing label: $label_name from issue number: $issue_number"
+  #           gh issue edit $issue_number --remove-label "$label_name"
+  #         done
