@@ -11,7 +11,68 @@ import * as prettier from 'prettier';
 import { iconList } from '../icon-constant';
 import { configuration } from './svgo-config';
 
-const renderLogo = () => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const existingIcons = new Set<string>(iconList);
+const iconConstantFileName = 'icon-constant.ts';
+const defaultSVGSize = 24;
+
+renderLogo();
+generateSvgIcons();
+
+function onCancel() {
+  p.cancel('Icon generation has been cancelled');
+  process.exit(0);
+}
+
+function renderExcludedSVG(files: string[], filteredFiles: string[]) {
+  p.note(
+    chalk.yellow(
+      `Only ${filteredFiles.length} out of the ${files.length} SVG can be added.\n`
+    ) +
+      chalk.yellow(`The rest of the files don't follow the naming convention`),
+    'Warning'
+  );
+
+  const excludedFiles = files.filter((file) => !testFileName(file)).join(' \n');
+  p.note(chalk.redBright.strikethrough(excludedFiles), 'Excluded Files');
+}
+
+function showSVGExclusionReason(files: string[], inputDir: string) {
+  if (files.length > 0) {
+    p.note(
+      "There are SVG files in the folder, but they don't follow the naming convention \n" +
+        `The naming convention is: ${chalk.underline.yellow(
+          `"Name=icon-name, Size=${defaultSVGSize}.svg"`
+        )}`,
+      'Warning'
+    );
+    p.note(files.join(', \n'), 'SVG Files Found');
+  } else {
+    p.note(`No SVG files found in ${inputDir}`);
+  }
+  onCancel();
+}
+
+function testFileName(fileName: string): boolean {
+  const sizeMatch = fileName.match(/Size=(\d+)/i);
+  const nameMatch = fileName.match(/Name=([^,]+)/i);
+
+  if (!sizeMatch || !nameMatch) {
+    return false;
+  }
+
+  const size = parseInt(sizeMatch[1] as string, 10);
+
+  if (size !== defaultSVGSize) {
+    return false;
+  }
+
+  return true;
+}
+
+function renderLogo() {
   console.log(chalk.hex('#550CCD')`\n   ░░░░░░░░░░░░  ░░░`);
   console.log(
     '    ',
@@ -38,17 +99,6 @@ const renderLogo = () => {
     chalk.hex('#C4B8FE')` ░█▄█ █░`
   );
   console.log(chalk.hex('#C4B8FE')`                          ░░░░░░░ \n\n`);
-};
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const existingIcons = new Set<string>(iconList);
-const iconConstantFileName = 'icon-constant.ts';
-
-function onCancel() {
-  p.cancel('Icon generation has been cancelled');
-  process.exit(0);
 }
 
 async function getFolderPath() {
@@ -73,8 +123,6 @@ async function getFolderPath() {
 
   return response.toString();
 }
-
-renderLogo();
 
 async function generateSvgIcons(): Promise<void> {
   const inputDir = await getFolderPath();
@@ -126,15 +174,20 @@ async function handleSpecificIconGeneration(
   const files = glob
     .sync('**/*.svg', { cwd: inputDir })
     .sort((a, b) => a.localeCompare(b));
-  const filteredFiles = files.filter((file) => file.includes('24'));
+
+  const filteredFiles = files.filter(testFileName);
   if (filteredFiles.length === 0) {
-    p.note(`No SVG Icons found in ${inputDir}`);
-    onCancel();
+    showSVGExclusionReason(files, inputDir);
   }
 
-  const newIcons = filteredFiles.filter(
-    (file) => !existingIcons.has(convertString(path.basename(file, '.svg')))
-  );
+  if (filteredFiles.length < files.length) {
+    renderExcludedSVG(files, filteredFiles);
+  }
+
+  const newIcons = filteredFiles.filter((file) => {
+    const iconName = convertString(path.basename(file, '.svg'));
+    return !existingIcons.has(iconName);
+  });
 
   const options = newIcons.map((icon) => ({
     value: icon,
@@ -177,10 +230,18 @@ async function handleAllIconsGeneration(
   const files = glob
     .sync('**/*.svg', { cwd: inputDir })
     .sort((a, b) => a.localeCompare(b));
-  const filteredFiles = files.filter((file) => file.includes('24'));
+  const filteredFiles = files.filter(testFileName);
+
   if (filteredFiles.length === 0) {
-    p.note(`No SVG files found in ${inputDir}`);
-    onCancel();
+    showSVGExclusionReason(files, inputDir);
+    const excludedFiles = files
+      .filter((file) => !testFileName(file))
+      .join(' \n');
+    p.note(chalk.redBright.strikethrough(excludedFiles), 'Excluded Files');
+  }
+
+  if (filteredFiles.length < files.length) {
+    renderExcludedSVG(files, filteredFiles);
   }
 
   try {
@@ -343,7 +404,10 @@ async function generateAllIcons(
     })
   );
 
-  p.note(iconList.join(', \n'), 'Generated Icons');
+  p.note(
+    chalk.greenBright(iconList.join(' \n')),
+    `Generated Icons (${iconList.length})`
+  );
 
   await writeIfChanged(
     path.join(outputDir, iconConstantFileName),
@@ -461,5 +525,3 @@ async function removeIconFromTypeScriptFiles(iconName: string) {
 
   await formatAndSaveSourceFile(sourceFile, project);
 }
-
-generateSvgIcons();
