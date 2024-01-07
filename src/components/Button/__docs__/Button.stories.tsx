@@ -13,7 +13,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 // type Story = StoryObj<typeof Button>;
 
-export const Secondary = (args) => <Button {...args}>Hello</Button>;
+export const Primary = (args) => <Button {...args}>Hello</Button>;
 // Basic.args = { children: 'Label' }
 
 // export const Secondary = (args) => <Button {...args} />;

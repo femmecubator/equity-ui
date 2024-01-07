@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 
 export type ButtonProps = {
   children: React.ReactNode;
+  variant?: 'primary';
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
@@ -28,10 +29,11 @@ const StyledButton = styled.button<ButtonProps>`
 const Button: ForwardRefRenderFunction<
   HTMLButtonElement,
   PropsWithChildren<ButtonProps>
-> = ({ disabled, children, onClick, ...props }, ref) => {
+> = ({ variant = 'primary', disabled, children, onClick, ...props }, ref) => {
   return (
     <StyledButton
       type="button"
+      variant={variant}
       onClick={onClick}
       disabled={disabled}
       ref={ref}
