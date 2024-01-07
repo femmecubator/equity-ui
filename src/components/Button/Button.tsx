@@ -5,13 +5,11 @@ import React, {
   PropsWithChildren,
 } from 'react';
 import styled from '@emotion/styled';
-import { ComponentSize } from '../../shared/types';
 
 export type ButtonProps = {
   children: React.ReactNode;
   primary?: boolean;
   disabled?: boolean;
-  size?: ComponentSize;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
@@ -26,25 +24,18 @@ const StyledButton = styled.button<ButtonProps>`
   display: inline-block;
   color: ${(props) => (props.primary ? '#fff' : '#000')};
   background-color: ${(props) => (props.primary ? '#55ff63' : '#f4c4c4')};
-  padding: ${(props) =>
-    props.size === 'small'
-      ? '7px 25px 8px'
-      : props.size === 'medium'
-        ? '9px 30px 11px'
-        : '14px 30px 16px'};
 `;
 
 const Button: ForwardRefRenderFunction<
   HTMLButtonElement,
   PropsWithChildren<ButtonProps>
-> = ({ size, primary, disabled, children, onClick, ...props }, ref) => {
+> = ({ primary, disabled, children, onClick, ...props }, ref) => {
   return (
     <StyledButton
       type="button"
       onClick={onClick}
       primary={primary}
       disabled={disabled}
-      size={size}
       ref={ref}
       {...props}
     >
