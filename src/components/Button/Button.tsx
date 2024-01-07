@@ -13,17 +13,19 @@ export type ButtonProps = {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
+// TODO Anh replace hard-coded vars with design tokens when available
 const StyledButton = styled.button<ButtonProps>`
   border: 0;
-  line-height: 1;
-  font-size: 15px;
-  cursor: pointer;
-  font-weight: 700;
-  font-weight: bold;
-  border-radius: 10px;
   display: inline-block;
+  padding: 12px 24px; // spacing/spacing-xs spacing/spacing-l
+  border-radius: 900px; // border/radius/pill
+  background-color: #026fe4;
   color: #fff;
-  background-color: '#55ff63';
+  // add font Montserrat
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
 `;
 
 const Button: ForwardRefRenderFunction<
