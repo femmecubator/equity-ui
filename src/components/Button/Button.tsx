@@ -15,8 +15,11 @@ export type ButtonProps = {
 
 // TODO Anh replace hard-coded vars with design tokens when available
 const StyledButton = styled.button<ButtonProps>`
-  border: 0;
+  position: relative;
+  border: none;
   display: inline-block;
+  box-sizing: border-box;
+  outline: none;
   padding: 12px 24px; // spacing/spacing-xs spacing/spacing-l
   border-radius: 900px; // border/radius/pill
   background-color: #026fe4;
@@ -26,6 +29,25 @@ const StyledButton = styled.button<ButtonProps>`
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
+  &:hover {
+    background-color: #012144;
+  }
+  :active::before,
+  :focus::before {
+    opacity: 1;
+  }
+  &::before {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.2s ease-in-out;
+    content: '';
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border: 2px solid #333333;
+    border-radius: 900px; // border/radius/pill
+    left: 0;
+    top: 0;
+  }
 `;
 
 const Button: ForwardRefRenderFunction<
