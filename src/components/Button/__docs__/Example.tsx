@@ -7,7 +7,6 @@ const Example: FC<ButtonProps> = ({
   onClick = () => {},
   primary = true,
   size = 'small',
-  text = 'Button',
 }) => {
   return (
     <div
@@ -20,11 +19,12 @@ const Example: FC<ButtonProps> = ({
     >
       <Button
         size={size}
-        text={text}
         disabled={disabled}
         onClick={onClick}
         primary={primary}
-      />
+      >
+        Hello!
+      </Button>
     </div>
   );
 };

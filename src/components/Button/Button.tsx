@@ -1,9 +1,14 @@
-import { forwardRef, MouseEventHandler, ForwardRefRenderFunction } from 'react';
+import React, {
+  forwardRef,
+  MouseEventHandler,
+  ForwardRefRenderFunction,
+  PropsWithChildren,
+} from 'react';
 import styled from '@emotion/styled';
 import { ComponentSize } from '../../shared/types';
 
 export type ButtonProps = {
-  text?: string;
+  children: React.ReactNode;
   primary?: boolean;
   disabled?: boolean;
   size?: ComponentSize;
@@ -29,10 +34,10 @@ const StyledButton = styled.button<ButtonProps>`
         : '14px 30px 16px'};
 `;
 
-const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
-  { size, primary, disabled, text, onClick, ...props },
-  ref
-) => {
+const Button: ForwardRefRenderFunction<
+  HTMLButtonElement,
+  PropsWithChildren<ButtonProps>
+> = ({ size, primary, disabled, children, onClick, ...props }, ref) => {
   return (
     <StyledButton
       type="button"
@@ -43,7 +48,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       ref={ref}
       {...props}
     >
-      {text}
+      {children}
     </StyledButton>
   );
 };
