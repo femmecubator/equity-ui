@@ -8,7 +8,6 @@ import styled from '@emotion/styled';
 
 export type ButtonProps = {
   children: React.ReactNode;
-  primary?: boolean;
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
@@ -22,19 +21,18 @@ const StyledButton = styled.button<ButtonProps>`
   font-weight: bold;
   border-radius: 10px;
   display: inline-block;
-  color: ${(props) => (props.primary ? '#fff' : '#000')};
-  background-color: ${(props) => (props.primary ? '#55ff63' : '#f4c4c4')};
+  color: #fff;
+  background-color: '#55ff63';
 `;
 
 const Button: ForwardRefRenderFunction<
   HTMLButtonElement,
   PropsWithChildren<ButtonProps>
-> = ({ primary, disabled, children, onClick, ...props }, ref) => {
+> = ({ disabled, children, onClick, ...props }, ref) => {
   return (
     <StyledButton
       type="button"
       onClick={onClick}
-      primary={primary}
       disabled={disabled}
       ref={ref}
       {...props}
