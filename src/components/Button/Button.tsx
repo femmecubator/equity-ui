@@ -24,7 +24,7 @@ const StyledButton = styled.button<ButtonProps>`
   border-radius: 900px; // border/radius/pill
   background-color: #026fe4;
   color: #fff;
-  // add font Montserrat
+  // add default font
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -48,6 +48,25 @@ const StyledButton = styled.button<ButtonProps>`
     left: 0;
     top: 0;
   }
+
+  ${(props) =>
+    props.disabled &&
+    `
+      background-color: #E0E0E0;
+      color: #9C9C9C;
+      cursor: not-allowed;
+      &::before {
+        opacity: 1;
+        position: absolute;
+        content: '';
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border: 1px solid #9C9C9C;
+      }
+      &:hover {
+        background-color: #E0E0E0;
+      }
+    `}
 `;
 
 const Button: ForwardRefRenderFunction<
@@ -58,7 +77,7 @@ const Button: ForwardRefRenderFunction<
     <StyledButton
       type="button"
       variant={variant}
-      onClick={onClick}
+      onClick={disabled ? undefined : onClick}
       disabled={disabled}
       ref={ref}
       {...props}
