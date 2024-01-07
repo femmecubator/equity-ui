@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import { forwardRef, MouseEventHandler, ForwardRefRenderFunction } from 'react';
 import styled from '@emotion/styled';
 import { ComponentSize } from '../../shared/types';
 
@@ -29,14 +29,10 @@ const StyledButton = styled.button<ButtonProps>`
         : '14px 30px 16px'};
 `;
 
-const Button: React.FC<ButtonProps> = ({
-  size,
-  primary,
-  disabled,
-  text,
-  onClick,
-  ...props
-}) => {
+const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
+  { size, primary, disabled, text, onClick, ...props },
+  ref
+) => {
   return (
     <StyledButton
       type="button"
@@ -44,6 +40,7 @@ const Button: React.FC<ButtonProps> = ({
       primary={primary}
       disabled={disabled}
       size={size}
+      ref={ref}
       {...props}
     >
       {text}
@@ -51,4 +48,4 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default forwardRef(Button);
