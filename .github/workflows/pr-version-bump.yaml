@@ -37,7 +37,7 @@ jobs:
   #       uses: dev-hanz-ops/install-gh-cli-action@v0.1.0
   #       with:
   #         gh-cli-version: 2.32.0
-          
+
   #     - name: Remove label
   #       run: |
   #         labels=$(echo "${{ github.event.issue.labels }}" | jq -c '.[].name')
