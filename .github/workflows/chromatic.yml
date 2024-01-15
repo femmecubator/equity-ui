@@ -1,9 +1,9 @@
 name: 'Chromatic Publish'
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - main
 
 jobs:
   test:
