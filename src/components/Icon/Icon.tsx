@@ -7,7 +7,7 @@ export const defaultIconSizes = {
   large: 24,
 };
 
-type DefaultIconSizes = keyof typeof defaultIconSizes;
+export type DefaultIconSizes = keyof typeof defaultIconSizes;
 
 const Icon = ({
   name,
