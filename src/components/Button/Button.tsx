@@ -11,6 +11,7 @@ export type ButtonProps = {
   variant?: 'primary';
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  containsIcon?: boolean;
 };
 
 // TODO Anh replace hard-coded vars with design tokens when available
@@ -49,8 +50,8 @@ const StyledButton = styled.button<ButtonProps>`
     top: 0;
   }
 
-  ${(props) =>
-    props.disabled &&
+  ${({ disabled }) =>
+    disabled &&
     `
       background-color: #E0E0E0;
       color: #9C9C9C;
@@ -67,16 +68,39 @@ const StyledButton = styled.button<ButtonProps>`
         background-color: #E0E0E0;
       }
     `}
+
+  ${({ containsIcon }) =>
+    containsIcon &&
+    `
+      padding: 0px;
+      borderRadius: 50%;
+      height: 32px;
+      width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `}
 `;
 
 const Button: ForwardRefRenderFunction<
   HTMLButtonElement,
   PropsWithChildren<ButtonProps>
-> = ({ variant = 'primary', disabled, children, onClick, ...props }, ref) => {
+> = (
+  {
+    variant = 'primary',
+    disabled,
+    containsIcon = false,
+    children,
+    onClick,
+    ...props
+  },
+  ref
+) => {
   return (
     <StyledButton
       type="button"
       variant={variant}
+      containsIcon={containsIcon}
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
       ref={ref}
