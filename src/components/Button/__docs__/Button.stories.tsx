@@ -5,6 +5,12 @@ import Button from '../Button';
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
+  argTypes: {
+    variant: {
+      options: ['primary'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 export default meta;
