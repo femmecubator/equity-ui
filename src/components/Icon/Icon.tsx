@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 import spriteHref from './sprite.svg';
-import type { IconName } from './icon-constant';
+import type { IconName } from '../../icons/icon-constant';
 
 const defaultIconSizes = {
   small: 18,
@@ -9,14 +9,14 @@ const defaultIconSizes = {
 
 type DefaultIconSizes = keyof typeof defaultIconSizes;
 
-export function Icon({
+const Icon = ({
   name,
   size = 'large',
   ...props
 }: SVGProps<SVGSVGElement> & {
   name: IconName;
   size?: DefaultIconSizes | number;
-}) {
+}) => {
   const actualSize = typeof size === 'string' ? defaultIconSizes[size] : size;
 
   return (
@@ -24,4 +24,6 @@ export function Icon({
       <use href={`${spriteHref}#${name}`} />
     </svg>
   );
-}
+};
+
+export default Icon;
