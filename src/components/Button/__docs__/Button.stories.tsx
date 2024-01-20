@@ -8,7 +8,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     variant: {
-      options: ['primary'],
+      options: ['primary', 'secondary'],
       control: { type: 'radio' },
     },
   },
@@ -16,16 +16,18 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-export const Primary = (args) => (
+export const Basic = (args) => (
   <Button {...args} onClick={() => console.log('You clicked me!')}>
     Hello
   </Button>
 );
+
 export const Disabled = (args) => (
   <Button {...args} disabled>
     Hello
   </Button>
 );
+
 export const WithIcon = (args) => (
   <Button {...args} containsIcon>
     <Icon name="share" size="small" />

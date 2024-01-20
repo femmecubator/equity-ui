@@ -8,11 +8,13 @@ import styled from '@emotion/styled';
 
 export type ButtonProps = {
   children: React.ReactNode;
-  variant?: 'primary';
+  variant?: 'primary' | 'secondary';
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   containsIcon?: boolean;
 };
+
+const PRIMARY = 'primary';
 
 // TODO Anh replace hard-coded vars with design tokens when available
 const StyledButton = styled.button<ButtonProps>`
@@ -23,32 +25,41 @@ const StyledButton = styled.button<ButtonProps>`
   outline: none;
   padding: 12px 24px; // spacing/spacing-xs spacing/spacing-l
   border-radius: 900px; // border/radius/pill
-  background-color: #026fe4;
-  color: #fff;
   // add default font
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
-  &:hover {
-    background-color: #012144;
-  }
-  :active::before,
-  :focus::before {
-    opacity: 1;
-  }
-  &::before {
-    opacity: 0;
-    position: absolute;
-    transition: opacity 0.2s ease-in-out;
-    content: '';
-    width: calc(100% - 4px);
-    height: calc(100% - 4px);
-    border: 2px solid #333333;
-    border-radius: 900px; // border/radius/pill
-    left: 0;
-    top: 0;
-  }
+
+  ${({ variant }) =>
+    `
+      background-color: ${variant === PRIMARY ? '#026fe4' : '#fff'};
+      color: ${variant === PRIMARY ? '#fff' : '#333333'};
+      box-shadow: ${variant === PRIMARY ? 'none' : '0px 1px 3px 0px #33333333'};
+      &:hover {
+        background-color:${variant === PRIMARY ? '#012144' : '#fff'} ;
+        box-shadow: ${variant === PRIMARY ? 'none' : '0px 0px 0px 2px #81B7F2'};
+      }
+      &:active {
+        background-color: #026fe4;
+      }
+      :active::before,
+      :focus::before, {
+        opacity: 1;
+      }
+      &::before {
+        opacity: 0;
+        position: absolute;
+        transition: opacity 0.2s ease-in-out;
+        content: '';
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        border: 2px solid #333333;
+        border-radius: 900px; // border/radius/pill
+        left: 0;
+        top: 0;
+      }
+`}
 
   ${({ disabled }) =>
     disabled &&
@@ -66,6 +77,7 @@ const StyledButton = styled.button<ButtonProps>`
       }
       &:hover {
         background-color: #E0E0E0;
+        box-shadow: none;
       }
     `}
 
@@ -87,7 +99,7 @@ const Button: ForwardRefRenderFunction<
   PropsWithChildren<ButtonProps>
 > = (
   {
-    variant = 'primary',
+    variant = PRIMARY,
     disabled,
     containsIcon = false,
     children,
