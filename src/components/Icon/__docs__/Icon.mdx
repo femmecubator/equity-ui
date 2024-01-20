@@ -1,0 +1,37 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as Icon from './Icon.stories.tsx';
+
+<Meta of={Icon} title="Icon" />
+
+# Icon
+
+#### Basic
+
+<Canvas of={Icon.Basic} />
+
+#### Labels
+
+<Canvas of={Icon.Labels} />
+
+#### No Labels
+
+<Canvas of={Icon.NoLabels} />
+
+## Usage
+
+```ts
+import { Icon } from "@femmecubator/equity-ui";
+
+const Example = () => {
+  return (
+      <Icon name="email" />
+  );
+};
+
+export default Example;
+```
+
+## Arguments
+
+- **name** - Specifies the name of the icon to be rendered.
+- **size** - Specifies the size of the icon to be rendered. Could be one of the following: `small`, `large`, or a numeric value in pixels.
