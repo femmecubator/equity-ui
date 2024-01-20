@@ -1,8 +1,8 @@
 import { type SVGProps } from 'react';
-import spriteHref from './sprite.svg';
+import spriteHref from '../../icons/sprite.svg';
 import type { IconName } from '../../icons/icon-constant';
 
-const defaultIconSizes = {
+export const defaultIconSizes = {
   small: 18,
   large: 24,
 };
