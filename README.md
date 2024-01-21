@@ -1,6 +1,8 @@
 # Equity UI by Femmecubator
+[![npm version](https://badge.fury.io/js/@femmecubator%2Fequity-ui.svg)](https://badge.fury.io/js/@femmecubator%2Fequity-ui)
 
 <img src="https://www.opensprints.tech/assets/images/hero-banner-image-239404917aa9df028c95b803fdcb8970.png" width="100%" />
+
 
 ## Tech stack
 - [Storybook](https://storybook.js.org) for UI component development
@@ -10,7 +12,7 @@
 - [Vite](https://vitejs.dev/) as a build tool for fast and lean dev experience
 - [Vitest](https://vitest.dev/) for unit-testing
 - [Chromatic](https://www.chromatic.com/) for visual testing and Storybook deployment
-- [NPM](https://www.npmjs.com/) for distirbution
+- [NPM](https://www.npmjs.com/) for packaging and distirbution
 
 ## Install 
 npm
@@ -34,4 +36,6 @@ import { Component } from '@femmecubator/equity-ui';
 ```
 
 ## License
-MIT ©
+MIT License © 2024 Femmecubator
+
+
