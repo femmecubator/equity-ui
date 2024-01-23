@@ -34,7 +34,8 @@
   },
   "ts-node": {
     "esm": true,
-    "experimentalSpecifierResolution": "node"
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true,
   },
   "include": ["src"], // Specifies the directory to include when searching for TypeScript files.
   "exclude": ["src/**/__docs__", "src/**/__test__"]
