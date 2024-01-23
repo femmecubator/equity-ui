@@ -1,6 +1,6 @@
 {
   "name": "@femmecubator/equity-ui",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -13,6 +13,7 @@
   "author": "femmecubator",
   "license": "ISC",
   "scripts": {
+    "build-tokens": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./.style-dictionary/config.ts",
     "build": "pnpm clean & vite build",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore",
@@ -37,6 +38,7 @@
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@prettier/sync": "^0.4.0",
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/addon-interactions": "^7.6.6",
     "@storybook/addon-links": "^7.6.6",
@@ -68,6 +70,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.6",
+    "style-dictionary": "^3.9.2",
     "svgo": "^3.1.0",
     "ts-morph": "^21.0.1",
     "ts-node": "^10.9.2",
@@ -81,5 +84,8 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
   }
 }
