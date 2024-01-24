@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 
 import Icon, { defaultIconSizes, DefaultIconSizes } from '../Icon';
 import { iconList } from '../../../icons/icon-constant';
+import { theme } from '../../../theme';
 
 const iconOptions = [...iconList].sort();
 const sizeOptions = Object.keys(defaultIconSizes);
@@ -25,6 +26,10 @@ Basic.argTypes = {
   size: {
     options: sizeOptions,
     control: { type: 'radio' },
+  },
+  color: {
+    options: Object.keys(theme.semantic.color.content),
+    control: { type: 'select' },
   },
 };
 
