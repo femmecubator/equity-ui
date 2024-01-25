@@ -1,10 +1,11 @@
 # Equity UI by Femmecubator
+
 [![npm version](https://badge.fury.io/js/@femmecubator%2Fequity-ui.svg)](https://badge.fury.io/js/@femmecubator%2Fequity-ui)
 
 <img src="https://www.opensprints.tech/assets/images/hero-banner-image-239404917aa9df028c95b803fdcb8970.png" width="100%" />
 
-
 ## Tech stack
+
 - [Storybook](https://storybook.js.org) for UI component development
 - [Emotion](https://emotion.sh/) for style composition
 - [React](https://reactjs.org/) for building declarative, component-based user interfaces
@@ -14,28 +15,32 @@
 - [Chromatic](https://www.chromatic.com/) for visual testing and Storybook deployment
 - [NPM](https://www.npmjs.com/) for packaging and distirbution
 
-## Install 
+## Install
+
 npm
+
 ```bash
 npm install @femmecubator/equity-ui
 ```
 
 yarn
+
 ```bash
 yarn add @femmecubator/equity-ui
 ```
 
 pnpm
+
 ```bash
 pnpm add @femmecubator/equity-ui
 ```
 
 ## Usage
+
 ```javascript
 import { Component } from '@femmecubator/equity-ui';
 ```
 
 ## License
+
 MIT License © 2024 Femmecubator
-
-
