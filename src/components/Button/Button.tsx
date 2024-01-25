@@ -5,7 +5,6 @@ import React, {
   PropsWithChildren,
 } from 'react';
 import styled from '@emotion/styled';
-
 export type ButtonProps = {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary';
@@ -13,9 +12,7 @@ export type ButtonProps = {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   containsIcon?: boolean;
 };
-
 const PRIMARY = 'primary';
-
 // TODO Anh replace hard-coded vars with design tokens when available
 const StyledButton = styled.button<ButtonProps>`
   position: relative;
@@ -23,25 +20,32 @@ const StyledButton = styled.button<ButtonProps>`
   display: inline-block;
   box-sizing: border-box;
   outline: none;
-  padding: 12px 24px; // spacing/spacing-xs spacing/spacing-l
-  border-radius: 900px; // border/radius/pill
-  // add default font
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
-
-  ${({ variant }) =>
-    `
-      background-color: ${variant === PRIMARY ? '#026fe4' : '#fff'};
-      color: ${variant === PRIMARY ? '#fff' : '#333333'};
+  ${({
+    variant,
+    theme: {
+      semantic: { border, spacing, color },
+    },
+  }) =>
+    ` 
+      border-radius: ${border.radius.pill}; 
+      padding: ${spacing.spacingXs} ${spacing.spacingL};
+      background-color: ${
+        variant === PRIMARY ? color.bg.brand : color.bg.transparent
+      };
+      color: ${variant === PRIMARY ? color.bg.transparent : color.bg.active};
       box-shadow: ${variant === PRIMARY ? 'none' : '0px 1px 3px 0px #33333333'};
       &:hover {
-        background-color:${variant === PRIMARY ? '#012144' : '#fff'} ;
+        background-color:${
+          variant === PRIMARY ? color.bg.brandStrong : color.bg.transparent
+        } ;
         box-shadow: ${variant === PRIMARY ? 'none' : '0px 0px 0px 2px #81B7F2'};
       }
       &:active {
-        background-color: #026fe4;
+        background-color: ${color.bg.brand};
       }
       :active::before,
       :focus::before, {
@@ -52,15 +56,14 @@ const StyledButton = styled.button<ButtonProps>`
         position: absolute;
         transition: opacity 0.2s ease-in-out;
         content: '';
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        border: 2px solid #333333;
-        border-radius: 900px; // border/radius/pill
+        width: calc(100% - ${spacing.spacing3Xs});
+        height: calc(100% - ${spacing.spacing3Xs});
+        border: 2px solid ${color.bg.active};
+        border-radius: ${border.radius.pill};
         left: 0;
         top: 0;
       }
 `}
-
   ${({ disabled }) =>
     disabled &&
     `
@@ -80,17 +83,25 @@ const StyledButton = styled.button<ButtonProps>`
         box-shadow: none;
       }
     `}
-
-  ${({ containsIcon }) =>
+  ${({
+    variant,
+    containsIcon,
+    theme: {
+      semantic: { spacing, color },
+    },
+  }) =>
     containsIcon &&
     `
       padding: 0px;
       borderRadius: 50%;
-      height: 32px;
-      width: 32px;
+      height: ${spacing.spacingXl};
+      width: ${spacing.spacingXl};
       display: flex;
       align-items: center;
       justify-content: center;
+      svg {
+        color: ${variant === PRIMARY ? color.bg.transparent : color.bg.active};
+      }
     `}
 `;
 
@@ -122,5 +133,4 @@ const Button: ForwardRefRenderFunction<
     </StyledButton>
   );
 };
-
 export default forwardRef(Button);

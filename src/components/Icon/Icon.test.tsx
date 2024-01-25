@@ -1,9 +1,9 @@
 import { describe, it } from 'vitest';
-import { render } from '@testing-library/react';
 import { Icon } from '.';
+import contextRender from '../../shared/test/contextRender';
 
 describe('Icon component', () => {
   it('Icon should render correctly', () => {
-    render(<Icon name="arrow-down" />);
+    contextRender(<Icon name="arrow-down" />);
   });
 });
