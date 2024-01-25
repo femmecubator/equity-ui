@@ -29,21 +29,23 @@ const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
 
   ${({
-  variant,
-  theme: {
-    semantic: { border, spacing, color },
-  },
-}) =>
+    variant,
+    theme: {
+      semantic: { border, spacing, color },
+    },
+  }) =>
     ` 
       border-radius: ${border.radius.pill}; 
       padding: ${spacing.spacingXs} ${spacing.spacingL};
-      background-color: ${variant === PRIMARY ? color.bg.brand : color.bg.transparent
-    };
+      background-color: ${
+        variant === PRIMARY ? color.bg.brand : color.bg.transparent
+      };
       color: ${variant === PRIMARY ? color.bg.transparent : color.bg.active};
       box-shadow: ${variant === PRIMARY ? 'none' : '0px 1px 3px 0px #33333333'};
       &:hover {
-        background-color:${variant === PRIMARY ? color.bg.brandStrong : color.bg.transparent
-    } ;
+        background-color:${
+          variant === PRIMARY ? color.bg.brandStrong : color.bg.transparent
+        } ;
         box-shadow: ${variant === PRIMARY ? 'none' : '0px 0px 0px 2px #81B7F2'};
       }
       &:active {
@@ -88,12 +90,12 @@ const StyledButton = styled.button<ButtonProps>`
     `}
 
   ${({
-      variant,
-      containsIcon,
-      theme: {
-        semantic: { spacing, color },
-      },
-    }) =>
+    variant,
+    containsIcon,
+    theme: {
+      semantic: { spacing, color },
+    },
+  }) =>
     containsIcon &&
     `
       padding: 0px;
@@ -123,19 +125,19 @@ const Button: ForwardRefRenderFunction<
   },
   ref
 ) => {
-    return (
-      <StyledButton
-        type="button"
-        variant={variant}
-        containsIcon={containsIcon}
-        onClick={disabled ? undefined : onClick}
-        disabled={disabled}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </StyledButton>
-    );
-  };
+  return (
+    <StyledButton
+      type="button"
+      variant={variant}
+      containsIcon={containsIcon}
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </StyledButton>
+  );
+};
 
 export default forwardRef(Button);
