@@ -12,7 +12,7 @@
 - [Vite](https://vitejs.dev/) as a build tool for fast and lean dev experience
 - [Vitest](https://vitest.dev/) for unit-testing
 - [Chromatic](https://www.chromatic.com/) for visual testing and Storybook deployment
-- [NPM](https://www.npmjs.com/) for packaging and distirbution
+- [NPM](https://www.npmjs.com/) for packaging and distribution
 
 ## Install 
 npm
