@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { EquityThemeProvider } from '../src/theme';
+import '../src/styles/global.css';
 
 const preview: Preview = {
   decorators: [
