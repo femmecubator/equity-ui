@@ -2105,9 +2105,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Global Tokens",
-                "scopes": [
-                  "WIDTH_HEIGHT"
-                ],
+                "scopes": ["WIDTH_HEIGHT"],
                 "variableId": "VariableID:454:2225",
                 "exportKey": "variables"
               }
@@ -2120,9 +2118,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Global Tokens",
-                "scopes": [
-                  "WIDTH_HEIGHT"
-                ],
+                "scopes": ["WIDTH_HEIGHT"],
                 "variableId": "VariableID:454:2226",
                 "exportKey": "variables"
               }
@@ -2135,9 +2131,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Global Tokens",
-                "scopes": [
-                  "WIDTH_HEIGHT"
-                ],
+                "scopes": ["WIDTH_HEIGHT"],
                 "variableId": "VariableID:454:2227",
                 "exportKey": "variables"
               }
@@ -2150,9 +2144,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Global Tokens",
-                "scopes": [
-                  "WIDTH_HEIGHT"
-                ],
+                "scopes": ["WIDTH_HEIGHT"],
                 "variableId": "VariableID:454:2228",
                 "exportKey": "variables"
               }
@@ -2165,9 +2157,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Global Tokens",
-                "scopes": [
-                  "WIDTH_HEIGHT"
-                ],
+                "scopes": ["WIDTH_HEIGHT"],
                 "variableId": "VariableID:454:2229",
                 "exportKey": "variables"
               }
@@ -2187,10 +2177,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:287",
               "exportKey": "variables"
             }
@@ -2203,10 +2190,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:288",
               "exportKey": "variables"
             }
@@ -2219,10 +2203,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:289",
               "exportKey": "variables"
             }
@@ -2235,10 +2216,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:290",
               "exportKey": "variables"
             }
@@ -2251,10 +2229,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:291",
               "exportKey": "variables"
             }
@@ -2267,10 +2242,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:292",
               "exportKey": "variables"
             }
@@ -2283,10 +2255,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:293",
               "exportKey": "variables"
             }
@@ -2299,10 +2268,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:294",
               "exportKey": "variables"
             }
@@ -2315,10 +2281,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:295",
               "exportKey": "variables"
             }
@@ -2331,10 +2294,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:296",
               "exportKey": "variables"
             }
@@ -2347,10 +2307,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:297",
               "exportKey": "variables"
             }
@@ -2363,10 +2320,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:298",
               "exportKey": "variables"
             }
@@ -2379,10 +2333,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:299",
               "exportKey": "variables"
             }
@@ -2395,10 +2346,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:300",
               "exportKey": "variables"
             }
@@ -2411,10 +2359,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:301",
               "exportKey": "variables"
             }
@@ -2427,10 +2372,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:302",
               "exportKey": "variables"
             }
@@ -2443,10 +2385,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:326:305",
               "exportKey": "variables"
             }
@@ -2459,10 +2398,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:331:61",
               "exportKey": "variables"
             }
@@ -2475,10 +2411,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:437:1057",
               "exportKey": "variables"
             }
@@ -2493,9 +2426,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:306",
               "exportKey": "variables"
             }
@@ -2508,9 +2439,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:307",
               "exportKey": "variables"
             }
@@ -2523,9 +2452,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:308",
               "exportKey": "variables"
             }
@@ -2538,9 +2465,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:309",
               "exportKey": "variables"
             }
@@ -2553,9 +2478,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:310",
               "exportKey": "variables"
             }
@@ -2568,9 +2491,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:311",
               "exportKey": "variables"
             }
@@ -2583,9 +2504,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:312",
               "exportKey": "variables"
             }
@@ -2598,9 +2517,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:313",
               "exportKey": "variables"
             }
@@ -2613,9 +2530,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:314",
               "exportKey": "variables"
             }
@@ -2628,9 +2543,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:315",
               "exportKey": "variables"
             }
@@ -2643,9 +2556,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:316",
               "exportKey": "variables"
             }
@@ -2658,9 +2569,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:317",
               "exportKey": "variables"
             }
@@ -2673,9 +2582,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:318",
               "exportKey": "variables"
             }
@@ -2688,9 +2595,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:319",
               "exportKey": "variables"
             }
@@ -2703,9 +2608,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:320",
               "exportKey": "variables"
             }
@@ -2718,9 +2621,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:321",
               "exportKey": "variables"
             }
@@ -2733,9 +2634,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:326:322",
               "exportKey": "variables"
             }
@@ -2748,9 +2647,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:331:70",
               "exportKey": "variables"
             }
@@ -2763,9 +2660,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "ALL_SCOPES"
-              ],
+              "scopes": ["ALL_SCOPES"],
               "variableId": "VariableID:588:4724",
               "exportKey": "variables"
             }
@@ -2780,9 +2675,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:323",
               "exportKey": "variables"
             }
@@ -2795,9 +2688,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:324",
               "exportKey": "variables"
             }
@@ -2810,9 +2701,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:325",
               "exportKey": "variables"
             }
@@ -2825,9 +2714,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:326",
               "exportKey": "variables"
             }
@@ -2840,9 +2727,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:327",
               "exportKey": "variables"
             }
@@ -2855,9 +2740,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:328",
               "exportKey": "variables"
             }
@@ -2870,9 +2753,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:329",
               "exportKey": "variables"
             }
@@ -2885,9 +2766,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:330",
               "exportKey": "variables"
             }
@@ -2900,9 +2779,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:331",
               "exportKey": "variables"
             }
@@ -2915,9 +2792,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:332",
               "exportKey": "variables"
             }
@@ -2930,9 +2805,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:333",
               "exportKey": "variables"
             }
@@ -2945,9 +2818,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:334",
               "exportKey": "variables"
             }
@@ -2960,9 +2831,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:326:335",
               "exportKey": "variables"
             }
@@ -2975,9 +2844,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:332:541",
               "exportKey": "variables"
             }
@@ -2990,9 +2857,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:332:578",
               "exportKey": "variables"
             }
@@ -3009,9 +2874,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "CORNER_RADIUS"
-              ],
+              "scopes": ["CORNER_RADIUS"],
               "variableId": "VariableID:363:35389",
               "exportKey": "variables"
             }
@@ -3024,9 +2887,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "CORNER_RADIUS"
-              ],
+              "scopes": ["CORNER_RADIUS"],
               "variableId": "VariableID:363:35390",
               "exportKey": "variables"
             }
@@ -3039,9 +2900,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "CORNER_RADIUS"
-              ],
+              "scopes": ["CORNER_RADIUS"],
               "variableId": "VariableID:363:35391",
               "exportKey": "variables"
             }
@@ -3054,9 +2913,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "CORNER_RADIUS"
-              ],
+              "scopes": ["CORNER_RADIUS"],
               "variableId": "VariableID:363:35392",
               "exportKey": "variables"
             }
@@ -3069,9 +2926,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "CORNER_RADIUS"
-              ],
+              "scopes": ["CORNER_RADIUS"],
               "variableId": "VariableID:363:35393",
               "exportKey": "variables"
             }
@@ -3084,9 +2939,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "CORNER_RADIUS"
-              ],
+              "scopes": ["CORNER_RADIUS"],
               "variableId": "VariableID:363:35395",
               "exportKey": "variables"
             }
@@ -3101,9 +2954,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "WIDTH_HEIGHT"
-              ],
+              "scopes": ["WIDTH_HEIGHT"],
               "variableId": "VariableID:454:2230",
               "exportKey": "variables"
             }
@@ -3116,9 +2967,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "WIDTH_HEIGHT"
-              ],
+              "scopes": ["WIDTH_HEIGHT"],
               "variableId": "VariableID:454:2231",
               "exportKey": "variables"
             }
@@ -3131,9 +2980,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "WIDTH_HEIGHT"
-              ],
+              "scopes": ["WIDTH_HEIGHT"],
               "variableId": "VariableID:454:2232",
               "exportKey": "variables"
             }
@@ -3146,9 +2993,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "WIDTH_HEIGHT"
-              ],
+              "scopes": ["WIDTH_HEIGHT"],
               "variableId": "VariableID:455:2233",
               "exportKey": "variables"
             }
@@ -3161,9 +3006,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "WIDTH_HEIGHT"
-              ],
+              "scopes": ["WIDTH_HEIGHT"],
               "variableId": "VariableID:455:2234",
               "exportKey": "variables"
             }
@@ -3176,9 +3019,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Semantic Tokens",
-              "scopes": [
-                "ALL_SCOPES"
-              ],
+              "scopes": ["ALL_SCOPES"],
               "variableId": "VariableID:596:3227",
               "exportKey": "variables"
             }
@@ -3194,10 +3035,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35396",
             "exportKey": "variables"
           }
@@ -3210,10 +3048,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35397",
             "exportKey": "variables"
           }
@@ -3226,10 +3061,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35398",
             "exportKey": "variables"
           }
@@ -3242,10 +3074,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35399",
             "exportKey": "variables"
           }
@@ -3258,10 +3087,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35400",
             "exportKey": "variables"
           }
@@ -3274,10 +3100,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35401",
             "exportKey": "variables"
           }
@@ -3290,10 +3113,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35402",
             "exportKey": "variables"
           }
@@ -3306,10 +3126,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35403",
             "exportKey": "variables"
           }
@@ -3322,10 +3139,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35404",
             "exportKey": "variables"
           }
@@ -3338,10 +3152,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Semantic Tokens",
-            "scopes": [
-              "GAP",
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["GAP", "WIDTH_HEIGHT"],
             "variableId": "VariableID:363:35405",
             "exportKey": "variables"
           }
@@ -3360,10 +3171,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "SHAPE_FILL",
-                  "FRAME_FILL"
-                ],
+                "scopes": ["SHAPE_FILL", "FRAME_FILL"],
                 "variableId": "VariableID:437:1058",
                 "exportKey": "variables"
               }
@@ -3376,10 +3184,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "SHAPE_FILL",
-                  "FRAME_FILL"
-                ],
+                "scopes": ["SHAPE_FILL", "FRAME_FILL"],
                 "variableId": "VariableID:437:1059",
                 "exportKey": "variables"
               }
@@ -3392,10 +3197,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "SHAPE_FILL",
-                  "FRAME_FILL"
-                ],
+                "scopes": ["SHAPE_FILL", "FRAME_FILL"],
                 "variableId": "VariableID:437:1060",
                 "exportKey": "variables"
               }
@@ -3408,9 +3210,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2099",
                 "exportKey": "variables"
               }
@@ -3425,9 +3225,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "TEXT_FILL"
-                ],
+                "scopes": ["TEXT_FILL"],
                 "variableId": "VariableID:437:1061",
                 "exportKey": "variables"
               }
@@ -3440,9 +3238,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:590:2027",
                 "exportKey": "variables"
               }
@@ -3455,9 +3251,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:590:2028",
                 "exportKey": "variables"
               }
@@ -3470,9 +3264,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2098",
                 "exportKey": "variables"
               }
@@ -3487,9 +3279,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "STROKE_COLOR"
-                ],
+                "scopes": ["STROKE_COLOR"],
                 "variableId": "VariableID:451:1338",
                 "exportKey": "variables"
               }
@@ -3502,9 +3292,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:590:2029",
                 "exportKey": "variables"
               }
@@ -3517,9 +3305,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:590:2030",
                 "exportKey": "variables"
               }
@@ -3532,9 +3318,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:590:2031",
                 "exportKey": "variables"
               }
@@ -3549,9 +3333,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "mode": "Mode 1",
             "collection": "Component",
-            "scopes": [
-              "TEXT_FILL"
-            ],
+            "scopes": ["TEXT_FILL"],
             "variableId": "VariableID:448:1179",
             "exportKey": "variables"
           }
@@ -3566,10 +3348,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "SHAPE_FILL",
-                  "FRAME_FILL"
-                ],
+                "scopes": ["SHAPE_FILL", "FRAME_FILL"],
                 "variableId": "VariableID:596:2100",
                 "exportKey": "variables"
               }
@@ -3582,10 +3361,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "SHAPE_FILL",
-                  "FRAME_FILL"
-                ],
+                "scopes": ["SHAPE_FILL", "FRAME_FILL"],
                 "variableId": "VariableID:596:2101",
                 "exportKey": "variables"
               }
@@ -3598,10 +3374,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "SHAPE_FILL",
-                  "FRAME_FILL"
-                ],
+                "scopes": ["SHAPE_FILL", "FRAME_FILL"],
                 "variableId": "VariableID:596:2103",
                 "exportKey": "variables"
               }
@@ -3614,9 +3387,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2111",
                 "exportKey": "variables"
               }
@@ -3631,9 +3402,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2102",
                 "exportKey": "variables"
               }
@@ -3646,9 +3415,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "TEXT_FILL"
-                ],
+                "scopes": ["TEXT_FILL"],
                 "variableId": "VariableID:596:2104",
                 "exportKey": "variables"
               }
@@ -3661,9 +3428,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2105",
                 "exportKey": "variables"
               }
@@ -3676,9 +3441,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2106",
                 "exportKey": "variables"
               }
@@ -3693,9 +3456,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2107",
                 "exportKey": "variables"
               }
@@ -3708,9 +3469,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2108",
                 "exportKey": "variables"
               }
@@ -3723,9 +3482,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
+                "scopes": ["ALL_SCOPES"],
                 "variableId": "VariableID:596:2109",
                 "exportKey": "variables"
               }
@@ -3738,9 +3495,7 @@
               "org.lukasoppermann.figmaDesignTokens": {
                 "mode": "Mode 1",
                 "collection": "Component",
-                "scopes": [
-                  "STROKE_COLOR"
-                ],
+                "scopes": ["STROKE_COLOR"],
                 "variableId": "VariableID:596:2110",
                 "exportKey": "variables"
               }
@@ -3758,9 +3513,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Component",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:463:2887",
               "exportKey": "variables"
             }
@@ -3773,9 +3526,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Component",
-              "scopes": [
-                "STROKE_COLOR"
-              ],
+              "scopes": ["STROKE_COLOR"],
               "variableId": "VariableID:463:2888",
               "exportKey": "variables"
             }
@@ -3790,10 +3541,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Component",
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
+              "scopes": ["SHAPE_FILL", "FRAME_FILL"],
               "variableId": "VariableID:469:4987",
               "exportKey": "variables"
             }
@@ -3808,9 +3556,7 @@
             "org.lukasoppermann.figmaDesignTokens": {
               "mode": "Mode 1",
               "collection": "Component",
-              "scopes": [
-                "TEXT_FILL"
-              ],
+              "scopes": ["TEXT_FILL"],
               "variableId": "VariableID:470:4999",
               "exportKey": "variables"
             }
