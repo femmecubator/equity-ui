@@ -7,24 +7,30 @@ import {
 import { transparentize } from 'polished';
 import styled from '@emotion/styled';
 
-const SMALL = 'small';
-const MEDIUM = 'medium';
-const LARGE = 'large';
+const AvatarSize = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+} as const;
 
-const defaultAvatarSizes = {
+type SizeTypeProps = keyof typeof AvatarSize;
+type AvatarSizeValueProps = (typeof AvatarSize)[SizeTypeProps];
+type DefaultAvatarSize = {
+  [DefaultSize in AvatarSizeValueProps]: number;
+};
+const defaultAvatarSizes: DefaultAvatarSize = {
   small: 32,
   medium: 115,
   large: 150,
 };
 
-type sizeType = typeof SMALL | typeof MEDIUM | typeof LARGE;
 type AvatarProps = {
   alt: string;
   src: string;
-  size: sizeType;
+  size: AvatarSizeValueProps;
 };
 
-const AvatarContainer = styled.div<{ size: sizeType }>`
+const AvatarContainer = styled.div<{ size: AvatarSizeValueProps }>`
   border-radius: 50%;
   ${({
     size,
@@ -34,15 +40,14 @@ const AvatarContainer = styled.div<{ size: sizeType }>`
   }) => `
     width: ${defaultAvatarSizes[size]}px;
     height: ${defaultAvatarSizes[size]}px;
-    border: ${size === SMALL ? '2px' : spacing.spacing4} solid ${transparentize(
-      0.4,
-      color.blue25
-    )};
-    padding: ${size === SMALL ? '2px' : '6px'};
+    border: ${
+      size === AvatarSize.SMALL ? '2px' : spacing.spacing4
+    } solid ${transparentize(0.4, color.blue25)};
+    padding: ${size === AvatarSize.SMALL ? '2px' : '6px'};
   `}
 `;
 
-const StyledFallback = styled.div<{ size: sizeType }>`
+const StyledFallback = styled.div<{ size: AvatarSizeValueProps }>`
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -58,7 +63,9 @@ const StyledFallback = styled.div<{ size: sizeType }>`
   }) => `
     background: ${color.blue25};
     color: ${color.blue70};
-  font-size: ${size === SMALL ? spacing.spacing16 : spacing.spacing56};
+  font-size: ${
+    size === AvatarSize.SMALL ? spacing.spacing16 : spacing.spacing56
+  };
 
   `}
 `;
@@ -73,7 +80,7 @@ const StyledAvatarImage = styled.img`
 const Avatar: ForwardRefRenderFunction<
   HTMLDivElement,
   PropsWithChildren<AvatarProps>
-> = ({ alt, src, size = MEDIUM, children }, ref) => {
+> = ({ alt, src, size = AvatarSize.MEDIUM, children }, ref) => {
   const [hasImgError, setImgError] = useState(false);
 
   const handleImgError = () => {
