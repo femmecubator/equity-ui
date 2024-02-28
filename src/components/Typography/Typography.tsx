@@ -23,7 +23,7 @@ type TypographyVariant =
   | 'link2'
   | 'link3';
 
-interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: TypographyVariant;
   component?: keyof JSX.IntrinsicElements;
   color?: string;
@@ -39,11 +39,12 @@ const Typography: React.FC<TypographyProps> = ({
   ...props
 }) => {
   const theme = useTheme();
+  const { content } = theme.semantic.color;
   /** @todo: replace below properties when typography token is ready */
   const TypographyRoot = styled.div`
     ${() => css`
       font-family: Montserrat, sans-serif;
-      color: ${theme.semantic.color.content.default};
+      color: ${color ? color : content.default};
       letter-spacing: 0em;
       text-align: left;
       font-weight: 700;
@@ -122,20 +123,20 @@ const Typography: React.FC<TypographyProps> = ({
             font-size: 20px;
             font-weight: 600;
             line-height: 24px;
-            color: ${theme.semantic.color.content.link};
+            color: ${color ? color : content.link};
           `;
         case 'link2':
           return css`
             font-size: 20px;
             font-weight: 600;
             line-height: 24px;
-            color: ${theme.semantic.color.content.link};
+            color: ${color ? color : content.link};
           `;
         case 'link3':
           return css`
             font-size: 16px;
             line-height: 20px;
-            color: ${theme.semantic.color.content.link};
+            color: ${color ? color : content.link};
           `;
         case 'body1':
           return css`
