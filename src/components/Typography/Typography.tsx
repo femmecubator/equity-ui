@@ -41,12 +41,12 @@ const Typography: React.FC<TypographyProps> = ({
   const { content } = theme.semantic.color;
   /** @todo: replace below properties when typography token is ready */
   const TypographyRoot = styled.div`
-    ${() => css`
-      font-family: Montserrat, sans-serif;
+    ${({ theme }) => css`
+      font-family: ${theme.typography.body.default.fontFamily};
       color: ${color ? color : content.default};
-      letter-spacing: 0em;
+      letter-spacing: ${theme.typography.body.default.letterSpacing}em;
       text-align: left;
-      font-weight: 700;
+      font-weight: ${theme.typography.body.default.fontWeight};
     `}
 
     ${() => {

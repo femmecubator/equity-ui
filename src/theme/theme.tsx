@@ -1,10 +1,11 @@
 import React from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { base, semantic } from '../../tokens';
+import { base, semantic, typography } from '../../tokens';
 
 export const theme = {
   base,
   semantic,
+  typography,
 };
 
 export type EquityTheme = typeof theme;
