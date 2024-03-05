@@ -44,7 +44,7 @@ const Typography: React.FC<TypographyProps> = ({
     ${({ theme }) => css`
       font-family: ${theme.typography.body.default.fontFamily};
       color: ${color ? color : content.default};
-      letter-spacing: ${theme.typography.body.default.letterSpacing}em;
+      letter-spacing: ${theme.typography.body.default.letterSpacing}px;
       text-align: left;
       font-weight: ${theme.typography.body.default.fontWeight};
     `}
