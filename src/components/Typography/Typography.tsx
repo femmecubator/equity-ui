@@ -1,6 +1,24 @@
 import React from 'react';
 import styled, { CSSObject } from '@emotion/styled';
-import { css, useTheme } from '@emotion/react';
+import { css } from '@emotion/react';
+
+/** @description: Workshop Topics:
+ *  1. Importance of DS in engineering:
+ *     - Challenges that I've experienced in building a MF Arch. with > 1 DS
+ *     - Starting projects without a DS
+ *  2. Common UI Patterns in Component Libraries and Applying Tokens:
+ *     - Child Pass through
+ *     - Forward Ref
+ *     - Props spreading
+ *        a.) ComponentPropsWithoutRef
+ *        b.) ComponentPropsWithRef
+ *     - Opinionated default
+ *  3. How to contribute in Equity-UI repo:
+ *     - PR and Code Review Process
+ *     - SemVer
+ *     - Publishing to NPM
+ *
+ */
 
 type TypographyVariant =
   | 'h1'
@@ -37,13 +55,10 @@ const Typography: React.FC<TypographyProps> = ({
   css: cssOveride,
   ...props
 }) => {
-  const theme = useTheme();
-  const { content } = theme.semantic.color;
-  /** @todo: replace below properties when typography token is ready */
   const TypographyRoot = styled.div`
     ${({ theme }) => css`
       font-family: ${theme.typography.body.default.fontFamily};
-      color: ${color ? color : content.default};
+      color: ${color ? color : theme.semantic.color.content.default};
       letter-spacing: ${theme.typography.body.default.letterSpacing}px;
       text-align: left;
       font-weight: ${theme.typography.body.default.fontWeight};
@@ -52,9 +67,9 @@ const Typography: React.FC<TypographyProps> = ({
     ${() => {
       switch (variant) {
         case 'h1':
-          return css`
-            font-size: 36px;
-            line-height: 44px;
+          return ({ theme }) => css`
+            font-size: ${theme.typography.heading.h1.fontSize}px;
+            line-height: ${theme.typography.heading.h1.lineHeight}px;
           `;
         case 'h2':
           return css`
@@ -122,20 +137,20 @@ const Typography: React.FC<TypographyProps> = ({
             font-size: 20px;
             font-weight: 600;
             line-height: 24px;
-            color: ${color ? color : content.link};
+            color: ${color};
           `;
         case 'link2':
           return css`
             font-size: 20px;
             font-weight: 600;
             line-height: 24px;
-            color: ${color ? color : content.link};
+            color: ${color};
           `;
         case 'link3':
           return css`
             font-size: 16px;
             line-height: 20px;
-            color: ${color ? color : content.link};
+            color: ${color};
           `;
         case 'body1':
           return css`
