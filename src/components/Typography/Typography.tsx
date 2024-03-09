@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef, ReactNode } from 'react';
 import styled, { CSSObject } from '@emotion/styled';
 import { css } from '@emotion/react';
 
@@ -40,18 +40,21 @@ type TypographyVariant =
   | 'link2'
   | 'link3';
 
-export interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
+type ComponentVariants = 'div' | 'span' | 'a';
+
+export type TypographyProps = ComponentPropsWithoutRef<'div'> & {
   variant?: TypographyVariant;
-  component?: keyof JSX.IntrinsicElements;
+  component?: ComponentVariants;
   color?: string;
   css?: CSSObject;
-}
+  children?: ReactNode;
+};
 
 const Typography: React.FC<TypographyProps> = ({
   variant = 'body2',
   children,
-  component: Component = 'div',
   color,
+  component: Component = 'div',
   css: cssOveride,
   ...props
 }) => {
@@ -72,14 +75,14 @@ const Typography: React.FC<TypographyProps> = ({
             line-height: ${theme.typography.heading.h1.lineHeight}px;
           `;
         case 'h2':
-          return css`
-            font-size: 28px;
-            line-height: 36px;
+          return ({ theme }) => css`
+            font-size: ${theme.typography.heading.h2.fontSize}px;
+            line-height: ${theme.typography.heading.h2.lineHeight}px;
           `;
         case 'h3':
-          return css`
-            font-size: 24px;
-            line-height: 34px;
+          return ({ theme }) => css`
+            font-size: ${theme.typography.heading.h3.fontSize}px;
+            line-height: ${theme.typography.heading.h3.lineHeight}px;
           `;
         case 'h4':
           return css`
@@ -140,11 +143,14 @@ const Typography: React.FC<TypographyProps> = ({
             color: ${color};
           `;
         case 'link2':
-          return css`
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 24px;
-            color: ${color};
+          return ({ theme }) => css`
+            font-size: ${theme.typography.link.default.fontSize}px;
+            font-weight: ${theme.typography.link.default.fontWeight};
+            line-height: ${theme.typography.link.default.lineHeight}px;
+            color: ${color ?? theme.semantic.color.content.link};
+            &:hover {
+              color: ${theme.semantic.color.content.linkHover};
+            }
           `;
         case 'link3':
           return css`
@@ -176,7 +182,7 @@ const Typography: React.FC<TypographyProps> = ({
   `;
 
   return (
-    <TypographyRoot as={Component} color={color} css={cssOveride} {...props}>
+    <TypographyRoot color={color} css={cssOveride} as={Component} {...props}>
       {children}
     </TypographyRoot>
   );
