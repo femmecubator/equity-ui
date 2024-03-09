@@ -19,7 +19,3 @@ export default meta;
 export const Basic = (args) => (
   <Avatar {...args} src="images/femmecubator-logo.png" alt="Femmecubator" />
 );
-
-export const Fallback = (args) => (
-  <Avatar {...args} src="invalid-src" alt="Femmecubator" />
-);

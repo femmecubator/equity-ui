@@ -1,9 +1,4 @@
-import {
-  ForwardRefRenderFunction,
-  PropsWithChildren,
-  forwardRef,
-  useState,
-} from 'react';
+import { ForwardRefRenderFunction, PropsWithChildren, forwardRef } from 'react';
 import { transparentize } from 'polished';
 import styled from '@emotion/styled';
 
@@ -47,29 +42,6 @@ const AvatarContainer = styled.div<{ size: AvatarSizeValueProps }>`
   `}
 `;
 
-const StyledFallback = styled.div<{ size: AvatarSizeValueProps }>`
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 800;
-  ${({
-    size,
-    theme: {
-      base: { spacing, color },
-    },
-  }) => `
-    background: ${color.blue25};
-    color: ${color.blue70};
-  font-size: ${
-    size === AvatarSize.SMALL ? spacing.spacing16 : spacing.spacing56
-  };
-
-  `}
-`;
-
 const StyledAvatarImage = styled.img`
   border-radius: 50%;
   width: 100%;
@@ -80,21 +52,10 @@ const StyledAvatarImage = styled.img`
 const Avatar: ForwardRefRenderFunction<
   HTMLDivElement,
   PropsWithChildren<AvatarProps>
-> = ({ alt, src, size = AvatarSize.MEDIUM, children }, ref) => {
-  const [hasImgError, setImgError] = useState(false);
-
-  const handleImgError = () => {
-    setImgError(true);
-  };
-  const fallbackContent = children || alt[0]?.toUpperCase() || '';
-
+> = ({ alt, src, size = AvatarSize.MEDIUM }, ref) => {
   return (
     <AvatarContainer size={size} ref={ref}>
-      {hasImgError ? (
-        <StyledFallback size={size}>{fallbackContent}</StyledFallback>
-      ) : (
-        <StyledAvatarImage src={src} alt={alt} onError={handleImgError} />
-      )}
+      <StyledAvatarImage src={src} alt={alt} />
     </AvatarContainer>
   );
 };
