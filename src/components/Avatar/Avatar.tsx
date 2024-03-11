@@ -3,6 +3,7 @@ import {
   PropsWithChildren,
   forwardRef,
   useState,
+  HTMLAttributes,
 } from 'react';
 import { transparentize } from 'polished';
 import styled from '@emotion/styled';
@@ -24,7 +25,7 @@ const defaultAvatarSizes: DefaultAvatarSize = {
   large: 150,
 };
 
-type AvatarProps = {
+type AvatarProps = HTMLAttributes<HTMLElement> & {
   alt: string;
   src: string;
   size: AvatarSizeValueProps;
