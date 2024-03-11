@@ -3,15 +3,18 @@ import React, {
   MouseEventHandler,
   ForwardRefRenderFunction,
   PropsWithChildren,
+  HTMLAttributes,
 } from 'react';
 import styled from '@emotion/styled';
-export type ButtonProps = {
+
+export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary';
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   containsIcon?: boolean;
 };
+
 const PRIMARY = 'primary';
 // TODO Anh replace hard-coded vars with design tokens when available
 const StyledButton = styled.button<ButtonProps>`
