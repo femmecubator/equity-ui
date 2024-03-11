@@ -1,6 +1,6 @@
 {
   "name": "@femmecubator/equity-ui",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs.js",
