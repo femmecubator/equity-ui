@@ -1,6 +1,6 @@
 {
   "name": "@femmecubator/equity-ui",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -86,6 +86,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "polished": "^4.3.1"
   }
 }
