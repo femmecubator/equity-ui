@@ -119,7 +119,7 @@ devDependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   storybook:
-    specifier: ^7.6.6
+    specifier: ^7.6.7
     version: 7.6.7
   style-dictionary:
     specifier: ^3.9.2
