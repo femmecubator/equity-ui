@@ -6,11 +6,11 @@ const meta: Meta<typeof Badge> = {
   title: 'Badge',
   component: Badge,
   argTypes: {
-    text: {
+    children: {
       options: ['Success', 'Error', 'Warning', 'Info'],
       control: { type: 'radio' },
     },
-    variant: {
+    emphasis: {
       options: ['default', 'strong'],
       control: { type: 'radio' },
     },
