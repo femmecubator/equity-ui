@@ -36,7 +36,7 @@
   "devDependencies": {
     "@clack/prompts": "^0.7.0",
     "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@prettier/sync": "^0.4.0",
     "@storybook/addon-essentials": "^7.6.6",
@@ -86,6 +86,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "@mui/material": "^5.15.14",
     "lodash-es": "^4.17.21",
     "polished": "^4.3.1"
   }
