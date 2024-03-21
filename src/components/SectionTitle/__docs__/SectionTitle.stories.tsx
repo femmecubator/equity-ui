@@ -6,16 +6,20 @@ import SectionTitle from '../SectionTitle';
 const meta: Meta<typeof SectionTitle> = {
   title: 'SectionTitle',
   component: SectionTitle,
-  // argTypes: {
-  //   variant: {
-  //     options: ['primary', 'secondary'],
-  //     control: { type: 'radio' },
-  //   },
-  // },
+  argTypes: {
+    children: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 };
 
 export default meta;
 
-export const Basic = (args) => {
-  return <SectionTitle {...args}>Section Title</SectionTitle>;
+export const Basic = {
+  args: {
+    children: 'Section Title',
+  },
+  render: (args) => <SectionTitle {...args} />,
 };
