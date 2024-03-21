@@ -12,3 +12,5 @@ describe('Badge component', () => {
         expect(badge).toBeInTheDocument();
     })
 } )
+
+// maybe need another test for 'strong' CSS change

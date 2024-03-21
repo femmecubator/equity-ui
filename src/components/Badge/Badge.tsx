@@ -6,6 +6,7 @@ const StyledBadge = styled.div<BadgeProps>`
   border: 1px solid red;
   display: inline-block;
   padding: 5px;
+  border-radius: 8px;
   ${({
     // add in styling
 
