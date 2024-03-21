@@ -17,5 +17,5 @@ const meta: Meta<typeof SectionTitle> = {
 export default meta;
 
 export const Basic = (args) => {
-  return <SectionTitle {...args} />;
+  return <SectionTitle {...args}>Section Title</SectionTitle>;
 };

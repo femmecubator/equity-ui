@@ -1,7 +1,11 @@
 import React from 'react';
 
-const SectionTitle = () => {
-  return <div>SectionTitle</div>;
+type SectionTitleProps = {
+  children: React.ReactNode;
+};
+
+const SectionTitle = ({ children }: SectionTitleProps) => {
+  return <div>{children}</div>;
 };
 
 export default SectionTitle;
