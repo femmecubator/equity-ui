@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 // Styled divider using styled-components for styling
 const StyledDivider = styled.div`
@@ -9,8 +9,8 @@ const StyledDivider = styled.div`
 `;
 
 export interface DividerProps {
-    variant?: 'primary' | 'secondary'; 
-  }
+  variant?: 'primary' | 'secondary';
+}
 
 const Divider: React.FC<DividerProps> = () => {
   return <StyledDivider />;
