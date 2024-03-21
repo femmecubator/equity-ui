@@ -3,10 +3,10 @@ import { ReactNode } from 'react';
 
 // adding <BadgeProps> to tell it that the props are the same from Badge (ie. emphasis, text, etc)
 const StyledBadge = styled.div<BadgeProps>`
-  border: 1px solid red;
   display: inline-block;
   padding: 5px;
   border-radius: 8px;
+  background: #D4EFDF;
   ${({
     // add in styling
 
