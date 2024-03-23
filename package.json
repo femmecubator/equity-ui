@@ -36,8 +36,6 @@
   "devDependencies": {
     "@clack/prompts": "^0.7.0",
     "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@prettier/sync": "^0.4.0",
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/addon-interactions": "^7.6.6",
@@ -81,7 +79,10 @@
     "vitest": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
