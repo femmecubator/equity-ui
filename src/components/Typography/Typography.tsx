@@ -47,8 +47,6 @@ type TypographyVariant = keyof typeof variantMapping;
 //   | 'link2'
 //   | 'link3';
 
-// type ComponentVariants = 'div' | 'span' | 'a';
-
 export type TypographyProps = ComponentPropsWithoutRef<'button'> & {
   variant?: TypographyVariant;
   theme?: Theme;
