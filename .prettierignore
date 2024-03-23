@@ -9,3 +9,9 @@
 *.json
 .npmrc
 *.md
+/.husky
+/.github
+/dist
+/assets
+/build
+yarn.lock
