@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { variantMapping } from '../../shared/constants';
 import { TypographyProps } from '../../shared/types';
 import { transformValueToUnit } from '../../shared/utils';
+import { linkVariantAdditionalState } from '../../shared/utils';
 
 const StyledTypography = styled.div<TypographyProps>((props) => {
   const { variant, theme, color: colorOverride } = props;
@@ -106,18 +107,21 @@ const StyledTypography = styled.div<TypographyProps>((props) => {
         ...typography.link.large,
         ...transformValueToUnit(typography.link.large),
         color,
+        ...linkVariantAdditionalState(theme),
       };
     case 'link2':
       return {
         ...typography.link.default,
         ...transformValueToUnit(typography.link.default),
         color,
+        ...linkVariantAdditionalState(theme),
       };
     case 'link3':
       return {
         ...typography.link.small,
         ...transformValueToUnit(typography.link.small),
         color,
+        ...linkVariantAdditionalState(theme),
       };
     case 'body2':
     default:
