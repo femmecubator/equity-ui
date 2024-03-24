@@ -1,6 +1,7 @@
-import { TypographyProps, Typography } from './Typography';
+import { Typography } from './Typography';
 import { describe, expect, it } from 'vitest';
-import contextRender from '../../shared/test/contextRender';
+import contextRender from '../../shared/utils/contextRender';
+import type { TypographyProps } from '../../shared/types';
 
 describe('Typography Component', () => {
   const renderComponent = (props: TypographyProps) => {
