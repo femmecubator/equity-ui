@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { screen, waitFor, fireEvent } from '@testing-library/react';
 import Avatar from './Avatar';
 
-import contextRender from '../../shared/test/contextRender';
+import contextRender from '../../shared/utils/contextRender';
 
 describe('Avatar component', () => {
   it('should render image if valid src is passed', () => {
