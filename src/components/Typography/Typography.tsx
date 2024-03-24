@@ -1,8 +1,7 @@
 import { CSSProperties, ComponentPropsWithoutRef } from 'react';
 import styled, { CSSObject } from '@emotion/styled';
 import { Theme } from '@emotion/react';
-// import isPropValid from '@emotion/is-prop-valid';
-// import { css } from '@emotion/react';
+
 const variantMapping = {
   h1: 'h1',
   h2: 'h2',
@@ -25,29 +24,8 @@ const variantMapping = {
 } as const;
 
 type TypographyVariant = keyof typeof variantMapping;
-// type AsProps = (typeof variantMapping)[TypographyVariant];
 
-// type TypographyVariant =
-//   | 'h1'
-//   | 'h2'
-//   | 'h3'
-//   | 'h4'
-//   | 'h5'
-//   | 'h6'
-//   | 'title1'
-//   | 'title2'
-//   | 'title3'
-//   | 'body1'
-//   | 'body2'
-//   | 'body3'
-//   | 'label1'
-//   | 'label2'
-//   | 'label3'
-//   | 'link1'
-//   | 'link2'
-//   | 'link3';
-
-export type TypographyProps = ComponentPropsWithoutRef<'button'> & {
+export type TypographyProps = ComponentPropsWithoutRef<'p'> & {
   variant?: TypographyVariant;
   theme?: Theme;
   color?: CSSProperties['color'];
@@ -58,8 +36,15 @@ export type TypographyProps = ComponentPropsWithoutRef<'button'> & {
 const StyledTypography = styled.div<TypographyProps>((props) => {
   const { variant, theme, color: colorOverride } = props;
   const { typography } = theme;
-  const color = colorOverride ?? theme.semantic.color.content.default;
-  const linkColor = theme.semantic.color.content.link;
+  let color = theme.semantic.color.content.default;
+
+  if (variant && ['link1', 'link2', 'link3'].includes(variant)) {
+    color = theme.semantic.color.content.link;
+  }
+
+  if (colorOverride) {
+    color = colorOverride;
+  }
 
   switch (variant) {
     case 'h1':
@@ -91,13 +76,13 @@ const StyledTypography = styled.div<TypographyProps>((props) => {
     case 'label3':
       return { ...typography.label.small, color };
     case 'link1':
-      return { ...typography.link.large, color: linkColor };
+      return { ...typography.link.large, color };
     case 'link2':
-      return { ...typography.link.default, color: linkColor };
+      return { ...typography.link.default, color };
     case 'link3':
       return {
         ...typography.link.small,
-        color: linkColor,
+        color,
       };
     case 'body2':
     default:
