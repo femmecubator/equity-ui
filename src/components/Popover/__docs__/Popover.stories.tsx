@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Popover from '../Popover';
 import MenuItem from '../../MenuItem/MenuItem';
+import SectionTitle from '../../SectionTitle/SectionTitle';
+import Divider from '../../Divider/Divider';
 
 const meta: Meta<typeof Popover> = {
   title: 'Popover',
@@ -22,9 +24,21 @@ const DefaultStoryComponent = () => {
       </button>
       <Popover open={open} anchorElement={buttonRef.current}>
         <div>
-          This is the popover content.
-          <MenuItem text="Menu Item 1" />
-          <MenuItem text="Menu Item 2" />
+          <SectionTitle>Section Title</SectionTitle>
+          <Divider />
+          <MenuItem text="Menu Item" />
+          <Divider />
+          <MenuItem text="Menu Item" />
+          <Divider />
+          <MenuItem text="Menu Item" />
+          <Divider />
+          <MenuItem text="Menu Item" />
+          <Divider />
+          <MenuItem text="Menu Item" />
+          <Divider />
+          <MenuItem text="Menu Item" />
+          <Divider />
+          <MenuItem text="Menu Item" />
         </div>
       </Popover>
     </>
