@@ -13,11 +13,11 @@ const StyledPopover = styled.div<{ position: { top: number; left: number } }>`
   left: ${({ position }) => `${position.left}px`};
   background-color: white;
   border: 1px solid #ccc;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px 0px rgba(51, 51, 51, 0.2);
   padding: 16px;
-  border-radius: 8px;
+  border-radius: var(--border-radius-default, 16px);
   z-index: 1000;
-  display: none; /* Initially hidden */
+  display: flex;
 
   /* Show the popover when open */
   ${({ position }) =>
@@ -25,6 +25,19 @@ const StyledPopover = styled.div<{ position: { top: number; left: number } }>`
     `
     display: block;
   `}
+
+  color: var(--button-primary-content-disabled, #9C9C9C);
+  /* heading/h5 */
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 137.5% */
+
+  width: 227px;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--color-bg-strong, #fff);
 `;
 
 const Popover: React.FC<PopoverProps> = ({ open, anchorElement, children }) => {
