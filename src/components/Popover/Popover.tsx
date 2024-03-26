@@ -11,33 +11,36 @@ const StyledPopover = styled.div<{ position: { top: number; left: number } }>`
   position: absolute;
   top: ${({ position }) => `${position.top}px`};
   left: ${({ position }) => `${position.left}px`};
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0px 1px 3px 0px rgba(51, 51, 51, 0.2);
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 4px 12px rgba(51, 51, 51, 0.2);
   padding: 16px;
   border-radius: var(--border-radius-default, 16px);
   z-index: 1000;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 227px;
 
-  /* Show the popover when open */
+  /* Arrow styles */
+  &:before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Arrow size */
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 16px; /* Arrow width */
+    height: 16px; /* Arrow height */
+    background-color: #fff;
+    box-shadow: -3px -3px 5px rgba(51, 51, 51, 0.2);
+  }
+
   ${({ position }) =>
     position.top !== 0 &&
     `
     display: block;
   `}
-
-  color: var(--button-primary-content-disabled, #9C9C9C);
-  /* heading/h5 */
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px; /* 137.5% */
-
-  width: 227px;
-  flex-direction: column;
-  align-items: flex-start;
-  background: var(--color-bg-strong, #fff);
 `;
 
 const Popover: React.FC<PopoverProps> = ({ open, anchorElement, children }) => {
