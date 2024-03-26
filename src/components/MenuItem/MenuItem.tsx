@@ -13,7 +13,7 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
   align-items: flex-start;
   gap: ${theme.base.spacing.spacing8};
   border-radius: ${theme.base.border.radius.radius4};
-  color: ${disabled ? theme.base.color.gray30 : theme.base.color.gray90};
+  color: ${disabled ? theme.base.color.gray60 : theme.base.color.gray90};
   /* body/small */
   font-family: Montserrat;
   font-size: 14px;
