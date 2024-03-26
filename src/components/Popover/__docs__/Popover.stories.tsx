@@ -18,7 +18,7 @@ const DefaultStoryComponent = () => {
   return (
     <>
       <button ref={buttonRef} onClick={() => setOpen(!open)}>
-        Toggle Popover
+        Dropdown
       </button>
       <Popover open={open} anchorElement={buttonRef.current}>
         <div>
