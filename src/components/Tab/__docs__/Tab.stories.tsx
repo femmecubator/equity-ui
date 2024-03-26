@@ -6,9 +6,8 @@ const meta: Meta<typeof Tab> = {
   title: 'Tab',
   component: Tab,
   argTypes: {
-    variant: {
-      options: ['default', 'active'],
-      control: { type: 'radio' },
+    isActive: {
+      control: { type: 'boolean' },
     },
   },
 };
