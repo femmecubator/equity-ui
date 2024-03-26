@@ -1,6 +1,6 @@
 {
   "name": "@femmecubator/equity-ui",
-  "version": "1.13.0",
+  "version": "1.15.0",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -17,7 +17,7 @@
     "build": "pnpm clean & vite build",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore",
-    "lint:fix": "pnpm lint e --fix",
+    "lint:fix": "pnpm lint --fix",
     "test": "vitest run",
     "test-watch": "vitest",
     "test:ui": "vitest --ui",
@@ -36,8 +36,6 @@
   "devDependencies": {
     "@clack/prompts": "^0.7.0",
     "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@prettier/sync": "^0.4.0",
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/addon-interactions": "^7.6.6",
@@ -49,6 +47,7 @@
     "@storybook/test": "^7.6.6",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
+    "@tokens-studio/sd-transforms": "^0.14.2",
     "@types/react": "^18.2.45",
     "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
@@ -80,7 +79,10 @@
     "vitest": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

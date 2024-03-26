@@ -1,0 +1,17 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/.git
+**/.svn
+**/.hg
+*.yaml
+*.json
+.npmrc
+*.md
+/.husky
+/.github
+/dist
+/assets
+/build
+yarn.lock
