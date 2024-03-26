@@ -8,4 +8,4 @@ const meta: Meta<typeof Divider> = {
 
 export default meta;
 
-export const Default: StoryObj = {};
+export const Default: StoryObj<typeof Divider> = {};
