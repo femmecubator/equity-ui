@@ -8,12 +8,9 @@ const StyledDivider = styled.div`
   margin: 8px 0;
 `;
 
-export interface DividerProps {
-  variant?: 'primary' | 'secondary';
-}
-
-const Divider: React.FC<DividerProps> = () => {
-  return <StyledDivider />;
+//Using React.HTMLAttributes<HTMLElement> to accept any valid HTML attribute for a div
+const Divider = (props: React.HTMLAttributes<HTMLElement>) => {
+  return <StyledDivider {...props} />;
 };
 
 export default Divider;
