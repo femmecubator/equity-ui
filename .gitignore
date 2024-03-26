@@ -4,3 +4,4 @@ dist
 
 #storybook build directory
 storybook-static
+yarn.lock
