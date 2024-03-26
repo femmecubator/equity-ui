@@ -3,8 +3,17 @@ import styled from '@emotion/styled';
 
 const StyledButton = styled.button`
   background-color: transparent; /* Set background to transparent */
-  border: none; /* No border */
   cursor: pointer;
+  border: none;
+
+  display: flex;
+  width: 191px;
+  padding: var(--spacing-spacing-3xs, 4px);
+  align-items: flex-start;
+  gap: var(--spacing-spacing-2xs, 8px);
+
+  border-radius: var(--border-radius-small, 4px);
+
   color: var(--color-content-default, #333);
   font-feature-settings:
     'clig' off,
@@ -33,8 +42,18 @@ const StyledButton = styled.button`
 
   /* Focus state */
   &:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(51, 51, 51, 0.25); /* Change focus border color to #333333 */
+    color: #333333;
+    outline: 1px solid #333333; /* Custom outline color */
+
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
+    /* body/small */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
   }
 
   /* Disabled state */
