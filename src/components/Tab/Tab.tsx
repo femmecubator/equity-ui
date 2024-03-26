@@ -1,32 +1,52 @@
-// import React, { MouseEventHandler } from 'react';
-// // import styled from '@emotion/styled';
+import React, { MouseEventHandler } from 'react';
+import styled from '@emotion/styled';
 
-// export type TabProps = {
-//   children: React.ReactNode;
-//   variant?: 'default' | 'active';
-//   disabled?: boolean;
-//   onClick?: MouseEventHandler; //blue underline?
-// }
+export type TabVariant = {
+  default: {
+    label: string;
+    color: string;
+  };
+  active: {
+    label: string;
+    color: string;
+  };
+};
 
-//variables to define the defualt tab and active tab
-// Define variants
-// const tabVariant = {
-//   default: {
-//     label: 'montserrat-regular-16',
-//     color: 'color-content-default',
-//   },
-//   active: {
-//     label: 'montserrat-semibold-16',
-//     color: 'color-content-active',
-//   },
-// };
+export type TabProps = {
+  variant?: TabVariant;
+  disabled?: boolean;
+  onClick?: MouseEventHandler;
+};
 
-// const StyledTab = styled.div<TabProps>`
-// //adding styling here
-// `
+const newTabVariant: TabVariant = {
+  default: {
+    label: 'montserrat-regular-16',
+    color: 'color-content-default',
+  },
+  active: {
+    label: 'montserrat-regular-16',
+    color: 'color-content-active',
+  },
+};
+
+const StyledTab = styled.div<TabProps>`
+  position: relative;
+  border: none;
+  display: inline-block;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
+`;
 
 function Tab() {
-  return <div>Tab</div>;
+  return (
+    <StyledTab variant={newTabVariant} disabled={false} onClick={() => {}}>
+      write something
+    </StyledTab>
+  );
 }
 
 export default Tab;
