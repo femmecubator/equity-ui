@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 
 interface PopoverProps {
@@ -18,29 +17,38 @@ const StyledPopover = styled.div<{ position: { top: number; left: number } }>`
   padding: 16px;
   border-radius: 8px;
   z-index: 1000;
+  display: none; /* Initially hidden */
+
+  /* Show the popover when open */
+  ${({ position }) =>
+    position.top !== 0 &&
+    `
+    display: block;
+  `}
 `;
 
 const Popover: React.FC<PopoverProps> = ({ open, anchorElement, children }) => {
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
-    if (anchorElement) {
+    if (open && anchorElement) {
       const rect = anchorElement.getBoundingClientRect();
       setPosition({
-        top: rect.top + rect.height + window.scrollY,
-        left: rect.left + window.scrollX + rect.width / 2,
+        top: rect.bottom + window.scrollY,
+        left: rect.left + window.scrollX,
       });
+    } else {
+      // Reset position when closed or anchorElement is null
+      setPosition({ top: 0, left: 0 });
     }
   }, [anchorElement, open]);
 
+  // Return null to not render anything when not open or no anchorElement
   if (!open || !anchorElement) {
     return null;
   }
 
-  return ReactDOM.createPortal(
-    <StyledPopover position={position}>{children}</StyledPopover>,
-    document.getElementById('portal')!
-  );
+  return <StyledPopover position={position}>{children}</StyledPopover>;
 };
 
 export default Popover;
