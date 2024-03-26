@@ -21,9 +21,12 @@ const SEVERITY_TO_SUBTLE_BG_COLOR_MAPPING = {
 // CSS written in styled.div<BadgeProps>``</BadgeProps> is meant to be "default" hardcoded styles
 const StyledBadge = styled.div<BadgeProps>`
   display: inline-block;
-  padding: 5px;
+  align-items: center;
+  padding: 0 4px;
   font-size: 14px;
   font-weight: 600;
+  line-height: 18px;
+  gap: 10px;
   ${({
     severity,
     isSubtle,
@@ -36,12 +39,11 @@ const StyledBadge = styled.div<BadgeProps>`
   `
     border-radius: ${border.radius.small};
     background-color: ${isSubtle? SEVERITY_TO_SUBTLE_BG_COLOR_MAPPING[severity] : SEVERITY_TO_BG_COLOR_MAPPING[severity]};
+    color: ${isSubtle? base.color.gray90 : base.color.white};
   `}
 `;
-interface BadgeProps {
+export type BadgeProps = {
   children: ReactNode
-  // adding a ? before the colon makes it optional
-  // emphasis?: 'subtle' | 'strong';
   // severity is a prop we're taking
   // making severity optional so that the default is success
   severity: 'success' | 'error' | 'warning' | 'info';
@@ -55,6 +57,5 @@ export default function Badge({severity = 'success', isSubtle = false, children}
   }
 
   // adding in severity here, is how it'll access from the css section
-  // ok I've added the severity, it works, but now I'm hard coding the boolean.. doesn't seem to be working correctly
-  return <StyledBadge severity={severity} isSubtle={true} onClick={registerClick}>{children}Success</StyledBadge>;
+  return <StyledBadge severity={severity} isSubtle={isSubtle} onClick={registerClick}>{children}Success</StyledBadge>;
 }
