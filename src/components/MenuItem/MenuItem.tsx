@@ -58,9 +58,18 @@ const StyledButton = styled.button`
 
   /* Disabled state */
   &:disabled {
-    background-color: #f0f0f0; /* Different background for disabled state */
-    color: #a9a9a9;
     cursor: not-allowed;
+
+    color: var(--color-content-disabled, #9c9c9c);
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
+    /* body/small */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
   }
 `;
 
