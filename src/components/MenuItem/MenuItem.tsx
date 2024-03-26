@@ -19,7 +19,16 @@ const StyledButton = styled.button`
   /* Hover state */
   &:hover {
     background-color: transparent; /* Set background to transparent */
-    color: #026fe4;
+    color: var(--color-content-brand, #026fe4);
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
+    /* body/small */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
   }
 
   /* Focus state */
