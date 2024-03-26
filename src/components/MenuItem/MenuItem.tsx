@@ -3,49 +3,40 @@ import styled from '@emotion/styled';
 
 //Adjust StyledButton to accept disabled as a prop and apply styles conditionally
 const StyledButton = styled.button<{ disabled?: boolean }>`
+  ${({ theme, disabled }) => `
   background-color: transparent; /* Set background to transparent */
   cursor: pointer;
   border: none;
   display: flex;
   width: 191px;
-  padding: var(--spacing-spacing-3xs, 4px);
+  padding: ${theme.base.spacing.spacing4};
   align-items: flex-start;
-  gap: var(--spacing-spacing-2xs, 8px);
-  border-radius: var(--border-radius-small, 4px);
-  color: ${({ disabled }) =>
-    disabled
-      ? `var(--color-content-disabled, #9c9c9c)`
-      : `var(--color-content-default, #333)`};
-  font-feature-settings:
-    'clig' off,
-    'liga' off;
+  gap: ${theme.base.spacing.spacing8};
+  border-radius: ${theme.base.border.radius.radius4};
+  color: ${disabled ? theme.base.color.gray30 : theme.base.color.gray90};
   /* body/small */
   font-family: Montserrat;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 22px; /* 157.143% */
 
   /* Hover state */
   &:hover {
     background-color: transparent; /* Set background to transparent */
-    color: ${({ disabled }) =>
-      disabled
-        ? `var(--color-content-disabled, #9c9c9c)`
-        : `var(--color-content-brand, #026fe4)`};
+    color: ${disabled ? theme.base.color.gray30 : theme.base.color.blue50};
   }
 
   /* Focus state */
   &:focus {
-    color: ${({ disabled }) =>
-      disabled ? `var(--color-content-disabled, #9c9c9c)` : `#333333`};
-    outline: ${({ disabled }) => (disabled ? `none` : `1px solid #333333`)};
+    color: ${disabled ? theme.base.color.gray30 : theme.base.color.gray90};
+    outline: ${disabled ? 'none' : `1px solid ${theme.base.color.gray90}`};
   }
 
   /* Disabled state */
   &:disabled {
     cursor: not-allowed;
   }
+`}
 `;
 
 export interface MenuItemProps
