@@ -6,9 +6,16 @@ const meta: Meta<typeof Badge> = {
   title: 'Badge',
   component: Badge,
   argTypes: {
+    children: {}
   },
 };
 
 export default meta;
 
-export const Basic = (args) => <Badge {...args}></Badge>;
+export const Basic = {
+  args: {
+    children: 'Badge text',
+  },
+  render: (args) => <Badge {...args}></Badge>
+};
+

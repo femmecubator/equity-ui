@@ -17,8 +17,6 @@ const SEVERITY_TO_SUBTLE_BG_COLOR_MAPPING = {
   info: base.color.sky15,
 }
 
-// adding <BadgeProps> to tell it that the props are the same from Badge (ie. emphasis, text, etc)
-// CSS written in styled.div<BadgeProps>``</BadgeProps> is meant to be "default" hardcoded styles
 const StyledBadge = styled.div<BadgeProps>`
   display: inline-block;
   align-items: center;
@@ -39,7 +37,7 @@ const StyledBadge = styled.div<BadgeProps>`
   `
     border-radius: ${border.radius.small};
     background-color: ${isSubtle? SEVERITY_TO_SUBTLE_BG_COLOR_MAPPING[severity] : SEVERITY_TO_BG_COLOR_MAPPING[severity]};
-    color: ${isSubtle? base.color.gray90 : base.color.white};
+    color: ${ severity === 'warning' ? base.color.gray90 : isSubtle? base.color.gray90 : base.color.white};
   `}
 `;
 export type BadgeProps = {
@@ -57,5 +55,5 @@ export default function Badge({severity = 'success', isSubtle = false, children}
   }
 
   // adding in severity here, is how it'll access from the css section
-  return <StyledBadge severity={severity} isSubtle={isSubtle} onClick={registerClick}>{children}Success</StyledBadge>;
+  return <StyledBadge severity={severity} isSubtle={isSubtle} onClick={registerClick}>{children}</StyledBadge>;
 }
