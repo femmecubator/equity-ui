@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Icon, { DefaultIconSizes } from '../Icon/Icon';
+import type { IconName } from '../../icons/icon-constant';
+import { EquityTheme } from '../../theme';
 
 //Adjust StyledButton to accept disabled as a prop and apply styles conditionally
 const StyledButton = styled.button<{ disabled?: boolean }>`
@@ -42,12 +45,16 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
 export interface MenuItemProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  icon?: JSX.Element; //Using JSX.Element to represent an icon
+  iconName?: IconName;
+  iconSize?: DefaultIconSizes | number;
+  iconColor?: keyof EquityTheme['semantic']['color']['content'];
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
   text,
-  icon,
+  iconName,
+  iconSize = 'large', //default icon size
+  iconColor = 'default', //default icon color
   disabled = false,
   ...props
 }) => {
@@ -59,8 +66,12 @@ const MenuItem: React.FC<MenuItemProps> = ({
       onMouseEnter={() => console.log('hover')}
       onFocus={() => console.log('focus')}
     >
-      {icon ? icon : <span>🔗</span>} {text}
-      {/* Default to link icon if none is provided */}
+      {iconName ? (
+        <Icon name={iconName} size={iconSize} color={iconColor} />
+      ) : (
+        <span>🔗</span>
+      )}{' '}
+      {text}
     </StyledButton>
   );
 };
