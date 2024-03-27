@@ -61,8 +61,8 @@ export interface MenuItemProps
 const MenuItem: React.FC<MenuItemProps> = ({
   text,
   iconName,
-  iconSize = 'large', //default icon size
-  iconColor = 'default', //default icon color
+  iconSize = 'large', //default icon size, used if iconName is provided
+  iconColor = 'default', //default icon color, used if iconName is provided
   disabled = false,
   ...props
 }) => {
@@ -74,12 +74,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
       onMouseEnter={() => console.log('hover')}
       onFocus={() => console.log('focus')}
     >
-      {iconName ? (
-        <Icon name={iconName} size={iconSize} color={iconColor} />
-      ) : (
-        <span>🔗</span>
-      )}{' '}
-      {text}
+      {/* Conditionally render Icon only if iconName is provided */}
+      {iconName && <Icon name={iconName} size={iconSize} color={iconColor} />}
+      <span style={{ marginLeft: iconName ? '8px' : '0' }}>{text}</span>
     </StyledButton>
   );
 };
