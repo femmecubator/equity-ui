@@ -4,3 +4,7 @@
 *.md
 *.json
 *.yaml
+/.husky
+/assets
+/build
+.npmrc
