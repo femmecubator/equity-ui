@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
-import Tab from '../Tab';
+import TabGroup from '../Tab';
 
-const meta: Meta<typeof Tab> = {
-  title: 'Tab',
-  component: Tab,
+const meta: Meta<typeof TabGroup> = {
+  title: 'TabGroup',
+  component: TabGroup,
   argTypes: {
     isActive: {
       control: { type: 'boolean' },
@@ -14,4 +14,4 @@ const meta: Meta<typeof Tab> = {
 
 export default meta;
 
-export const Basic = (args) => <Tab {...args}></Tab>;
+export const Basic = (args) => <TabGroup {...args}></TabGroup>;
