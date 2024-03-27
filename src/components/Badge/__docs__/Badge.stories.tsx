@@ -6,7 +6,7 @@ const meta: Meta<typeof Badge> = {
   title: 'Badge',
   component: Badge,
   argTypes: {
-    children: {}
+    children: {},
   },
 };
 
@@ -16,6 +16,5 @@ export const Basic = {
   args: {
     children: 'Badge text',
   },
-  render: (args) => <Badge {...args}></Badge>
+  render: (args) => <Badge {...args}></Badge>,
 };
-

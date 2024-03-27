@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import { base } from '../../../tokens';
 
-// color mapping key:value pair for strings to bg color
 const SEVERITY_TO_BG_COLOR_MAPPING = {
   error: base.color.red50,
   success: base.color.green50,
@@ -32,8 +31,6 @@ const StyledBadge = styled.div<BadgeProps>`
       semantic: { border },
     },
   }) =>
-    // all the following code comes from semantic.ts file because we said theme: { semantic: {base} }
-    // everything below here is meant to be dynamic
     `
     border-radius: ${border.radius.small};
     background-color: ${
@@ -56,7 +53,6 @@ export type BadgeProps = {
   isStrong: boolean;
 };
 
-// destructuring props to the specifics, and defining a default for severity, emphasis, etc
 export default function Badge({
   severity = 'error',
   isStrong = false,
