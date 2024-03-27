@@ -11,7 +11,7 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
   cursor: pointer;
   border: none;
   display: flex;
-  width: 191px;
+  width: 100%; /* Adjusted to 100% */
   padding: ${theme.base.spacing.spacing4};
   align-items: flex-start;
   gap: ${theme.base.spacing.spacing8};
