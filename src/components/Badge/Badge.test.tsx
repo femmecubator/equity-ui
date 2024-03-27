@@ -7,7 +7,7 @@ describe('Badge component', () => {
     // it or test ('title of the test')
     // can be nested inside describe or not
     test('Badge should render correctly', () => {
-        contextRender(<Badge severity={'success'} isStrong={false}>Error</Badge>);
+        contextRender(<Badge severity={'error'} isStrong={false}>Error</Badge>);
         const badge = screen.getByText('Error');
         expect(badge).toBeInTheDocument();
     })

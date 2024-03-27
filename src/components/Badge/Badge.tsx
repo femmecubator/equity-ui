@@ -4,15 +4,15 @@ import { base } from '../../../tokens';
 
 // color mapping key:value pair for strings to bg color
 const SEVERITY_TO_BG_COLOR_MAPPING = {
-  success: base.color.green50,
   error: base.color.red50,
+  success: base.color.green50,
   warning: base.color.yellow50,
   info: base.color.sky50,
 } as const
 
 const SEVERITY_TO_SUBTLE_BG_COLOR_MAPPING = {
-  success: base.color.green15,
   error: base.color.red15,
+  success: base.color.green15,
   warning: base.color.yellow20,
   info: base.color.sky15,
 } as const
@@ -44,12 +44,12 @@ export type BadgeProps = {
   children: ReactNode
   // severity is a prop we're taking
   // making severity optional so that the default is success
-  severity: 'success' | 'error' | 'warning' | 'info';
+  severity: 'error' | 'success' | 'warning' | 'info';
   isStrong: boolean
 }
 
 // destructuring props to the specifics, and defining a default for severity, emphasis, etc
-export default function Badge({severity = 'success', isStrong = false, children}: BadgeProps) {
+export default function Badge({severity = 'error', isStrong = false, children}: BadgeProps) {
   function registerClick() {
     console.log('clicked');
   }
