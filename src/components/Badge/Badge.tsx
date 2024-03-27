@@ -36,8 +36,8 @@ const StyledBadge = styled.div<BadgeProps>`
   // everything below here is meant to be dynamic
   `
     border-radius: ${border.radius.small};
-    background-color: ${isStrong? SEVERITY_TO_SUBTLE_BG_COLOR_MAPPING[severity] : SEVERITY_TO_BG_COLOR_MAPPING[severity]};
-    color: ${ severity === 'warning' ? base.color.gray90 : isStrong? base.color.gray90 : base.color.white};
+    background-color: ${isStrong? SEVERITY_TO_BG_COLOR_MAPPING[severity] : SEVERITY_TO_SUBTLE_BG_COLOR_MAPPING[severity]};
+    color: ${ severity === 'warning'? base.color.gray90 : isStrong? base.color.white : base.color.gray90};
   `}
 `;
 export type BadgeProps = {
