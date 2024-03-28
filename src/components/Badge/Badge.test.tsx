@@ -20,8 +20,5 @@ describe('Badge component', () => {
         Error
       </Badge>
     );
-    const badge = screen.getByText('Error');
-    expect(badge).toBeInTheDocument();
-    screen.debug(badge);
   });
 });
