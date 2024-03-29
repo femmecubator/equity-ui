@@ -9,4 +9,9 @@ describe('Button component', () => {
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
   });
+
+  it('matches snapshot', () => {
+    const { baseElement } = contextRender(<Button>Hello!</Button>);
+    expect(baseElement).toMatchSnapshot();
+  });
 });

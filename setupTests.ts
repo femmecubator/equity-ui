@@ -1,6 +1,7 @@
 import { expect } from 'vitest';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers';
+import { createSerializer } from '@emotion/jest';
 
 declare module 'vitest' {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -9,3 +10,4 @@ declare module 'vitest' {
       TestingLibraryMatchers<T, void> {}
 }
 expect.extend(matchers);
+expect.addSnapshotSerializer(createSerializer());
