@@ -11,7 +11,7 @@ describe('Button component', () => {
   });
 
   it('matches snapshot', () => {
-    const { baseElement } = contextRender(<Button>Hello!</Button>);
-    expect(baseElement).toMatchSnapshot();
+    const { asFragment } = contextRender(<Button>Hello!</Button>);
+    expect(asFragment()).toMatchSnapshot();
   });
 });
