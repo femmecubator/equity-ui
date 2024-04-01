@@ -6,16 +6,25 @@ type SectionTitleProps = HTMLAttributes<HTMLElement> & {
 };
 
 const StyledSectionTitle = styled.h2`
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
   ${({
     theme: {
-      semantic: { color },
+      typography: {
+        title: {
+          small: { fontWeight, fontSize, lineHeight, fontFamily },
+        },
+      },
+      semantic: {
+        color: {
+          content: { default: defaultColor },
+        },
+      },
     },
-  }) =>
-    ` 
-      color: ${color.content.default};
+  }) => `
+    font-weight: ${fontWeight};
+    font-size: ${fontSize}px;
+    line-height: ${lineHeight}px;
+    color: ${defaultColor};
+    font-family: ${fontFamily};
   `}
 `;
 
