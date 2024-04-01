@@ -1,9 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import MenuItem, { MenuItemProps } from '../MenuItem';
+import { defaultIconSizes } from '../../Icon/Icon';
 
 const meta: Meta<typeof MenuItem> = {
   title: 'MenuItem',
   component: MenuItem,
+  argTypes: {
+    iconSize: {
+      control: 'select',
+      options: Object.keys(defaultIconSizes),
+    },
+  },
 };
 
 export default meta;
