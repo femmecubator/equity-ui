@@ -53,7 +53,7 @@ export interface MenuItemProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   iconName?: IconName;
-  iconSize?: DefaultIconSizes | number;
+  iconSize?: DefaultIconSizes;
   iconColor?: keyof EquityTheme['semantic']['color']['content'];
 }
 
