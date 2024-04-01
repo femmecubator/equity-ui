@@ -65,3 +65,9 @@ export const Focus: StoryObj<MenuItemProps> = {
     },
   },
 };
+
+export const NoIcon: StoryObj<MenuItemProps> = {
+  args: {
+    text: 'Menu Item Without Icon',
+  },
+};
