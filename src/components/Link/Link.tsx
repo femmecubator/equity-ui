@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
-import { base } from '../../../tokens';
 
 const StyledLink = styled.a<LinkProps>`
   display: inline-block;
@@ -8,38 +7,63 @@ const StyledLink = styled.a<LinkProps>`
   font-weight: 700;
   line-height: 20px;
   text-decoration-line: underline;
+  cursor: pointer;
   ${({
     theme: {
-      semantic: { border },
+      semantic: { color, spacing },
     },
   }) =>
     `
-        border-radius: ${border.radius.small};
-        color: ${base.color.blue50};
+        padding: ${spacing.spacing2Xs}
+        color: ${color.content.link};
         &:hover {
-            color: ${base.color.blue70};
+            color: ${color.content.linkHover};
         };
         &:active {
-            color: ${base.color.blue90};
+            color: ${color.content.linkStrong};
         }
     `}
-  ${({ disabled }) =>
+  ${({
+    disabled,
+    theme: {
+      semantic: { color },
+    },
+  }) =>
     disabled &&
     `
-        color: ${base.color.gray60};
+        color: ${color.content.disabled};
         cursor: not-allowed;
         &:hover {
             box-shadow: none;
-            color: ${base.color.gray60}
+            color: ${color.content.disabled}
         }
-        `}
+    `}
+    ${({
+    containsIcon,
+    theme: {
+      semantic: { spacing },
+    },
+  }) =>
+    containsIcon &&
+    `
+    padding: 0px;
+    borderRadius: 50%;
+    display: flex;
+    align-items: center;
+    gap: ${spacing.spacing2Xs};
+    `}
 `;
 
 export type LinkProps = {
   children: ReactNode;
   disabled?: boolean;
+  containsIcon?: boolean;
 };
 
-export default function Link({ disabled, children }: LinkProps) {
-  return <StyledLink disabled={disabled}>{children}</StyledLink>;
+export default function Link({ disabled, children, containsIcon }: LinkProps) {
+  return (
+    <StyledLink disabled={disabled} containsIcon={containsIcon}>
+      {children}
+    </StyledLink>
+  );
 }
