@@ -9,7 +9,7 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
   ${({ theme, disabled }) => {
     //Destructuring theme properties for easier access
     const { spacing, border, color } = theme.base;
-    const { spacing4, spacing8 } = spacing;
+    const { spacing4 } = spacing;
     const { radius4 } = border.radius;
     const { gray60, gray90, gray30, blue50 } = color;
 
@@ -19,9 +19,9 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
       border: none;
       display: flex;
       width: 100%; /* Adjusted to 100% */
+      max-width: fit-content;
       padding: ${spacing4};
       align-items: flex-start;
-      gap: ${spacing8};
       border-radius: ${radius4};
       color: ${disabled ? gray60 : gray90};
       /* body/small */
@@ -40,6 +40,7 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
       &:focus {
         color: ${disabled ? gray30 : gray90};
         outline: ${disabled ? 'none' : `1px solid ${gray90}`};
+        padding-right: 95px;
       }
       
       /* Disabled state */
@@ -64,6 +65,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
   iconSize = 'large', //default icon size, used if iconName is provided
   iconColor = 'default', //default icon color, used if iconName is provided
   disabled = false,
+  onMouseEnter = () => console.log('hover'),
+  onFocus = () => console.log('focus'),
   ...props
 }) => {
   return (
@@ -71,8 +74,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
       disabled={disabled}
       {...props}
       // Add event handlers for hover and focus
-      onMouseEnter={() => console.log('hover')}
-      onFocus={() => console.log('focus')}
+      onMouseEnter={onMouseEnter}
+      onFocus={onFocus}
     >
       {/* Conditionally render Icon only if iconName is provided */}
       {iconName && <Icon name={iconName} size={iconSize} color={iconColor} />}
