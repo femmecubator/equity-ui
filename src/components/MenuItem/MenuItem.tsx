@@ -12,11 +12,11 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
     const { gray60, gray90, gray30, blue50 } = color;
 
     return `
-      background-color: transparent; /* Set background to transparent */
+      background-color: transparent;
       cursor: pointer;
       border: none;
       display: flex;
-      width: 100%; /* Adjusted to 100% */
+      width: 100%; 
       max-width: fit-content;
       padding: ${spacing4};
       align-items: flex-start;
@@ -30,7 +30,7 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
       
       /* Hover state */
       &:hover {
-        background-color: transparent; /* Set background to transparent */
+        background-color: transparent; 
         color: ${disabled ? gray30 : blue50};
       }
       

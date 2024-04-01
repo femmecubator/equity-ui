@@ -12,7 +12,6 @@ const meta: Meta<typeof Popover> = {
 
 export default meta;
 
-// Define a functional component for the story
 const DefaultStoryComponent = () => {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -45,7 +44,6 @@ const DefaultStoryComponent = () => {
   );
 };
 
-// Directly assigning the component
 export const Default: StoryObj<typeof Popover> = {
   render: DefaultStoryComponent,
 };

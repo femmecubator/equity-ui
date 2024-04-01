@@ -27,11 +27,11 @@ const StyledPopover = styled.div<{ position: { top: number; left: number } }>`
   &:before {
     content: '';
     position: absolute;
-    top: -8px; /* Arrow size */
+    top: -8px;
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
-    width: 16px; /* Arrow width */
-    height: 16px; /* Arrow height */
+    width: 16px;
+    height: 16px;
     background-color: #fff;
     box-shadow: -3px -3px 5px rgba(51, 51, 51, 0.2);
   }
@@ -54,12 +54,10 @@ const Popover: React.FC<PopoverProps> = ({ open, anchorElement, children }) => {
         left: rect.left + window.scrollX,
       });
     } else {
-      // Reset position when closed or anchorElement is null
       setPosition({ top: 0, left: 0 });
     }
   }, [anchorElement, open]);
 
-  // Return null to not render anything when not open or no anchorElement
   if (!open || !anchorElement) {
     return null;
   }
