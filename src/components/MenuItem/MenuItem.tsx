@@ -80,6 +80,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   return (
     <StyledButton
       disabled={disabled}
+      role="menuitem"
       onMouseEnter={onMouseEnter}
       onFocus={onFocus}
       {...props}
