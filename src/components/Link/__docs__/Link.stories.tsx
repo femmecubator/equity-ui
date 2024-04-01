@@ -18,3 +18,9 @@ export const Basic = {
   },
   render: (args) => <Link {...args}></Link>,
 };
+
+export const Disabled = (args) => (
+  <Link {...args} disabled>
+    Disabled link
+  </Link>
+);

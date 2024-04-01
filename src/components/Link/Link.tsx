@@ -26,14 +26,20 @@ const StyledLink = styled.a<LinkProps>`
   ${({ disabled }) =>
     disabled &&
     `
-        color: ${base.color.gray90};
+        color: ${base.color.gray60};
+        cursor: not-allowed;
+        &:hover {
+            box-shadow: none;
+            color: ${base.color.gray60}
+        }
         `}
 `;
 
 export type LinkProps = {
   children: ReactNode;
+  disabled?: boolean;
 };
 
-export default function Link({ children }: LinkProps) {
-  return <StyledLink>{children}</StyledLink>;
+export default function Link({ disabled, children }: LinkProps) {
+  return <StyledLink disabled={disabled}>{children}</StyledLink>;
 }
