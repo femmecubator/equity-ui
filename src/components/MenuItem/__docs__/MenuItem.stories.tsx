@@ -1,6 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import MenuItem, { MenuItemProps } from '../MenuItem';
-import { defaultIconSizes } from '../../Icon/Icon';
+import { DefaultIconSizes, defaultIconSizes } from '../../Icon/Icon';
+import type { IconName } from '../../../icons/icon-constant';
+import { EquityTheme } from '../../../theme';
+
+type IconColor = keyof EquityTheme['semantic']['color']['content'];
+
+function createMenuItemArgs({
+  text = 'MenuItem',
+  iconName = 'link' as IconName,
+  iconSize = 'small' as DefaultIconSizes,
+  iconColor = 'default' as IconColor,
+  disabled = false,
+} = {}) {
+  return { text, iconName, iconSize, iconColor, disabled };
+}
 
 const meta: Meta<typeof MenuItem> = {
   title: 'MenuItem',
@@ -16,31 +30,15 @@ const meta: Meta<typeof MenuItem> = {
 export default meta;
 
 export const Default: StoryObj<MenuItemProps> = {
-  args: {
-    text: 'Menu Item',
-    iconName: 'link',
-    iconSize: 'small',
-    iconColor: 'default',
-  },
+  args: createMenuItemArgs(),
 };
 
 export const Disabled: StoryObj<MenuItemProps> = {
-  args: {
-    text: 'Menu Item',
-    disabled: true,
-    iconName: 'link',
-    iconSize: 'small',
-    iconColor: 'default',
-  },
+  args: createMenuItemArgs({ disabled: true }),
 };
 
 export const Hover: StoryObj<MenuItemProps> = {
-  args: {
-    text: 'Menu Item',
-    iconName: 'link',
-    iconSize: 'small',
-    iconColor: 'default',
-  },
+  args: createMenuItemArgs(),
   parameters: {
     actions: {
       onHover: (args: MenuItemProps) => {
@@ -51,12 +49,7 @@ export const Hover: StoryObj<MenuItemProps> = {
 };
 
 export const Focus: StoryObj<MenuItemProps> = {
-  args: {
-    text: 'Menu Item',
-    iconName: 'link',
-    iconSize: 'small',
-    iconColor: 'default',
-  },
+  args: createMenuItemArgs(),
   parameters: {
     actions: {
       onFocus: (args: MenuItemProps) => {
@@ -67,7 +60,5 @@ export const Focus: StoryObj<MenuItemProps> = {
 };
 
 export const NoIcon: StoryObj<MenuItemProps> = {
-  args: {
-    text: 'Menu Item Without Icon',
-  },
+  args: createMenuItemArgs({ iconName: undefined }),
 };
