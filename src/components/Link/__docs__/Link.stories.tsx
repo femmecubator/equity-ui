@@ -14,7 +14,7 @@ export default meta;
 
 export const Basic = {
   args: {
-    children: 'Link text',
+    children: 'Link text here',
   },
   render: (args) => <Link {...args}></Link>,
 };
