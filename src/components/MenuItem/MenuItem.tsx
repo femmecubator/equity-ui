@@ -49,12 +49,22 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
   }}
 `;
 
+const IconWrapper = styled.div<IconWrapperProps>`
+  flex-shrink: 0;
+  display: inline-flex
+  min-width: ${({ size }) => (size === 'large' ? '24px' : '18px')};
+`;
+
 export interface MenuItemProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   iconName?: IconName;
   iconSize?: DefaultIconSizes;
   iconColor?: keyof EquityTheme['semantic']['color']['content'];
+}
+
+interface IconWrapperProps {
+  size: DefaultIconSizes;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
@@ -74,8 +84,23 @@ const MenuItem: React.FC<MenuItemProps> = ({
       onFocus={onFocus}
       {...props}
     >
-      {iconName && <Icon name={iconName} size={iconSize} color={iconColor} />}
-      <span style={{ marginLeft: iconName ? '8px' : '0' }}>{text}</span>
+      {iconName && (
+        <IconWrapper size={iconSize}>
+          <Icon name={iconName} size={iconSize} color={iconColor} />
+        </IconWrapper>
+      )}
+      <span
+        style={{
+          marginLeft: iconName ? '8px' : '0',
+          flex: 1,
+          minWidth: 0,
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}
+      >
+        {text}
+      </span>
     </StyledButton>
   );
 };
