@@ -4,10 +4,8 @@ import Icon, { DefaultIconSizes } from '../Icon/Icon';
 import type { IconName } from '../../icons/icon-constant';
 import { EquityTheme } from '../../theme';
 
-//Adjust StyledButton to accept disabled as a prop and apply styles conditionally
 const StyledButton = styled.button<{ disabled?: boolean }>`
   ${({ theme, disabled }) => {
-    //Destructuring theme properties for easier access
     const { spacing, border, color } = theme.base;
     const { spacing4 } = spacing;
     const { radius4 } = border.radius;
@@ -62,8 +60,8 @@ export interface MenuItemProps
 const MenuItem: React.FC<MenuItemProps> = ({
   text,
   iconName,
-  iconSize = 'large', //default icon size, used if iconName is provided
-  iconColor = 'default', //default icon color, used if iconName is provided
+  iconSize = 'large',
+  iconColor = 'default',
   disabled = false,
   onMouseEnter = () => console.log('hover'),
   onFocus = () => console.log('focus'),
@@ -72,12 +70,10 @@ const MenuItem: React.FC<MenuItemProps> = ({
   return (
     <StyledButton
       disabled={disabled}
-      {...props}
-      // Add event handlers for hover and focus
       onMouseEnter={onMouseEnter}
       onFocus={onFocus}
+      {...props}
     >
-      {/* Conditionally render Icon only if iconName is provided */}
       {iconName && <Icon name={iconName} size={iconSize} color={iconColor} />}
       <span style={{ marginLeft: iconName ? '8px' : '0' }}>{text}</span>
     </StyledButton>
