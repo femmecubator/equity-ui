@@ -61,6 +61,6 @@ export const Focus: StoryObj<MenuItemProps> = {
 export const NoIcon: StoryObj<MenuItemProps> = {
   args: {
     ...menuItemArgs,
-    iconName: undefined,
+    noIcon: true,
   },
 };
