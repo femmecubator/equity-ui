@@ -61,6 +61,7 @@ export interface MenuItemProps
   iconName?: IconName;
   iconSize?: DefaultIconSizes;
   iconColor?: keyof EquityTheme['semantic']['color']['content'];
+  noIcon?: boolean;
 }
 
 interface IconWrapperProps {
@@ -73,6 +74,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   iconSize = 'large',
   iconColor = 'default',
   disabled = false,
+  noIcon = false,
   onMouseEnter = () => console.log('hover'),
   onFocus = () => console.log('focus'),
   ...props
@@ -85,14 +87,14 @@ const MenuItem: React.FC<MenuItemProps> = ({
       onFocus={onFocus}
       {...props}
     >
-      {iconName && (
+      {!noIcon && iconName && (
         <IconWrapper size={iconSize}>
           <Icon name={iconName} size={iconSize} color={iconColor} />
         </IconWrapper>
       )}
       <span
         style={{
-          marginLeft: iconName ? '8px' : '0',
+          marginLeft: !noIcon && iconName ? '8px' : '0',
           flex: 1,
           minWidth: 0,
           whiteSpace: 'nowrap',
