@@ -6,15 +6,13 @@ import { EquityTheme } from '../../../theme';
 
 type IconColor = keyof EquityTheme['semantic']['color']['content'];
 
-function createMenuItemArgs({
-  text = 'MenuItem',
-  iconName = 'link' as IconName,
-  iconSize = 'small' as DefaultIconSizes,
-  iconColor = 'default' as IconColor,
-  disabled = false,
-} = {}) {
-  return { text, iconName, iconSize, iconColor, disabled };
-}
+const menuItemArgs = {
+  text: 'MenuItem',
+  iconName: 'link' as IconName,
+  iconSize: 'small' as DefaultIconSizes,
+  iconColor: 'default' as IconColor,
+  disabled: false,
+};
 
 const meta: Meta<typeof MenuItem> = {
   title: 'MenuItem',
@@ -30,35 +28,39 @@ const meta: Meta<typeof MenuItem> = {
 export default meta;
 
 export const Default: StoryObj<MenuItemProps> = {
-  args: createMenuItemArgs(),
+  args: {
+    ...menuItemArgs,
+  },
 };
 
 export const Disabled: StoryObj<MenuItemProps> = {
-  args: createMenuItemArgs({ disabled: true }),
+  args: {
+    ...menuItemArgs,
+    disabled: true,
+  },
 };
 
 export const Hover: StoryObj<MenuItemProps> = {
-  args: createMenuItemArgs(),
+  args: {
+    ...menuItemArgs,
+  },
   parameters: {
-    actions: {
-      onHover: (args: MenuItemProps) => {
-        console.log('hover', args);
-      },
-    },
+    pseudo: { hover: true },
   },
 };
 
 export const Focus: StoryObj<MenuItemProps> = {
-  args: createMenuItemArgs(),
+  args: {
+    ...menuItemArgs,
+  },
   parameters: {
-    actions: {
-      onFocus: (args: MenuItemProps) => {
-        console.log('focus', args);
-      },
-    },
+    pseudo: { focus: true },
   },
 };
 
 export const NoIcon: StoryObj<MenuItemProps> = {
-  args: createMenuItemArgs({ iconName: undefined }),
+  args: {
+    ...menuItemArgs,
+    iconName: undefined,
+  },
 };
