@@ -10,7 +10,7 @@ import React from 'react';
 import MenuItem from '.';
 import { theme } from '../../theme';
 
-const customRender = (
+const contextRender = (
   ui: React.ReactElement,
   renderOptions: RenderOptions = {}
 ) => {
@@ -22,7 +22,7 @@ const customRender = (
 
 describe('MenuItem component', () => {
   it('should render correctly', () => {
-    customRender(<MenuItem text="Menu Item" />);
+    contextRender(<MenuItem text="Menu Item" />);
     const menuItem = screen.getByRole('menuitem');
     expect(menuItem).toBeInTheDocument();
     expect(menuItem).toHaveTextContent('Menu Item');
@@ -30,7 +30,7 @@ describe('MenuItem component', () => {
 
   it('if disabled is true, should not respond to click events', () => {
     const handleClick = vi.fn();
-    customRender(
+    contextRender(
       <MenuItem
         text="Disabled Menu Item"
         disabled={true}
