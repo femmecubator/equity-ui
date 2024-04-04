@@ -22,7 +22,7 @@ export const Basic = {
 
 export const Disabled = (args) => (
   <Link {...args} disabled>
-    Disabled link
+    Link text here
   </Link>
 );
 
