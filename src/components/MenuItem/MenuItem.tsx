@@ -36,7 +36,6 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
       &:focus {
         color: ${disabled ? gray30 : gray90};
         outline: ${disabled ? 'none' : `1px solid ${gray90}`};
-        padding-right: 95px;
       }
       
       &:disabled {
