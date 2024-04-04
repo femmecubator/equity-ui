@@ -20,12 +20,6 @@ export const Basic = {
   render: (args) => <Link {...args}></Link>,
 };
 
-export const Disabled = (args) => (
-  <Link {...args} disabled>
-    Link text here
-  </Link>
-);
-
 export const WithIcon = (args) => (
   <Link {...args} containsIcon>
     Link text here
