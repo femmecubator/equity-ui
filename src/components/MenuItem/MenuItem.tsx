@@ -19,7 +19,7 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
       width: 100%; 
       max-width: fit-content;
       padding: ${spacing4};
-      align-items: flex-start;
+      align-items: center;
       border-radius: ${radius4};
       color: ${disabled ? gray60 : gray90};
 
