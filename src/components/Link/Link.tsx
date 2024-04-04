@@ -24,26 +24,29 @@ const StyledLink = styled.a<LinkProps>`
         ? theme.semantic.color.content.disabled
         : theme.semantic.color.content.linkStrong};
   }
-  ${({
-    disabled,
-    theme: {
-      semantic: { color },
-    },
-  }) =>
-    disabled &&
-    `
-      > svg {
-        color: ${color.content.disabled};
-        background-color: ${color.bg.disabled}
-        &:hover {
-          box-shadow: none;
-        }
-      }
-    `}
+  > svg {
+    &:hover {
+      box-shadow: 0px 0px 0px 2px
+        ${({ disabled, theme }) =>
+          disabled
+            ? theme.semantic.color.border.disabled
+            : theme.semantic.color.border.brandHover};
+    }
+    &:active {
+      color: ${({ disabled, theme }) =>
+        disabled
+          ? theme.semantic.color.content.disabled
+          : theme.semantic.color.content.knockout};
+      background-color: ${({ disabled, theme }) =>
+        disabled
+          ? theme.semantic.color.content.disabled
+          : theme.semantic.color.content.brand};
+    }
+  }
   ${({
     containsIcon,
     theme: {
-      semantic: { border, spacing, color },
+      semantic: { border, spacing },
     },
   }) =>
     containsIcon &&
@@ -55,13 +58,6 @@ const StyledLink = styled.a<LinkProps>`
       padding: ${spacing.spacing2Xs};
       border-radius: ${border.radius.round};
       box-shadow: 0px 1px 3px 0px #33333333;
-      &:hover {
-        box-shadow: 0px 0px 0px 2px ${color.border.brandHover};
-      }
-      &:active {
-        color: ${color.content.knockout};
-        background-color: ${color.content.brand};
-      }
     }
     `}
 `;
