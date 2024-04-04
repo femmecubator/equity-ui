@@ -23,7 +23,7 @@ const StyledTabItem = styled.div<Omit<TabItemProps, 'label'>>`
     padding-bottom: 9px;
     padding-top: 9px;
     padding-left: 16px;
-    padding-right: 16px;
+    padding-right: 16px;;
     gap: 10px;
     font-weight: ${
       isActive === true ? '600' : `${theme.typography.body.default.fontWeight}`
@@ -59,8 +59,8 @@ export interface TabGroupProps
 
 function TabGroupRoot({ children, className, ...props }: TabGroupProps) {
   return (
-    <div>
-      <div>{children(props)}</div>
+    <div data-testid="tab-group-container">
+      <div role="tablist">{children(props)}</div>
       <div className={className}>
         {props.tabItems.find((item) => item.isActive)?.children}
       </div>
