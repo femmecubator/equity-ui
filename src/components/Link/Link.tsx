@@ -34,11 +34,11 @@ const StyledLink = styled.a<LinkProps>`
         ? theme.semantic.color.bg.disabled
         : theme.semantic.color.bg.default}
     &:hover {
-      border: 
+      box-shadow: 
         ${({ disabled, theme }) =>
           disabled
             ? theme.semantic.color.border.disabled
-            : `2px solid #81B7F2`};
+            : `0px 0px 0px 0px 2px green`};
     }
     &:active {
       color: ${({ disabled, theme }) =>
@@ -63,9 +63,14 @@ const StyledLink = styled.a<LinkProps>`
     align-items: center;
     gap: ${spacing.spacing2Xs};
     > svg {
+      align-items: center;
+      display: flex;
       padding: ${spacing.spacing2Xs};
       border-radius: ${border.radius.round};
       box-shadow: 0px 1px 3px 0px #33333333;
+      &:hover {
+        box-shadow: 0px 0px 0px 2px #81B7F2;
+      }
     }
     `}
 `;
