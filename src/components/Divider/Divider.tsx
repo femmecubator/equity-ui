@@ -8,7 +8,7 @@ const StyledDivider = styled.div`
 `;
 
 const Divider = (props: React.HTMLAttributes<HTMLElement>) => {
-  return <StyledDivider {...props} />;
+  return <StyledDivider role="separator" {...props} />;
 };
 
 export default Divider;
