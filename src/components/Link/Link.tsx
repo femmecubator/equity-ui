@@ -7,23 +7,23 @@ const StyledLink = styled.a<LinkProps>`
   font-weight: 700;
   line-height: 20px;
   text-decoration-line: underline;
-  cursor: pointer;
-  color: #026fe4;
-  ${({
-    theme: {
-      semantic: { color, spacing },
-    },
-  }) =>
-    `
-        padding: ${spacing.spacing2Xs}
-        color: ${color.content.link};
-        &:hover {
-            color: ${color.content.linkHover};
-        };
-        &:active {
-            color: ${color.content.linkStrong};
-        }
-    `}
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  color: ${({ disabled, theme }) =>
+    disabled
+      ? theme.semantic.color.content.disabled
+      : theme.semantic.color.content.link};
+  &:hover {
+    color: ${({ disabled, theme }) =>
+      disabled
+        ? theme.semantic.color.content.disabled
+        : theme.semantic.color.content.linkHover};
+  }
+  &:active {
+    color: ${({ disabled, theme }) =>
+      disabled
+        ? theme.semantic.color.content.disabled
+        : theme.semantic.color.content.linkStrong};
+  }
   ${({
     disabled,
     theme: {
@@ -32,20 +32,15 @@ const StyledLink = styled.a<LinkProps>`
   }) =>
     disabled &&
     `
+      > svg {
         color: ${color.content.disabled};
-        cursor: not-allowed;
+        background-color: ${color.bg.disabled}
         &:hover {
-            color: ${color.content.disabled}
+          box-shadow: none;
         }
-        > svg {
-          color: ${color.content.disabled};
-          background-color: ${color.bg.disabled}
-          &:hover {
-            box-shadow: none;
-          }
-        }
+      }
     `}
-    ${({
+  ${({
     containsIcon,
     theme: {
       semantic: { border, spacing, color },
