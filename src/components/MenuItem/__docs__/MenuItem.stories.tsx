@@ -7,7 +7,7 @@ import { EquityTheme } from '../../../theme';
 type IconColor = keyof EquityTheme['semantic']['color']['content'];
 
 const menuItemArgs = {
-  text: 'MenuItem',
+  text: 'Menu Item',
   iconName: 'link' as IconName,
   iconSize: 'small' as DefaultIconSizes,
   iconColor: 'default' as IconColor,

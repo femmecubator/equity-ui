@@ -51,6 +51,15 @@ const IconWrapper = styled.div<IconWrapperProps>`
   min-width: ${({ size }) => (size === 'large' ? '24px' : '18px')};
 `;
 
+const StyledText = styled.span<{ hasIcon: boolean }>`
+  margin-left: ${({ hasIcon }) => (hasIcon ? '8px' : '0')};
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  textoverflow: ellipsis;
+`;
+
 export interface MenuItemProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -80,18 +89,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
           <Icon name={iconName} size={iconSize} color={iconColor} />
         </IconWrapper>
       )}
-      <span
-        style={{
-          marginLeft: !noIcon && iconName ? '8px' : '0',
-          flex: 1,
-          minWidth: 0,
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-        }}
-      >
-        {text}
-      </span>
+      <StyledText hasIcon={!noIcon && !!iconName}>{text}</StyledText>
     </StyledButton>
   );
 };
