@@ -22,26 +22,23 @@ const StyledButton = styled.button<{ disabled?: boolean }>`
       align-items: flex-start;
       border-radius: ${radius4};
       color: ${disabled ? gray60 : gray90};
-      /* body/small */
+
       font-family: Montserrat;
       font-size: 14px;
       font-weight: 400;
       line-height: 22px; /* 157.143% */
-      
-      /* Hover state */
+
       &:hover {
         background-color: transparent; 
         color: ${disabled ? gray30 : blue50};
       }
-      
-      /* Focus state */
+
       &:focus {
         color: ${disabled ? gray30 : gray90};
         outline: ${disabled ? 'none' : `1px solid ${gray90}`};
         padding-right: 95px;
       }
       
-      /* Disabled state */
       &:disabled {
         cursor: not-allowed;
       }
