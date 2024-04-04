@@ -1,6 +1,6 @@
 {
   "name": "@femmecubator/equity-ui",
-  "version": "1.15.1",
+  "version": "1.16.0",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -80,7 +80,7 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-dts": "^3.6.4",
-    "vitest": "^1.1.0"
+    "vitest": "^1.1.3"
   },
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
