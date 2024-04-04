@@ -1,13 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { screen, render } from '@testing-library/react';
-import { ThemeProvider } from '@emotion/react';
-import React from 'react';
+import { screen } from '@testing-library/react';
 import Divider from '.';
-import { theme } from '../../theme';
-
-const contextRender = (ui: React.ReactElement) => {
-  return render(<ThemeProvider theme={theme}>{ui}</ThemeProvider>);
-};
+import contextRender from '../../shared/utils/contextRender';
 
 describe('Divider component', () => {
   it('should render correctly', () => {

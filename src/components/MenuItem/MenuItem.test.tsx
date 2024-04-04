@@ -1,24 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
-import {
-  screen,
-  render,
-  fireEvent,
-  RenderOptions,
-} from '@testing-library/react';
-import { ThemeProvider } from '@emotion/react';
-import React from 'react';
+import { screen, fireEvent } from '@testing-library/react';
 import MenuItem from '.';
-import { theme } from '../../theme';
-
-const contextRender = (
-  ui: React.ReactElement,
-  renderOptions: RenderOptions = {}
-) => {
-  return render(
-    <ThemeProvider theme={theme}>{ui}</ThemeProvider>,
-    renderOptions
-  );
-};
+import contextRender from '../../shared/utils/contextRender';
 
 describe('MenuItem component', () => {
   it('should render correctly', () => {
