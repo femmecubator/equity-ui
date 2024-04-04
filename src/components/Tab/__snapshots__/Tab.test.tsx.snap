@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tab component > matches snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding-top: 15px;
+}
+
+<div
+    data-testid="tab-group-container"
+  >
+    <div
+      role="tablist"
+    >
+      <div
+        role="tab"
+      >
+        one
+      </div>
+      <div
+        role="tab"
+      >
+        two
+      </div>
+      <div
+        role="tab"
+      >
+        three
+      </div>
+    </div>
+    <div
+      class="emotion-0 emotion-1"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -28,7 +28,6 @@ describe('Tab component', () => {
         }
       </TabGroup>
     );
-
     const tabGroupContainer = screen.getByTestId('tab-group-container');
     expect(tabGroupContainer).toBeInTheDocument();
 
@@ -41,5 +40,32 @@ describe('Tab component', () => {
     expect(tabLabels[0]).toHaveTextContent('one');
     expect(tabLabels[1]).toHaveTextContent('two');
     expect(tabLabels[2]).toHaveTextContent('three');
+  });
+
+  it('matches snapshot', () => {
+    const tabItems: TabItemProps[] = [
+      { tabItemId: 1, label: 'one', isActive: true },
+      { tabItemId: 2, label: 'two', isActive: false },
+      { tabItemId: 3, label: 'three', isActive: false },
+    ];
+
+    const handleChange = () => {};
+
+    const { asFragment } = contextRender(
+      <TabGroup tabItems={tabItems} onChange={handleChange}>
+        {({ tabItems, onChange }) =>
+          tabItems.map((tabItem) => (
+            <div
+              role="tab"
+              key={tabItem.tabItemId}
+              onClick={() => onChange(tabItem.tabItemId)}
+            >
+              {tabItem.label}
+            </div>
+          ))
+        }
+      </TabGroup>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 });
