@@ -75,18 +75,10 @@ const MenuItem: React.FC<MenuItemProps> = ({
   iconColor = 'default',
   disabled = false,
   noIcon = false,
-  onMouseEnter = () => console.log('hover'),
-  onFocus = () => console.log('focus'),
   ...props
 }) => {
   return (
-    <StyledButton
-      disabled={disabled}
-      role="menuitem"
-      onMouseEnter={onMouseEnter}
-      onFocus={onFocus}
-      {...props}
-    >
+    <StyledButton disabled={disabled} role="menuitem" {...props}>
       {!noIcon && iconName && (
         <IconWrapper size={iconSize}>
           <Icon name={iconName} size={iconSize} color={iconColor} />
