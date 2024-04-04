@@ -1497,7 +1497,7 @@ packages:
       assert: 2.1.0
       buffer: 6.0.3
       events: 3.3.0
-      memfs: 4.8.0
+      memfs: 4.8.1
       path: 0.12.7
       process: 0.11.10
       stream: 0.0.2
@@ -3944,7 +3944,7 @@ packages:
       expr-eval-fork: 2.0.2
       is-mergeable-object: 1.1.1
       postcss-calc-ast-parser: 0.1.4
-      style-dictionary: 4.0.0-prerelease.19
+      style-dictionary: 4.0.0-prerelease.23
     dev: true
 
   /@tokens-studio/types@0.4.0:
@@ -7995,8 +7995,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /memfs@4.8.0:
-    resolution: {integrity: sha512-fcs7trFxZlOMadmTw5nyfOwS3il9pr3y+6xzLfXNwmuR/D0i4wz6rJURxArAbcJDGalbpbMvQ/IFI0NojRZgRg==}
+  /memfs@4.8.1:
+    resolution: {integrity: sha512-7q/AdPzf2WpwPlPL4v1kE2KsJsHl7EF4+hAeVzlyanr2+YnR21NVn9mDqo+7DEaKDRsQy8nvxPlKH4WqMtiO0w==}
     engines: {node: '>= 4.0.0'}
     dependencies:
       tslib: 2.6.2
@@ -9788,8 +9788,8 @@ packages:
       tinycolor2: 1.6.0
     dev: true
 
-  /style-dictionary@4.0.0-prerelease.19:
-    resolution: {integrity: sha512-eFvDT6B3p+y31pMDVm2SDYbxA1L5eeorsPYLyUSUuzcsexU7njxUnw1jJuCxAImhoNhJ6PtqQ7KoAwCm01zwHA==}
+  /style-dictionary@4.0.0-prerelease.23:
+    resolution: {integrity: sha512-rhsdFsAk0ieKHBU/AMxKbObvb4pH4+nIOn3bwh8mqV2dWphsZpj7p6z+et5PvRa0Bi8y6+qU5aDWrSFPDyYBPw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     requiresBuild: true
