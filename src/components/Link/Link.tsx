@@ -25,12 +25,20 @@ const StyledLink = styled.a<LinkProps>`
         : theme.semantic.color.content.linkStrong};
   }
   > svg {
+    color: ${({ disabled, theme }) =>
+      disabled
+        ? theme.semantic.color.content.disabled
+        : theme.semantic.color.content.default};
+    background-color: ${({ disabled, theme }) =>
+      disabled
+        ? theme.semantic.color.bg.disabled
+        : theme.semantic.color.bg.default}
     &:hover {
-      box-shadow: 0px 0px 0px 2px
+      border: 
         ${({ disabled, theme }) =>
           disabled
             ? theme.semantic.color.border.disabled
-            : theme.semantic.color.border.brandHover};
+            : `2px solid #81B7F2`};
     }
     &:active {
       color: ${({ disabled, theme }) =>
@@ -39,7 +47,7 @@ const StyledLink = styled.a<LinkProps>`
           : theme.semantic.color.content.knockout};
       background-color: ${({ disabled, theme }) =>
         disabled
-          ? theme.semantic.color.content.disabled
+          ? theme.semantic.color.bg.default
           : theme.semantic.color.content.brand};
     }
   }

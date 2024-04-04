@@ -22,7 +22,7 @@ export const Basic = {
 
 export const WithIcon = (args) => (
   <Link {...args} containsIcon>
-    Link text here
+    Label
     <Icon name="share" size="small" />
   </Link>
 );
