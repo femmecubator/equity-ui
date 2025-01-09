@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import checkmark from './checkmark.svg';
+import Label from '../Label';
 
 const StyledCheckbox = styled.input<CheckboxProps>`
   -moz-appearance: none;
@@ -45,33 +46,21 @@ const StyledCheckbox = styled.input<CheckboxProps>`
   }};
 `;
 
-type CheckboxProps = Omit<
+export type CheckboxProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   'type'
-> & { error?: boolean; status: 'error' | 'disabled' | 'focus' };
+> & { error?: boolean; label?: string };
 
-export const Checkbox = (props: CheckboxProps) => {
-  // if there is a label render with label
-  // if there is a color needed show with that color
-  // is there a fallback>?
-  // size option
-  //
-  console.log({ props });
+const Checkbox = (props: CheckboxProps) => {
   return (
     <>
       <StyledCheckbox type="checkbox" {...props} />
+
+      {props.label && <Label input={props.label} />}
     </>
   );
 };
 
-// To create docs?
-// Checkbox.prototype = {
-//   label: 'label for Checkbox',
-//   //   PropTypes.string,
-//   backgroundColor: 'some variants of color',
-//   //   PropTypes.string,
-//   // size: PropTypes.oneOf(["sizes"]),
-//   //   onClick: PropTypes.func,
-// };
+// labeled checkbox should be its own component??
 
 export default Checkbox;
