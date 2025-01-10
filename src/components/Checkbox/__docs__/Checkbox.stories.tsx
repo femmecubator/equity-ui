@@ -27,5 +27,5 @@ export default meta;
 export const Basic = (args) => <Checkbox {...args} />;
 
 export const LabeledCheckbox = (args) => (
-  <Checkbox id={' Example Label for Checkbox'} {...args} />
+  <Checkbox label={' Example Label for Checkbox'} {...args} />
 );

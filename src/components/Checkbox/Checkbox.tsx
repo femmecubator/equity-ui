@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import checkmark from './checkmark.svg';
 import Label from '../Label';
+import { CheckboxGroup } from './CheckboxGroup';
 
 const StyledCheckbox = styled.input<CheckboxProps>`
   -moz-appearance: none;
@@ -51,16 +52,16 @@ export type CheckboxProps = Omit<
   'type'
 > & { error?: boolean; label?: string };
 
-const Checkbox = (props: CheckboxProps) => {
+export const Checkbox = (props: CheckboxProps) => {
+  if (!props.label) {
+    return <StyledCheckbox type="checkbox" {...props} />;
+  }
   return (
-    <>
+    <CheckboxGroup>
       <StyledCheckbox type="checkbox" {...props} />
-
-      {props.label && <Label input={props.label} />}
-    </>
+      <Label input={props.label} />
+    </CheckboxGroup>
   );
 };
-
-// labeled checkbox should be its own component??
 
 export default Checkbox;
