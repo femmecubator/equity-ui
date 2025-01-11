@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 const StyledLabel = styled.label<LabelProps>`
+  display: flex;
+  align-items: center;
   ${({
     theme: {
       semantic: {
