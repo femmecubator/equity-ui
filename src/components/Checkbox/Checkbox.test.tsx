@@ -1,5 +1,4 @@
 import { describe, it, test } from 'vitest';
-// import { screen } from '@testing-library/react';
 import Checkbox from '.';
 import contextRender from '../../shared/utils/contextRender';
 import { CheckboxProps } from './Checkbox';

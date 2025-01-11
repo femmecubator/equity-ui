@@ -18,9 +18,11 @@ const StyledCheckbox = styled.input<CheckboxProps>`
       border: `2px solid ${theme.semantic.color.border.default}`,
       borderRadius: theme.semantic.border.radius.small,
 
-      ...(!!error ? {
-        border: `2px solid ${theme.semantic.color.border.error}`,
-      } : undefined),
+      ...(error
+        ? {
+            border: `2px solid ${theme.semantic.color.border.error}`,
+          }
+        : undefined),
 
       '&:checked': {
         background: theme.semantic.color.bg.brand,
