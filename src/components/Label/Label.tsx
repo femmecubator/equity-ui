@@ -1,14 +1,49 @@
 import styled from '@emotion/styled';
 
-const StyledLabel = styled.label<LabelProps>``;
+const StyledLabel = styled.label<LabelProps>`
+  ${({
+    theme: {
+      semantic: {
+        color: { content },
+      },
+    },
+    error,
+    disabled,
+    checked,
+  }) => {
+    // const { semantic } = theme;
+    // const { color } = semantic;
+    // const { content } = color;
+    return {
+      ...(error
+        ? {
+            color: content.errorIcon,
+          }
+        : null),
+
+      ...(checked
+        ? {
+            color: content.default,
+          }
+        : null),
+
+      ...(disabled
+        ? {
+            color: content.disabled,
+          }
+        : null),
+    };
+  }};
+`;
 
 type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
-  input?: string;
+  error?: boolean;
+  disabled?: boolean;
+  checked?: boolean;
 };
 
-const Label = (props: LabelProps) => {
-  console.log(`From Label${props}`);
-  return <StyledLabel htmlFor={props.htmlFor}>{props.input}</StyledLabel>;
+const Label = ({ children, ...rest }: LabelProps) => {
+  return <StyledLabel {...rest}>{children}</StyledLabel>;
 };
 
 export default Label;

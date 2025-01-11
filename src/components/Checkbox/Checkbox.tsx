@@ -61,7 +61,15 @@ export const Checkbox = (props: CheckboxProps) => {
   return (
     <CheckboxGroup>
       <StyledCheckbox type="checkbox" {...props} />
-      <Label input={props.label} />
+
+      <Label
+        htmlFor={props.id}
+        error={props.error}
+        disabled={props.disabled}
+        checked={props.disabled}
+      >
+        {props.label}
+      </Label>
     </CheckboxGroup>
   );
 };

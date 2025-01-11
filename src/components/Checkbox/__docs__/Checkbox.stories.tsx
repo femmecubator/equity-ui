@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 
-import { Checkbox } from '../Checkbox';
+import { Checkbox, CheckboxProps } from '../Checkbox';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Checkbox',
@@ -24,8 +24,10 @@ const meta: Meta<typeof Checkbox> = {
 
 export default meta;
 
-export const Basic = (args) => <Checkbox {...args} />;
+export const Basic = (args: CheckboxProps) => <Checkbox {...args} />;
 
-export const LabeledCheckbox = (args) => (
-  <Checkbox label={' Example Label for Checkbox'} {...args} />
+export const LabeledCheckbox = (args: CheckboxProps) => (
+  <div style={{ border: 'solid 2px pink' }}>
+    <Checkbox label={'Label Selected'} id="example" {...args} />
+  </div>
 );
