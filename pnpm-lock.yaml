@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@femmecubator/equity-ui':
-        specifier: ^1.15.0
-        version: 1.15.0(@emotion/react@11.11.3(@types/react@18.2.47)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.47)(react@18.2.0))(@types/react@18.2.47)(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -1200,14 +1197,6 @@ packages:
 
   '@fal-works/esbuild-plugin-global-externals@2.1.2':
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
-
-  '@femmecubator/equity-ui@1.15.0':
-    resolution: {integrity: sha512-0TUzXmsSMARfGH5cYV44VuegR/w652VOfBw3HRNORx89gPOve9EEH/N9k3uJBF0Nv5y/nSzIn5PdAqO0zHDNaQ==}
-    peerDependencies:
-      '@emotion/react': ^11.11.1
-      '@emotion/styled': ^11.11.0
-      react: ^18.2.0
-      react-dom: ^18.2.0
 
   '@floating-ui/core@1.5.3':
     resolution: {integrity: sha512-O0WKDOo0yhJuugCx6trZQj5jVJ9yR0ystG2JaNAemYUWce+pmM6WUEFIibnWyEJKdrDxhm75NoSRME35FNaM/Q==}
@@ -6755,15 +6744,6 @@ snapshots:
   '@eslint/js@8.56.0': {}
 
   '@fal-works/esbuild-plugin-global-externals@2.1.2': {}
-
-  '@femmecubator/equity-ui@1.15.0(@emotion/react@11.11.3(@types/react@18.2.47)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.47)(react@18.2.0))(@types/react@18.2.47)(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@emotion/react': 11.11.3(@types/react@18.2.47)(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.3(@types/react@18.2.47)(react@18.2.0))(@types/react@18.2.47)(react@18.2.0)
-      lodash-es: 4.17.21
-      polished: 4.3.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
 
   '@floating-ui/core@1.5.3':
     dependencies:

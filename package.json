@@ -92,7 +92,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@femmecubator/equity-ui": "^1.15.0",
     "lodash-es": "^4.17.21",
     "polished": "^4.3.1"
   }
