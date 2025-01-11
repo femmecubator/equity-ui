@@ -13,9 +13,6 @@ const StyledLabel = styled.label<LabelProps>`
     disabled,
     checked,
   }) => {
-    // const { semantic } = theme;
-    // const { color } = semantic;
-    // const { content } = color;
     return {
       ...(error
         ? {
