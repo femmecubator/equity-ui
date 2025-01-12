@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import styled from '@emotion/styled';
-import { ReactNode } from 'react';
 
 const StyledLink = styled.a<LinkProps>`
   display: inline-block;
@@ -75,15 +75,14 @@ const StyledLink = styled.a<LinkProps>`
     `}
 `;
 
-export type LinkProps = {
-  children: ReactNode;
+export type LinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
   disabled?: boolean;
   containsIcon?: boolean;
 };
 
-export default function Link({ disabled, children, containsIcon }: LinkProps) {
+export default function Link({ children, containsIcon, ...props }: LinkProps) {
   return (
-    <StyledLink disabled={disabled} containsIcon={containsIcon}>
+    <StyledLink {...props} containsIcon={containsIcon}>
       {children}
     </StyledLink>
   );
