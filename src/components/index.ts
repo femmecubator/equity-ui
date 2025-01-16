@@ -5,3 +5,4 @@ export * from './SectionTitle';
 export * from './MenuItem';
 export * from './Divider';
 export * from './Popover';
+export * from './Badge';
