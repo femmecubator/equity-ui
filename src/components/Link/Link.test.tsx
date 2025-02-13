@@ -4,8 +4,7 @@ import { Link } from './';
 import contextRender from '../../shared/utils/contextRender';
 import { LinkProps } from './Link';
 import { theme } from '../../theme';
-
-const SAMPLE_TEXT = 'Femmecubator';
+import { SAMPLE_TEXT, TEST_EXTERNAL_LINK } from './mocks';
 
 describe('Link Component', () => {
   const renderComponent = ({ children, ...props }: LinkProps) => {
@@ -14,7 +13,7 @@ describe('Link Component', () => {
 
   it('should render', () => {
     const { getByRole } = renderComponent({
-      href: 'https://www.femmecubator.com/',
+      href: TEST_EXTERNAL_LINK,
       children: SAMPLE_TEXT,
     });
     const linkComponent = getByRole('link');
@@ -23,7 +22,7 @@ describe('Link Component', () => {
 
   it('should render with children', () => {
     const { getByText } = renderComponent({
-      href: 'https://www.femmecubator.com/',
+      href: TEST_EXTERNAL_LINK,
       children: SAMPLE_TEXT,
     });
     const linkComponent = getByText(SAMPLE_TEXT);
@@ -33,7 +32,7 @@ describe('Link Component', () => {
   it('should render disabled', () => {
     const { getByRole } = renderComponent({
       disabled: true,
-      href: 'https://www.femmecubator.com/',
+      href: TEST_EXTERNAL_LINK,
       children: SAMPLE_TEXT,
     });
     const linkComponent = getByRole('link');
