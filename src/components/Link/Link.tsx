@@ -8,25 +8,31 @@ const StyledLink = styled('a')<LinkProps>`
   align-items: center;
   line-height: 20px;
   ${({ disabled, theme, icon }) => {
+    console.log('icon', icon, disabled);
     return {
       fontWeight: theme.typography.link.default.fontWeight,
       cursor: 'pointer',
       color: theme.semantic.color.content.link,
       textDecorationLine: icon ? 'none' : 'underline',
+
       '&:hover': {
         color: theme.semantic.color.content.linkHover,
+        '>svg': {
+          color: theme.semantic.color.content.linkHover,
+        },
       },
       '&:active': {
         color: theme.semantic.color.content.linkStrong,
+        '>svg': {
+          color: theme.semantic.color.content.linkStrong,
+        },
       },
       '&:visited': {
         color: theme.semantic.color.content.linkHover,
+        svg: {
+          color: theme.semantic.color.content.linkHover,
+        },
       },
-      ...(icon
-        ? {
-            border: 'solid 2px pink',
-          }
-        : undefined),
 
       ...(disabled
         ? {
@@ -37,23 +43,34 @@ const StyledLink = styled('a')<LinkProps>`
             '&:hover': {
               color: theme.semantic.color.content.disabled,
             },
+            '&:visited': {
+              color: theme.semantic.color.content.disabled,
+            },
           }
         : undefined),
+
+      svg: {
+        marginLeft: '4px',
+        ...(disabled && { color: theme.semantic.color.content.disabled }),
+      },
     };
   }};
 `;
 
 export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   disabled?: boolean;
-  icon?: IconName | '';
+  icon?: IconName | undefined;
 };
 
-const Link = ({ children, icon = '', ...props }: LinkProps) => {
-  ({ ...props });
+const Link = ({ children, ...rest }: LinkProps) => {
   return (
-    <StyledLink {...props}>
-      {children}
-      {icon && <Icon name={icon} />}
+    <StyledLink {...rest}>
+      <span>{children}</span>
+      {rest.icon && (
+        <span style={{ display: 'flex' }}>
+          <Icon name={rest.icon} />
+        </span>
+      )}
     </StyledLink>
   );
 };
