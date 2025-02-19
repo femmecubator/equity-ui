@@ -54,7 +54,7 @@ describe('Checkbox Component', () => {
 
     expect(checkbox).toHaveStyle({
       background: theme.semantic.color.bg.brand,
-      borderColor: theme.semantic.color.border.default,
+      borderColor: theme.semantic.color.border.brand,
     });
   });
 });

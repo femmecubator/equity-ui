@@ -26,10 +26,10 @@ const StyledCheckbox = styled.input<CheckboxProps>`
 
       '&:checked': {
         background: theme.semantic.color.bg.brand,
-        borderColor: theme.semantic.color.border.default,
+        borderColor: theme.semantic.color.border.brand,
         '&:after': {
           content: "''",
-          background: 'white',
+          background: theme.semantic.color.content.knockout,
           '-webkit-mask': `url(${checkmark})`,
           maskRepeat: 'no-repeat',
           maskPosition: 'center',
@@ -50,6 +50,10 @@ const StyledCheckbox = styled.input<CheckboxProps>`
   }};
 `;
 
+const StyledSpan = styled.span`
+  margin-left: 4px;
+`;
+
 export type CheckboxProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   'type' | 'role'
@@ -66,7 +70,7 @@ export const Checkbox = (props: CheckboxProps) => {
       checked={props.disabled}
     >
       <StyledCheckbox role="checkbox" type="checkbox" {...props} />
-      {props.label}
+      <StyledSpan>{props.label}</StyledSpan>
     </Label>
   );
 };
