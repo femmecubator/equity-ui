@@ -16,7 +16,8 @@ export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
 };
 
 const PRIMARY = 'primary';
-// TODO Anh replace hard-coded vars with design tokens when available
+
+// Button styled with CSS variables from our theme system
 const StyledButton = styled.button<ButtonProps>`
   position: relative;
   border: none;
@@ -27,46 +28,47 @@ const StyledButton = styled.button<ButtonProps>`
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
-  ${({
-    variant,
-    theme: {
-      semantic: { border, spacing, color },
-    },
-  }) =>
-    ` 
-      border-radius: ${border.radius.pill}; 
-      padding: ${spacing.spacingXs} ${spacing.spacingL};
-      background-color: ${
-        variant === PRIMARY ? color.bg.brand : color.bg.transparent
-      };
-      color: ${variant === PRIMARY ? color.bg.transparent : color.bg.active};
-      box-shadow: ${variant === PRIMARY ? 'none' : '0px 1px 3px 0px #33333333'};
-      &:hover {
-        background-color:${
-          variant === PRIMARY ? color.bg.brandStrong : color.bg.transparent
-        } ;
-        box-shadow: ${variant === PRIMARY ? 'none' : '0px 0px 0px 2px #81B7F2'};
-      }
-      &:active {
-        background-color: ${color.bg.brand};
-      }
-      :active::before,
-      :focus::before, {
-        opacity: 1;
-      }
-      &::before {
-        opacity: 0;
-        position: absolute;
-        transition: opacity 0.2s ease-in-out;
-        content: '';
-        width: calc(100% - ${spacing.spacing3Xs});
-        height: calc(100% - ${spacing.spacing3Xs});
-        border: 2px solid ${color.bg.active};
-        border-radius: ${border.radius.pill};
-        left: 0;
-        top: 0;
-      }
-`}
+  border-radius: 999px; /* pill radius */
+  padding: 12px 24px; /* xs and lg spacing */
+  
+  /* Use theme variables */
+  background-color: ${({ variant }) => 
+    variant === PRIMARY ? 'var(--primary-color)' : 'transparent'};
+  color: ${({ variant }) => 
+    variant === PRIMARY ? '#FFFFFF' : 'var(--text-color)'};
+  box-shadow: ${({ variant }) => 
+    variant === PRIMARY ? 'none' : '0px 1px 3px 0px #33333333'};
+  
+  &:hover {
+    background-color: ${({ variant }) => 
+      variant === PRIMARY ? 'var(--primary-strong)' : 'transparent'};
+    box-shadow: ${({ variant }) => 
+      variant === PRIMARY ? 'none' : '0px 0px 0px 2px #81B7F2'};
+  }
+  
+  &:active {
+    background-color: var(--primary-color);
+  }
+  
+  :active::before,
+  :focus::before {
+    opacity: 1;
+  }
+  
+  &::before {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.2s ease-in-out;
+    content: '';
+    width: calc(100% - 4px); /* xxxs spacing */
+    height: calc(100% - 4px); /* xxxs spacing */
+    border: 2px solid var(--text-color);
+    border-radius: 999px; /* pill radius */
+    left: 0;
+    top: 0;
+  }
+
+  /* Disabled state */
   ${({ disabled }) =>
     disabled &&
     `
@@ -86,24 +88,20 @@ const StyledButton = styled.button<ButtonProps>`
         box-shadow: none;
       }
     `}
-  ${({
-    variant,
-    containsIcon,
-    theme: {
-      semantic: { spacing, color },
-    },
-  }) =>
+  
+  /* Icon button */
+  ${({ containsIcon }) =>
     containsIcon &&
     `
       padding: 0px;
-      borderRadius: 50%;
-      height: ${spacing.spacingXl};
-      width: ${spacing.spacingXl};
+      border-radius: 50%;
+      height: 32px; /* xl spacing */
+      width: 32px; /* xl spacing */
       display: flex;
       align-items: center;
       justify-content: center;
       svg {
-        color: ${variant === PRIMARY ? color.bg.transparent : color.bg.active};
+        color: inherit;
       }
     `}
 `;
@@ -136,4 +134,5 @@ const Button: ForwardRefRenderFunction<
     </StyledButton>
   );
 };
+
 export default forwardRef(Button);

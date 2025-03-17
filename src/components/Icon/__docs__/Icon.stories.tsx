@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import Icon, { defaultIconSizes, DefaultIconSizes } from '../Icon';
 import { iconList } from '../../../icons/icon-constant';
-import { theme } from '../../../theme';
+import { ThemeProvider } from '../../Theme/ThemeProvider';
 
 const iconOptions = [...iconList].sort();
 const sizeOptions = Object.keys(defaultIconSizes);
@@ -28,16 +28,11 @@ Basic.argTypes = {
     control: { type: 'radio' },
   },
   color: {
-    options: Object.keys(theme.semantic.color.content),
+    options: ['light', 'dark'],
     control: { type: 'select' },
   },
 };
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
 
 const IconContainer = styled.div`
   display: flex;
@@ -56,7 +51,7 @@ const SizeOptionsContainer = styled.div`
 `;
 
 export const Labels = () => (
-  <Wrapper>
+  <ThemeProvider>
     {iconOptions.map((name) => (
       <IconContainer key={name}>
         <SizeOptionsContainer>
@@ -68,11 +63,11 @@ export const Labels = () => (
         <span>{name}</span>
       </IconContainer>
     ))}
-  </Wrapper>
+  </ThemeProvider>
 );
 
 export const NoLabels = () => (
-  <Wrapper>
+  <ThemeProvider>
     {iconOptions.map((name) => (
       <IconContainer key={name}>
         <SizeOptionsContainer>
@@ -83,5 +78,5 @@ export const NoLabels = () => (
         </SizeOptionsContainer>
       </IconContainer>
     ))}
-  </Wrapper>
+  </ThemeProvider>
 );
