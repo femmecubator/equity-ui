@@ -15,6 +15,25 @@
 - [Chromatic](https://www.chromatic.com/) for visual testing and Storybook deployment
 - [NPM](https://www.npmjs.com/) for packaging and distribution
 
+## Setting up your Env
+
+- Repo setup
+    - Git clone: equity-ui
+    Installing the type will be dependent on  whatever package manager your project repo is using Beagle is using PNPM
+    > If you haven’t installed PNPM now is the time: homeBrew Installation: https://formulae.brew.sh/formula/pnpm
+    - Install NPM `npm install @femmecubator/equity-ui`
+    - Complimentt with PNPM `pnpm add @femmecubator/equity-ui`
+ 
+- Push cmds
+  - [optional] Set up no push to origin master : `git push --no-push origin master`
+     > Currently: Prs made from forks will fail to build on the CI CD:  Forks don't have write access to the main repo, which might be required for certain CI steps
+  - Pull from original master repo
+  - Create a the feature branch `<initials>-<featureName>`
+  - set versions label `major minor` patch on your pr
+ 
+- Running the application
+  - Running and viewing the application to see the components `pnpm storybook`
+
 ## Install
 
 npm
