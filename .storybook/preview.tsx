@@ -5,15 +5,7 @@ import { ThemeProvider } from '../src/components/Theme/ThemeProvider';
 import './styles/theme.css';
 
 const preview: Preview = {
-    decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <Story />
-      </ThemeProvider>
-    ), [withTheme]
-  ],
-
-  // decorators: [withTheme],
+  decorators: [withTheme],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
