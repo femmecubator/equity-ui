@@ -1,0 +1,70 @@
+/* Light theme variables */
+.light-theme {
+  --background-color: #FFFFFF;
+  --text-color: #1A1A1A;
+  --border-color: #666666;
+  
+  /* Status colors */
+  --success-color: #2E7D32;
+  --error-color: #D32F2F;
+  --warning-color: #ED6C02;
+  --info-color: #0288D1;
+  
+  /* Brand colors */
+  --primary-color: #1976D2;
+  --primary-hover: #42A5F5;
+  --primary-light: #E3F2FD;
+  --primary-strong: #0D47A1;
+}
+
+/* Dark theme variables */
+.dark-theme {
+  --background-color: #1A1A1A;
+  --text-color: #FFFFFF;
+  --border-color: #666666;
+  
+  /* Status colors */
+  --success-color: #4CAF50;
+  --error-color: #F44336;
+  --warning-color: #FFA726;
+  --info-color: #29B6F6;
+  
+  /* Brand colors */
+  --primary-color: #2196F3;
+  --primary-hover: #1E88E5;
+  --primary-light: #1565C0;
+  --primary-strong: #90CAF9;
+}
+
+/* Apply theme to Storybook UI */
+.sb-show-main {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Style Storybook's preview iframe */
+#storybook-preview-iframe {
+  background-color: var(--background-color);
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Additional Storybook UI theming */
+.dark-theme .docs-story {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.dark-theme .sbdocs-wrapper {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Ensure code blocks are readable in both themes */
+.dark-theme .docblock-source {
+  background-color: #2A2A2A !important;
+}
+
+.light-theme .docblock-source {
+  background-color: #F8F8F8 !important;
+} 

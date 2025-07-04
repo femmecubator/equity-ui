@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button Component
+
+The Button component is designed to work with our theming system, adapting its appearance based on the current theme.
+
+## Features
+
+- Supports light and dark themes
+- Multiple variants (primary, secondary)
+- Icon-only mode
+- Disabled state
+- Responsive hover and focus states
+
+## Theme Integration
+
+The Button component uses CSS variables from our theme system:
+
+- `--primary-color`: Used for the primary button background
+- `--primary-strong`: Used for hover state on primary buttons
+- `--text-color`: Used for text in secondary buttons
+
+## Examples
+
+### Primary Button
+
+<Canvas of={ButtonStories.Primary} />
+
+### Secondary Button
+
+<Canvas of={ButtonStories.Secondary} />
+
+### Disabled Button
+
+<Canvas of={ButtonStories.Disabled} />
+
+### Icon Button
+
+<Canvas of={ButtonStories.WithIcon} />
+
+### All Variants
+
+<Canvas of={ButtonStories.AllVariants} />
+
+## Component API
+
+<Controls />
+
+## Theme Switching
+
+Try switching between light and dark themes using the theme toggle in the Storybook toolbar to see how the Button adapts to different themes. 
