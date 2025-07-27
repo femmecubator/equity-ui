@@ -50,7 +50,7 @@
     "@storybook/test": "^7.6.6",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
-    "@tokens-studio/sd-transforms": "^0.14.2",
+    "@tokens-studio/sd-transforms": "^2.0.1",
     "@types/node": "^18.0.0 || >=20.0.0",
     "@types/react": "^18.2.45",
     "@types/styled-components": "^5.1.34",
