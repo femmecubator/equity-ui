@@ -12,6 +12,7 @@
   "keywords": [],
   "author": "femmecubator",
   "license": "ISC",
+  "packageManager": "pnpm@8.15.0",
   "scripts": {
     "build-tokens": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./.style-dictionary/config.ts",
     "build": "pnpm clean & vite build",
