@@ -3,7 +3,7 @@
 // Any modifications made directly to this file will be
 // overwritten the next time StyleDictionary script runs.
 //
-// Last updated: 3/5/2024, 2:09:19AM
+// Last updated: 28/7/2025, 12:36:42 am
 // ---------------------------------------------------
 
 import { base } from './base';
