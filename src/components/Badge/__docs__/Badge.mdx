@@ -1,0 +1,49 @@
+import { Canvas, Meta, ArgTypes, Story } from '@storybook/blocks';
+import * as BadgeStories from './Badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+A versatile badge component for displaying status indicators with optional icons and different sizes.
+
+## Variants
+
+### Default
+<Canvas of={BadgeStories.Default} />
+
+### Status Variants
+<Canvas of={BadgeStories.StatusVariants} />
+
+### Size Variants
+<Canvas of={BadgeStories.SizeVariants} />
+
+### Icon Variants
+<Canvas of={BadgeStories.IconVariants} />
+
+## Usage
+
+```tsx
+import { Badge } from '@femmecubator/equity-ui';
+
+// Basic usage
+<Badge>Default Badge</Badge>
+
+// With status
+<Badge status="success">Completed</Badge>
+
+// With icon
+<Badge status="error" icon={true}>Failed</Badge>
+
+// Small size
+<Badge status="warning" size="small">Pending</Badge>
+
+// All props
+<Badge status="info" size="medium" icon={false}>
+  Information
+</Badge>
+```
+
+## Props
+
+<ArgTypes of={BadgeStories} exclude={['children']} />
