@@ -1,7 +1,7 @@
 import StyleDictionary, { Config } from 'style-dictionary';
 import * as Transformers from './transformers';
 import * as Formatters from './formatters';
-import { registerTransforms } from '@tokens-studio/sd-transforms';
+import { register } from '@tokens-studio/sd-transforms';
 type PredefinedTransformers = 'attribute/cti';
 type CustomTransformers =
   (typeof Transformers)[keyof typeof Transformers]['name'];
@@ -15,25 +15,20 @@ Object.values(Formatters).forEach((formatter) => {
   StyleDictionary.registerFormat(formatter);
 });
 
-registerTransforms(StyleDictionary, {
-  expand: {
-    composition: false,
-    typography: true,
-    border: false,
-    shadow: false,
-  },
+register(StyleDictionary, {
   excludeParentKeys: false,
+  withSDBuiltins: false,
 });
 
 const config: Config = {
   source: ['tokens/**/*.json'],
+  preprocessors: ['tokens-studio'],
   platforms: {
     ts: {
       transforms: [
         'attribute/cti',
         'name/camel',
         'fix/hexColor',
-        'px/number',
       ] satisfies Transformers[],
       buildPath: './tokens/',
       files: [
@@ -69,7 +64,7 @@ const config: Config = {
       files: [
         {
           destination: 'typography.ts',
-          format: 'json/nested',
+          format: 'typographyTokenFormatter',
           filter: (token) => {
             return (
               [
@@ -91,4 +86,5 @@ const config: Config = {
   },
 };
 
-StyleDictionary.extend(config).buildAllPlatforms();
+const sd = new StyleDictionary(config);
+await sd.buildAllPlatforms();

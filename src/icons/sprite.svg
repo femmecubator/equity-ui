@@ -238,5 +238,45 @@
         clip-rule="evenodd"
       ></path>
     </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="error-triangle">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m10.704 3.962 5.005 7.997A1.999 1.999 0 0 1 14 14.997L4 15a2 2 0 0 1-1.71-3.038l4.995-8a2 2 0 0 1 3.419 0M9 6a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0V7a1 1 0 0 0-1-1m0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="info-flag">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M6 11v4H5V4h8.5a.5.5 0 0 1 .407.79L12.1 7.5l1.829 2.744a.5.5 0 0 1-.43.756z"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="success-circle">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M9 16A7 7 0 1 1 9 2a7 7 0 0 1 0 14m1.94-9L8.5 9.44 7.06 8A.75.75 0 0 0 6 9.06l2.5 2.5 3.5-3.5A.75.75 0 1 0 10.94 7"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="warning-circle">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M11.707 2 16 6.293v5.414L11.707 16H6.293L2 11.707V6.293L6.293 2zM9 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-5a1 1 0 0 0-.993.883L8 6v2a1 1 0 0 0 1.993.117L10 8V6a1 1 0 0 0-1-1"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="info-flag">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M6 11v4H5V4h8.5a.5.5 0 0 1 .407.79L12.1 7.5l1.829 2.744a.5.5 0 0 1-.43.756z"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
   </defs>
 </svg>

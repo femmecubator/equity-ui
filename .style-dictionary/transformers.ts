@@ -4,19 +4,21 @@ export const hexColorTransform = {
   name: 'fix/hexColor',
   type: 'value',
   matcher: function (token) {
-    return token?.attributes?.item === 'color';
+    return token.type === 'color';
   },
-  transformer: function (token) {
+
+  transform: function (token) {
     if (token.value.length > 7) {
       return token.value.slice(0, -2);
     }
+    return token.value;
   },
 } as const;
 
 export const camelCaseTransform = {
   name: 'name/camel',
   type: 'name',
-  transformer: function (token) {
+  transform: function (token) {
     return camelCase(token.name);
   },
 } as const;
@@ -25,9 +27,15 @@ export const pxNumberTransform = {
   name: 'px/number',
   type: 'value',
   matcher: function (token) {
-    return typeof token.value === 'number';
+    const isNumber = typeof token.value === 'number';
+    const isSpacingOrBorder =
+      token.attributes?.item === 'spacing' ||
+      token.attributes?.item === 'border';
+    const notColor = token.type !== 'color';
+
+    return isNumber && isSpacingOrBorder && notColor;
   },
-  transformer: function (token) {
+  transform: function (token) {
     return `${token.value}px`;
   },
 } as const;

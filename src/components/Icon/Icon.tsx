@@ -32,7 +32,13 @@ const Icon = ({
   }, [color, theme.semantic?.color?.content]);
 
   return (
-    <svg width={actualSize} height={actualSize} color={actualColor} {...props}>
+    <svg
+      width={actualSize}
+      height={actualSize}
+      color={actualColor}
+      style={{ display: 'block', verticalAlign: 'middle' }}
+      {...props}
+    >
       <use href={`${spriteHref}#${name}`} />
     </svg>
   );
