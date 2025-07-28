@@ -24,6 +24,10 @@ export const iconList = [
   'wellness',
   'scheduler',
   'settings',
+  'error-triangle',
+  'success-circle',
+  'warning-circle',
+  'info-flag',
 ] as const;
 
 export type IconName = (typeof iconList)[number];
