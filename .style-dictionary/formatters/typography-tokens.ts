@@ -26,7 +26,7 @@ export const typographyTokenFormatter = {
             grouped[key] = {
               fontSize: originalValue.fontSize || 16,
               textDecoration: originalValue.textDecoration || 'none',
-              fontFamily: originalValue.fontFamily || 'Montserrat',
+              fontFamily: originalValue.fontFamily || 'Inter',
               fontWeight: originalValue.fontWeight || 400,
               fontStyle: originalValue.fontStyle || 'normal',
               fontStretch: originalValue.fontStretch || 'normal',
