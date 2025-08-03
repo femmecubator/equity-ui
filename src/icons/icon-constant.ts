@@ -28,6 +28,7 @@ export const iconList = [
   'success-circle',
   'warning-circle',
   'info-flag',
+  'info-circle',
 ] as const;
 
 export type IconName = (typeof iconList)[number];

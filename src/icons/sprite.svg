@@ -278,5 +278,13 @@
         clip-rule="evenodd"
       ></path>
     </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="info-circle">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M9 16A7 7 0 1 1 9 2a7 7 0 0 1 0 14m0-1A6 6 0 1 0 9 3a6 6 0 0 0 0 12M8 8h2v4l1 1H7l1-1V8.857H7zm1-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
   </defs>
 </svg>
