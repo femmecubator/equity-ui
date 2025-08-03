@@ -19,7 +19,7 @@ const Icon = ({
 }: SVGProps<SVGSVGElement> & {
   name: IconName;
   size?: DefaultIconSizes | number;
-  color?: keyof EquityTheme['semantic']['color']['content'];
+  color?: keyof EquityTheme['prima']['color']['content'];
 }) => {
   const theme = useTheme();
 
@@ -28,8 +28,8 @@ const Icon = ({
   }, [size]);
 
   const actualColor = useMemo(() => {
-    return theme.semantic?.color?.content[color] || color;
-  }, [color, theme.semantic?.color?.content]);
+    return theme.prima?.color?.content[color] || color;
+  }, [color, theme.prima?.color?.content]);
 
   return (
     <svg
