@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import checkmark from './icons/checkmark.svg';
-import indeterminate from './icons/indeterminate.svg';
-import asterisk from './icons/asterisk.svg';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography/Typography';
 import { useTheme } from '@emotion/react';
@@ -94,8 +91,20 @@ const StyledCheckbox = styled.input<CheckboxProps>`
           background: disabled
             ? theme.prima.color.content.disabled
             : theme.prima.color.content.knockout,
-          WebkitMask: `url(${checkmark})`,
-          mask: `url(${checkmark})`,
+          WebkitMask: error
+            ? `url("data:image/svg+xml,${encodeURIComponent(
+                '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-4.3 -4.75) scale(1)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 12.2L6.2 10L5 11.2L8.5 14.8L15 8.2L13.8 7L8.5 12.2Z" fill="white"/></g></svg>'
+              )}")`
+            : `url("data:image/svg+xml,${encodeURIComponent(
+                '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-4.2, -4.75) scale(1)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 12.2L6.2 10L5 11.2L8.5 14.8L15 8.2L13.8 7L8.5 12.2Z" fill="white"/></g></svg>'
+              )}")`,
+          mask: error
+            ? `url("data:image/svg+xml,${encodeURIComponent(
+                '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-4.3 -4.75) scale(1)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 12.2L6.2 10L5 11.2L8.5 14.8L15 8.2L13.8 7L8.5 12.2Z" fill="white"/></g></svg>'
+              )}")`
+            : `url("data:image/svg+xml,${encodeURIComponent(
+                '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-4.2 -4.75) scale(1)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 12.2L6.2 10L5 11.2L8.5 14.8L15 8.2L13.8 7L8.5 12.2Z" fill="white"/></g></svg>'
+              )}")`,
           maskRepeat: 'no-repeat',
           maskPosition: 'center',
           maskSize: '16px 16px',
@@ -131,8 +140,12 @@ const StyledCheckbox = styled.input<CheckboxProps>`
           background: disabled
             ? theme.prima.color.content.disabled
             : theme.prima.color.content.knockout,
-          WebkitMask: `url(${indeterminate})`,
-          mask: `url(${indeterminate})`,
+          WebkitMask: `url("data:image/svg+xml,${encodeURIComponent(
+            '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="8" height="2" fill="white"/></svg>'
+          )}")`,
+          mask: `url("data:image/svg+xml,${encodeURIComponent(
+            '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="8" height="2" fill="white"/></svg>'
+          )}")`,
           maskRepeat: 'no-repeat',
           maskPosition: 'center',
           maskSize: '12px 12px',
@@ -168,11 +181,15 @@ const RequiredIndicator = styled.div`
     width: 7px;
     height: 7px;
     background: ${({ theme }) => theme.prima.color.content['brand-02']};
-    mask: url(${asterisk});
+    mask: url('data:image/svg+xml,${encodeURIComponent(
+      '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
+    )}');
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
-    -webkit-mask: url(${asterisk});
+    -webkit-mask: url('data:image/svg+xml,${encodeURIComponent(
+      '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
+    )}');
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;

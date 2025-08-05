@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography/Typography';
-import asterisk from './icons/asterisk.svg';
 
 const GroupContainer = styled.div`
   display: flex;
@@ -23,7 +22,7 @@ const CheckboxesContainer = styled.div<{
 const GroupLabelContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 4px;
+  gap: 2px;
 `;
 
 const RequiredIndicator = styled.div`
@@ -35,11 +34,15 @@ const RequiredIndicator = styled.div`
     width: 7px;
     height: 7px;
     background: ${({ theme }) => theme.prima.color.content['brand-02']};
-    mask: url(${asterisk});
+    mask: url('data:image/svg+xml,${encodeURIComponent(
+      '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
+    )}');
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
-    -webkit-mask: url(${asterisk});
+    -webkit-mask: url('data:image/svg+xml,${encodeURIComponent(
+      '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
+    )}');
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;
@@ -144,7 +147,16 @@ export const CheckboxGroup = ({
             >
               {label}
             </Typography>
-            {required && <RequiredIndicator />}
+            <div
+              style={{
+                width: '7px',
+                height: '7px',
+                display: 'flex',
+                alignItems: 'flex-start',
+              }}
+            >
+              {required && <RequiredIndicator />}
+            </div>
             {info && (
               <InfoIconContainer>
                 <Icon name="info-circle" size={18} color="brand-02" />
