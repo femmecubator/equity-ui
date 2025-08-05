@@ -10,15 +10,19 @@ A versatile badge component for displaying status indicators with optional icons
 ## Variants
 
 ### Default
+
 <Canvas of={BadgeStories.Default} />
 
 ### Status Variants
+
 <Canvas of={BadgeStories.StatusVariants} />
 
 ### Size Variants
+
 <Canvas of={BadgeStories.SizeVariants} />
 
 ### Icon Variants
+
 <Canvas of={BadgeStories.IconVariants} />
 
 ## Usage
@@ -46,4 +50,51 @@ import { Badge } from '@femmecubator/equity-ui';
 
 ## Props
 
-<ArgTypes of={BadgeStories} exclude={['children']} />
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>status</code>
+      </td>
+      <td>The status variant that determines color scheme</td>
+      <td>
+        <code>'error' | 'success' | 'warning' | 'info'</code>
+      </td>
+      <td>
+        <code>'info'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>size</code>
+      </td>
+      <td>Size variant of the badge</td>
+      <td>
+        <code>'small' | 'medium'</code>
+      </td>
+      <td>
+        <code>'medium'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>Whether to display a status icon</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+  </tbody>
+</table>

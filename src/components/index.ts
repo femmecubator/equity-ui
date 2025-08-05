@@ -7,3 +7,4 @@ export * from './MenuItem';
 export * from './Divider';
 export * from './Popover';
 export * from './Checkbox';
+export * from './Radio';

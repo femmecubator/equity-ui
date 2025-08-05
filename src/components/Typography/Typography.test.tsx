@@ -9,25 +9,85 @@ describe('Typography Component', () => {
   };
 
   it('renders with default variant and content', () => {
-    const { getByText } = renderComponent({ children: 'Hello, World!' });
-
-    expect(getByText('Hello, World!')).toBeInTheDocument();
-  });
-
-  it('renders with specified variant and color', () => {
     const { getByText } = renderComponent({
-      variant: 'h2',
-      color: 'blue',
-      children: 'Heading 2',
+      variant: 'body',
+      size: 2,
+      children: 'Hello world!',
     });
 
-    const typographyElement = getByText('Heading 2');
+    expect(getByText('Hello world!')).toBeInTheDocument();
+  });
+
+  it('renders display variant with different sizes', () => {
+    const { getByText } = renderComponent({
+      variant: 'display',
+      size: 1,
+      children: 'Display Text',
+    });
+
+    const typographyElement = getByText('Display Text');
     expect(typographyElement).toBeInTheDocument();
-    expect(typographyElement).toHaveStyle({ color: '#0000FF' });
+  });
+
+  it('renders headline variant with different sizes', () => {
+    const { getByText } = renderComponent({
+      variant: 'headline',
+      size: 3,
+      children: 'Headline Text',
+    });
+
+    const typographyElement = getByText('Headline Text');
+    expect(typographyElement).toBeInTheDocument();
+  });
+
+  it('renders label variant with different sizes', () => {
+    const { getByText } = renderComponent({
+      variant: 'label',
+      size: 2,
+      children: 'Label Text',
+    });
+
+    const typographyElement = getByText('Label Text');
+    expect(typographyElement).toBeInTheDocument();
+  });
+
+  it('renders body variant with different sizes', () => {
+    const { getByText } = renderComponent({
+      variant: 'body',
+      size: 1,
+      children: 'Body Text',
+    });
+
+    const typographyElement = getByText('Body Text');
+    expect(typographyElement).toBeInTheDocument();
+  });
+
+  it('renders meta variant with different sizes', () => {
+    const { getByText } = renderComponent({
+      variant: 'meta',
+      size: 1,
+      children: 'Meta Text',
+    });
+
+    const typographyElement = getByText('Meta Text');
+    expect(typographyElement).toBeInTheDocument();
+  });
+
+  it('renders link variant with different sizes', () => {
+    const { getByText } = renderComponent({
+      variant: 'link',
+      size: 2,
+      children: 'Link Text',
+    });
+
+    const typographyElement = getByText('Link Text');
+    expect(typographyElement).toBeInTheDocument();
   });
 
   it('applies custom styles via css prop', () => {
     const { getByText } = renderComponent({
+      variant: 'body',
+      size: 2,
       css: { fontSize: '20px' },
       children: 'Custom Style',
     });

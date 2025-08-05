@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { useTheme } from '@emotion/react';
 import { Icon } from '../Icon';
 import type { IconName } from '../../icons/icon-constant';
+import { Typography } from '../Typography/Typography';
 
 export type BadgeProps = {
   children: ReactNode;
@@ -31,26 +32,6 @@ const StyledBadge = styled.div<BadgeProps>`
   border-radius: 2px;
   white-space: nowrap;
 
-  /* Typography */
-  font-family: 'Roboto Flex';
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  span {
-    font-family: inherit;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-    text-transform: inherit;
-    color: inherit;
-  }
-
   /* Fix SVG overflow at bottom side */
   svg {
     margin-bottom: 0.5px;
@@ -75,14 +56,24 @@ const StyledBadge = styled.div<BadgeProps>`
   }) => {
     const isSmall = size === 'small';
 
-    // Size-specific styling with conditional vertical padding based on icon presence
+    // Size-specific styling - different padding based on icon presence
     const sizeStyles = isSmall
-      ? `
-        padding: ${icon ? '0px' : '3px'} 6px;
-        gap: 4px;
+      ? icon
+        ? `
+          padding: 0px 6px;
+          gap: 4px;
+        `
+        : `
+          padding: 3px 6px;
+          gap: 4px;
+        `
+      : icon
+        ? `
+        padding: 3px 12px;
+        gap: 6px;
       `
-      : `
-        padding: ${icon ? '3px' : '6px'} 12px;
+        : `
+        padding: 6px 12px;
         gap: 6px;
       `;
 
@@ -142,7 +133,9 @@ export default function Badge({
           style={{ color: getIconColor() }}
         />
       )}
-      {icon ? <span>{children}</span> : <>{children}</>}
+      <Typography variant="meta" size={3} css={{ margin: 0 }}>
+        {children}
+      </Typography>
     </StyledBadge>
   );
 }

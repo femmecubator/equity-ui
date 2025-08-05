@@ -1,10 +1,17 @@
 // SHared types go here
 
 import { Theme, CSSObject } from '@emotion/react';
-import { ComponentPropsWithoutRef, CSSProperties } from 'react';
-import { variantMapping } from '../constants';
+import { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
 
-export type TypographyVariant = keyof typeof variantMapping;
+export type TypographyVariant =
+  | 'display'
+  | 'headline'
+  | 'label'
+  | 'body'
+  | 'meta'
+  | 'link';
+
+export type TypographySize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export type TransformValToUnit = {
   fontSize: number;
@@ -22,8 +29,9 @@ export type TransformValToUnit = {
 
 export type TypographyProps = ComponentPropsWithoutRef<'p'> & {
   variant?: TypographyVariant;
+  size?: TypographySize;
   theme?: Theme;
   color?: CSSProperties['color'];
   css?: CSSObject;
-  children?: string;
+  children?: ReactNode;
 };

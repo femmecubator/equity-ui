@@ -1,151 +1,88 @@
 import styled from '@emotion/styled';
-import { variantMapping } from '../../shared/constants';
+import {
+  variantElementMapping,
+  typographySizeMapping,
+} from '../../shared/constants';
 import { TypographyProps } from '../../shared/types';
 import { transformValueToUnit } from '../../shared/utils';
 import { linkVariantAdditionalState } from '../../shared/utils';
 
 const StyledTypography = styled.div<TypographyProps>((props) => {
-  const { variant, theme, color: colorOverride } = props;
+  const { variant = 'body', size = 2, theme, color: colorOverride } = props;
   const { typography } = theme;
+
+  // Get the design tokens from prima-semantic
+  const tokens = typography['prima-semantic'] as any;
+
+  // Default color
   let color = theme.semantic.color.content.default;
 
-  if (variant && ['link1', 'link2', 'link3'].includes(variant)) {
+  // Set color for link variants
+  if (variant === 'link') {
     color = theme.semantic.color.content.link;
   }
 
+  // Override with custom color if provided
   if (colorOverride) {
     color = colorOverride;
   }
 
-  switch (variant) {
-    case 'h1':
-      return {
-        ...typography.heading.h1,
-        ...transformValueToUnit(typography.heading.h1),
-        color,
-      };
-    case 'h2':
-      return {
-        ...typography.heading.h2,
-        ...transformValueToUnit(typography.heading.h2),
-        color,
-      };
-    case 'h3':
-      return {
-        ...typography.heading.h3,
-        ...transformValueToUnit(typography.heading.h3),
-        color,
-      };
-    case 'h4':
-      return {
-        ...typography.heading.h4,
-        ...transformValueToUnit(typography.heading.h4),
-        color,
-      };
-    case 'h5':
-      return {
-        ...typography.heading.h5,
-        ...transformValueToUnit(typography.heading.h5),
-        color,
-      };
-    case 'h6':
-      return {
-        ...typography.heading.h6,
-        ...transformValueToUnit(typography.heading.h6),
-        color,
-      };
-    case 'body1':
-      return {
-        ...typography.body.large,
-        ...transformValueToUnit(typography.body.large),
-        color,
-      };
-    case 'body3':
-      return {
-        ...typography.body.small,
-        ...transformValueToUnit(typography.body.small),
-        color,
-      };
-    case 'title1':
-      return {
-        ...typography.title.large,
-        ...transformValueToUnit(typography.title.large),
-        color,
-      };
-    case 'title2':
-      return {
-        ...typography.title.default,
-        ...transformValueToUnit(typography.title.default),
-        color,
-      };
-    case 'title3':
-      return {
-        ...typography.title.small,
-        ...transformValueToUnit(typography.title.small),
-        color,
-      };
-    case 'label1':
-      return {
-        ...typography.label.large,
-        ...transformValueToUnit(typography.label.large),
-        color,
-      };
-    case 'label2':
-      return {
-        ...typography.label.default,
-        ...transformValueToUnit(typography.label.default),
-        color,
-      };
-    case 'label3':
-      return {
-        ...typography.label.small,
-        ...transformValueToUnit(typography.label.small),
-        color,
-      };
-    case 'link1':
-      return {
-        ...typography.link.large,
-        ...transformValueToUnit(typography.link.large),
-        color,
-        ...linkVariantAdditionalState(theme),
-      };
-    case 'link2':
-      return {
-        ...typography.link.default,
-        ...transformValueToUnit(typography.link.default),
-        color,
-        ...linkVariantAdditionalState(theme),
-      };
-    case 'link3':
-      return {
-        ...typography.link.small,
-        ...transformValueToUnit(typography.link.small),
-        color,
-        ...linkVariantAdditionalState(theme),
-      };
-    case 'body2':
-    default:
-      return {
-        ...typography.body.default,
-        ...transformValueToUnit(typography.body.default),
-        color,
-      };
+  // Get the token path for this variant + size combination
+  const tokenPath = typographySizeMapping[variant][size];
+
+  // Map API variant to token variant (headline -> heading)
+  const tokenVariant = variant === 'headline' ? 'heading' : variant;
+
+  if (!tokenPath || !tokens[tokenVariant] || !tokens[tokenVariant][tokenPath]) {
+    console.warn(
+      `Typography: Invalid variant "${variant}" with size "${size}"`
+    );
+    // Fallback to body default
+    const fallbackToken = tokens.body.default;
+    return {
+      ...fallbackToken,
+      ...transformValueToUnit(fallbackToken),
+      color,
+    };
   }
+
+  const selectedToken = tokens[tokenVariant][tokenPath];
+
+  const baseStyles = {
+    ...selectedToken,
+    ...transformValueToUnit(selectedToken),
+    color,
+  };
+
+  // Add link-specific styles
+  if (variant === 'link') {
+    return {
+      ...baseStyles,
+      ...linkVariantAdditionalState(theme),
+    };
+  }
+
+  return baseStyles;
 });
 
 const Typography = ({
   children,
   color,
-  variant = 'body2',
+  variant = 'body',
+  size = 2,
   css,
   ...props
 }: TypographyProps) => {
+  // Get the appropriate HTML element for this variant
+  const elementType = variantElementMapping[variant];
+
   return (
     <StyledTypography
       color={color}
       variant={variant}
+      size={size}
       css={css}
-      as={variantMapping[variant]}
+      as={elementType as any}
       {...props}
     >
       {children}

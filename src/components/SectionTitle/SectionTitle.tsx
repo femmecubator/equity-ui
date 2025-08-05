@@ -1,35 +1,16 @@
 import React, { HTMLAttributes } from 'react';
-import styled from '@emotion/styled';
+import { Typography } from '../Typography/Typography';
 
 type SectionTitleProps = HTMLAttributes<HTMLElement> & {
   children: React.ReactNode;
 };
 
-const StyledSectionTitle = styled.h2`
-  ${({
-    theme: {
-      typography: {
-        title: {
-          small: { fontWeight, fontSize, lineHeight, fontFamily },
-        },
-      },
-      semantic: {
-        color: {
-          content: { default: defaultColor },
-        },
-      },
-    },
-  }) => `
-    font-weight: ${fontWeight};
-    font-size: ${fontSize}px;
-    line-height: ${lineHeight}px;
-    color: ${defaultColor};
-    font-family: ${fontFamily};
-  `}
-`;
-
 const SectionTitle = ({ children, ...props }: SectionTitleProps) => {
-  return <StyledSectionTitle {...props}>{children}</StyledSectionTitle>;
+  return (
+    <Typography variant="headline" size={3} css={{ margin: 0 }} {...props}>
+      {children}
+    </Typography>
+  );
 };
 
 export default SectionTitle;

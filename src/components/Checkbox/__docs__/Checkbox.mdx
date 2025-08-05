@@ -1,0 +1,338 @@
+import { Canvas, Meta, ArgTypes, Story } from '@storybook/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+A versatile checkbox component with support for labels, states, and group functionality using compound component pattern.
+
+## Variants
+
+### Default
+
+<Canvas of={CheckboxStories.Default} />
+
+### State Variants
+
+<Canvas of={CheckboxStories.Variants} />
+
+### With Labels
+
+<Canvas of={CheckboxStories.WithLabels} />
+
+### Group Functionality
+
+<Canvas of={CheckboxStories.Groups} />
+
+## Usage
+
+```tsx
+import { Checkbox } from '@femmecubator/equity-ui';
+
+// Basic usage
+<Checkbox />
+
+// With label
+<Checkbox label="Accept terms" />
+
+// With label and info
+<Checkbox label="Subscribe to newsletter" info />
+
+// Required checkbox
+<Checkbox label="I agree" required />
+
+// Disabled state
+<Checkbox label="Disabled option" disabled />
+
+// Error state
+<Checkbox label="Has error" error />
+
+// Indeterminate state
+<Checkbox indeterminate />
+
+// Group usage
+// Vertical group
+<Checkbox.Group
+  label="Select options"
+  value={selectedValues}
+  onChange={setSelectedValues}
+  orientation="vertical"
+>
+  <Checkbox value="option1" label="Option 1" />
+  <Checkbox value="option2" label="Option 2" />
+  <Checkbox value="option3" label="Option 3" />
+</Checkbox.Group>
+
+// Horizontal group
+<Checkbox.Group
+  label="Categories"
+  value={categories}
+  onChange={setCategories}
+  orientation="horizontal"
+>
+  <Checkbox value="tech" label="Technology" />
+  <Checkbox value="design" label="Design" />
+  <Checkbox value="business" label="Business" />
+</Checkbox.Group>
+```
+
+## Props
+
+### Checkbox Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>Label text displayed next to the checkbox</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>checked</code>
+      </td>
+      <td>Controlled checked state</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>defaultChecked</code>
+      </td>
+      <td>Default checked state for uncontrolled usage</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>Callback fired when checkbox state changes</td>
+      <td>
+        <code>(checked: boolean) => void</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>Value used in group context</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether the checkbox is disabled</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>error</code>
+      </td>
+      <td>Whether the checkbox has an error state</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>Whether the checkbox is required (shows asterisk)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>info</code>
+      </td>
+      <td>Whether to show info icon next to label</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>indeterminate</code>
+      </td>
+      <td>Whether the checkbox is in indeterminate state</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Checkbox.Group Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>Label for the checkbox group</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>Array of selected checkbox values (controlled)</td>
+      <td>
+        <code>string[]</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>defaultValue</code>
+      </td>
+      <td>Default selected values (uncontrolled)</td>
+      <td>
+        <code>string[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>Callback fired when group selection changes</td>
+      <td>
+        <code>(checkedValues: string[]) => void</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>orientation</code>
+      </td>
+      <td>Layout orientation of the checkbox group</td>
+      <td>
+        <code>'vertical' | 'horizontal'</code>
+      </td>
+      <td>
+        <code>'vertical'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether all checkboxes in the group are disabled</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>error</code>
+      </td>
+      <td>Whether the group has an error state</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>Whether the group is required (shows asterisk)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>info</code>
+      </td>
+      <td>Whether to show info icon next to group label</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -127,10 +127,10 @@ export const AllCombinations: Story = {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: 'repeat(4, minmax(0, max-content))',
         gap: '16px',
         padding: '20px',
-        maxWidth: '800px',
+        justifyContent: 'center',
       }}
     >
       {/* Medium size without icons */}
@@ -145,7 +145,14 @@ export const AllCombinations: Story = {
         >
           Medium
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            alignItems: 'center',
+          }}
+        >
           <Badge status="info" size="medium" icon={false}>
             Info
           </Badge>
@@ -173,7 +180,14 @@ export const AllCombinations: Story = {
         >
           Medium + Icons
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            alignItems: 'center',
+          }}
+        >
           <Badge status="info" size="medium" icon={true}>
             Info
           </Badge>
@@ -201,7 +215,14 @@ export const AllCombinations: Story = {
         >
           Small
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            alignItems: 'center',
+          }}
+        >
           <Badge status="info" size="small" icon={false}>
             Info
           </Badge>
@@ -229,7 +250,14 @@ export const AllCombinations: Story = {
         >
           Small + Icons
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            alignItems: 'center',
+          }}
+        >
           <Badge status="info" size="small" icon={true}>
             Info
           </Badge>

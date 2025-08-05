@@ -1,0 +1,111 @@
+import { Canvas, Meta, ArgTypes, Story } from '@storybook/blocks';
+import * as TypographyStories from './Typography.stories';
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+A flexible typography component that provides consistent text styling with a variant + size API pattern.
+
+## Variants
+
+### Default
+
+<Canvas of={TypographyStories.Default} />
+
+### Display Variants
+
+<Canvas of={TypographyStories.DisplayVariants} />
+
+### Headline Variants
+
+<Canvas of={TypographyStories.HeadlineVariants} />
+
+### Label Variants
+
+<Canvas of={TypographyStories.LabelVariants} />
+
+### Body Variants
+
+<Canvas of={TypographyStories.BodyVariants} />
+
+### Meta Variants
+
+<Canvas of={TypographyStories.MetaVariants} />
+
+### Link Variants
+
+<Canvas of={TypographyStories.LinkVariants} />
+
+## Usage
+
+```tsx
+import { Typography } from '@femmecubator/equity-ui';
+
+// Basic usage
+<Typography variant="body" size={2}>Default Body Text</Typography>
+
+// Display text
+<Typography variant="display" size={1}>Large Display</Typography>
+
+// Headlines
+<Typography variant="headline" size={1}>Main Heading</Typography>
+
+// Labels
+<Typography variant="label" size={2}>Form Label</Typography>
+
+// Meta text
+<Typography variant="meta" size={1}>META TEXT</Typography>
+
+// Links
+<Typography variant="link" size={2}>Click Here</Typography>
+
+// With custom color
+<Typography variant="body" size={2} color="#ff0000">
+  Custom Color Text
+</Typography>
+
+// With custom CSS
+<Typography variant="body" size={2} css={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+  Bold and Underlined Text
+</Typography>
+```
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{textAlign: 'left'}}>Name</th>
+      <th style={{textAlign: 'left'}}>Description</th>
+      <th style={{textAlign: 'left'}}>Values</th>
+      <th style={{textAlign: 'left'}}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>variant</code></td>
+      <td>The type of text styling to apply</td>
+      <td><code>'display' | 'headline' | 'label' | 'body' | 'meta' | 'link'</code></td>
+      <td><code>'body'</code></td>
+    </tr>
+    <tr>
+      <td><code>size</code></td>
+      <td>The size variant within each typography type (display: 1-6, headline: 1-8, others: 1-4)</td>
+      <td><code>1 | 2 | 3 | 4 | 5 | 6 | 7 | 8</code></td>
+      <td><code>2</code></td>
+    </tr>
+    <tr>
+      <td><code>color</code></td>
+      <td>Custom color override (e.g., "#ff0000", "rgb(255, 0, 0)", "red")</td>
+      <td><code>string</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>css</code></td>
+      <td>Custom CSS object (e.g., `{ fontWeight: 'bold', textDecoration: 'underline' }`)</td>
+      <td><code>CSSObject</code></td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>

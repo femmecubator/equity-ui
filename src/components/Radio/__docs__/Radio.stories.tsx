@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Checkbox as CheckboxComponent, CheckboxProps } from '../Checkbox';
+import { Radio as RadioComponent, RadioProps } from '../index';
 
-const meta: Meta<typeof CheckboxComponent> = {
-  title: 'Components/Checkbox',
-  component: CheckboxComponent,
+const meta: Meta<typeof RadioComponent> = {
+  title: 'Components/Radio',
+  component: RadioComponent,
   argTypes: {
     disabled: {
       control: { type: 'boolean' },
@@ -19,27 +19,27 @@ const meta: Meta<typeof CheckboxComponent> = {
     info: {
       control: { type: 'boolean' },
     },
-    indeterminate: {
-      control: { type: 'boolean' },
-    },
-    defaultChecked: {
+    checked: {
       control: { type: 'boolean' },
     },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof CheckboxComponent>;
+type Story = StoryObj<typeof RadioComponent>;
 
 // 1. Default
 export const Default: Story = {
-  args: {},
+  args: {
+    name: 'default-radio',
+    value: 'default',
+  },
   parameters: {
     controls: { disable: true },
   },
 };
 
-// 2. Normal variants (selected, disabled, error, indeterminate)
+// 2. Normal variants (selected, disabled, error)
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
@@ -51,7 +51,7 @@ export const Variants: Story = {
           alignItems: 'center',
         }}
       >
-        <CheckboxComponent />
+        <RadioComponent name="variants-default" value="default" />
         <span style={{ fontSize: '12px' }}>Default</span>
       </div>
       <div
@@ -62,7 +62,12 @@ export const Variants: Story = {
           alignItems: 'center',
         }}
       >
-        <CheckboxComponent disabled />
+        <RadioComponent
+          name="variants-disabled"
+          value="disabled"
+          disabled
+          defaultChecked={true}
+        />
         <span style={{ fontSize: '12px' }}>Disabled</span>
       </div>
       <div
@@ -73,19 +78,8 @@ export const Variants: Story = {
           alignItems: 'center',
         }}
       >
-        <CheckboxComponent error />
+        <RadioComponent name="variants-error" value="error" error />
         <span style={{ fontSize: '12px' }}>Error</span>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px',
-          alignItems: 'center',
-        }}
-      >
-        <CheckboxComponent indeterminate />
-        <span style={{ fontSize: '12px' }}>Indeterminate</span>
       </div>
     </div>
   ),
@@ -98,10 +92,30 @@ export const Variants: Story = {
 export const WithLabels: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <CheckboxComponent label="Default Label" />
-      <CheckboxComponent label="Label with Info" info />
-      <CheckboxComponent label="Label with Required" required />
-      <CheckboxComponent label="Label with Info + Required" info required />
+      <RadioComponent
+        name="labels-default"
+        value="default"
+        label="Default Label"
+      />
+      <RadioComponent
+        name="labels-info"
+        value="info"
+        label="Label with Info"
+        info
+      />
+      <RadioComponent
+        name="labels-required"
+        value="required"
+        label="Label with Required"
+        required
+      />
+      <RadioComponent
+        name="labels-both"
+        value="both"
+        label="Label with Info + Required"
+        info
+        required
+      />
     </div>
   ),
   parameters: {
@@ -112,43 +126,42 @@ export const WithLabels: Story = {
 // 4. Group types
 export const Groups: Story = {
   render: () => {
-    const [verticalValue, setVerticalValue] = React.useState<string[]>([
-      'option1',
-    ]);
-    const [horizontalValue, setHorizontalValue] = React.useState<string[]>([
-      'option1',
-    ]);
+    const [verticalValue, setVerticalValue] = React.useState<string>('option1');
+    const [horizontalValue, setHorizontalValue] =
+      React.useState<string>('option1');
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
         <div>
           <h4>Vertical Group</h4>
-          <CheckboxComponent.Group
+          <RadioComponent.Group
             label="Label"
+            name="vertical-group"
             value={verticalValue}
             onChange={setVerticalValue}
             orientation="vertical"
           >
-            <CheckboxComponent value="option1" label="Option 1" />
-            <CheckboxComponent value="option2" label="Option 2" />
-            <CheckboxComponent value="option3" label="Option 3" />
-            <CheckboxComponent value="option4" label="Option 4" />
-          </CheckboxComponent.Group>
+            <RadioComponent value="option1" label="Option 1" />
+            <RadioComponent value="option2" label="Option 2" />
+            <RadioComponent value="option3" label="Option 3" />
+            <RadioComponent value="option4" label="Option 4" />
+          </RadioComponent.Group>
         </div>
 
         <div>
           <h4>Horizontal Group</h4>
-          <CheckboxComponent.Group
+          <RadioComponent.Group
             label="Label"
+            name="horizontal-group"
             value={horizontalValue}
             onChange={setHorizontalValue}
             orientation="horizontal"
           >
-            <CheckboxComponent value="option1" label="Option 1" />
-            <CheckboxComponent value="option2" label="Option 2" />
-            <CheckboxComponent value="option3" label="Option 3" />
-            <CheckboxComponent value="option4" label="Option 4" />
-          </CheckboxComponent.Group>
+            <RadioComponent value="option1" label="Option 1" />
+            <RadioComponent value="option2" label="Option 2" />
+            <RadioComponent value="option3" label="Option 3" />
+            <RadioComponent value="option4" label="Option 4" />
+          </RadioComponent.Group>
         </div>
       </div>
     );
@@ -161,13 +174,13 @@ export const Groups: Story = {
 // 5. Playground
 export const Playground: Story = {
   args: {
+    name: 'playground-radio',
+    value: 'playground',
     label: 'Option 1',
-    defaultChecked: true,
     checked: true,
     required: false,
     info: false,
     disabled: false,
     error: false,
-    indeterminate: false,
   },
 };
