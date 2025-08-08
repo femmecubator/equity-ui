@@ -1,0 +1,169 @@
+import { Canvas, Meta, ArgTypes, Story } from '@storybook/blocks';
+import * as TagStories from './Tag.stories';
+
+<Meta of={TagStories} />
+
+# Tag
+
+A versatile tag component for displaying labels, categories, or metadata in a compact format.
+
+## Variants
+
+### Default
+
+<Canvas of={TagStories.Default} />
+
+### Size Variants
+
+<Canvas of={TagStories.SizeVariants} />
+
+### Remove Button Variants
+
+<Canvas of={TagStories.RemoveButtonVariants} />
+
+### All Combinations
+
+<Canvas of={TagStories.AllCombinations} />
+
+## Usage
+
+```tsx
+import { Tag } from '@femmecubator/equity-ui';
+
+// Basic usage
+<Tag>Category</Tag>
+
+// Different sizes
+<Tag size="tiny">Tiny Tag</Tag>
+<Tag size="small">Small Tag</Tag>
+<Tag size="medium">Medium Tag</Tag>
+
+// Interactive tag
+<Tag onClick={() => console.log('clicked')}>
+  Clickable Tag
+</Tag>
+
+// Active state
+<Tag active>Active Tag</Tag>
+
+// Disabled state
+<Tag disabled>Disabled Tag</Tag>
+
+// With removable button
+<Tag
+  withRemovableButton
+  onRemove={() => console.log('removed')}
+>
+  Removable Tag
+</Tag>
+
+// Complete example
+<Tag
+  size="medium"
+  active
+  withRemovableButton
+  onClick={() => handleTagClick()}
+  onRemove={() => handleTagRemove()}
+>
+  Interactive Tag
+</Tag>
+```
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>children</code>
+      </td>
+      <td>The text content of the tag</td>
+      <td>
+        <code>React.ReactNode</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>size</code>
+      </td>
+      <td>Size variant of the tag</td>
+      <td>
+        <code>'tiny' | 'small' | 'medium'</code>
+      </td>
+      <td>
+        <code>'small'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>withRemovableButton</code>
+      </td>
+      <td>Whether to show a removable button with dismiss icon</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether the tag is disabled (non-interactive)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>active</code>
+      </td>
+      <td>Whether the tag is in active/selected state</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onClick</code>
+      </td>
+      <td>Callback when the tag is clicked (makes tag interactive)</td>
+      <td>
+        <code>() => void</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onRemove</code>
+      </td>
+      <td>Callback when the remove button is clicked</td>
+      <td>
+        <code>() => void</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
