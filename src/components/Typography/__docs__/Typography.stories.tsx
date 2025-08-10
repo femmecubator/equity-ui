@@ -4,7 +4,7 @@ import { Typography as TypographyComponent } from '../Typography';
 import type { TypographyProps } from '../../../shared/types';
 
 const meta: Meta<typeof TypographyComponent> = {
-  title: 'Components/Typography',
+  title: 'Foundations/Typography',
   component: TypographyComponent,
   parameters: {
     layout: 'centered',

@@ -5,6 +5,7 @@
 export const iconList = [
   'arrow-down',
   'close',
+  'dismiss',
   'arrow-left',
   'contacts',
   'assistant',

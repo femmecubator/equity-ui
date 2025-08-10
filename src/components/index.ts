@@ -8,3 +8,4 @@ export * from './Divider';
 export * from './Popover';
 export * from './Checkbox';
 export * from './Radio';
+export * from './Tag';
