@@ -81,7 +81,7 @@ const StyledTabButton = styled.button<{
   &::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: ${({ isInGroup }) => (isInGroup ? '0' : '-2px')};
     left: 0;
     right: 0;
     height: 2px;
