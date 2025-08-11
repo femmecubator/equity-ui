@@ -1,0 +1,279 @@
+import { Canvas, Meta, ArgTypes, Story } from '@storybook/blocks';
+import * as TabStories from './Tab.stories';
+
+<Meta of={TabStories} />
+
+# Tab
+
+A versatile tab component that supports both standalone and grouped usage with the compound component pattern. Tabs provide navigation between different sections of content.
+
+## Examples
+
+### Default
+
+<Canvas of={TabStories.Default} />
+
+### Variants
+
+<Canvas of={TabStories.Variants} />
+
+### Group Functionality
+
+<Canvas of={TabStories.Group} />
+
+## Usage
+
+```tsx
+import { Tab } from '@femmecubator/equity-ui';
+
+// Basic standalone tab
+<Tab value="tab1" label="Overview" isSelected={true}>
+  <div>
+    <h3>Overview</h3>
+    <p>This is the overview content.</p>
+  </div>
+</Tab>
+
+// Tab with icon
+<Tab
+  value="stats"
+  label="Statistics"
+  icon="statistics"
+  isSelected={true}
+>
+  <div>Statistics content here</div>
+</Tab>
+
+// Tab with className for CSS styling
+<Tab
+  value="classed"
+  label="CSS Class Tab"
+  className="my-custom-tab"
+  isSelected={true}
+>
+  <div>Tab styled with CSS classes</div>
+</Tab>
+
+// Interactive standalone tab
+<Tab
+  value="settings"
+  label="Settings"
+  icon="settings"
+  isSelected={isSelected}
+  onTabSelect={(value) => setSelectedTab(value)}
+>
+  <div>Settings configuration</div>
+</Tab>
+
+// Tab group (recommended for multiple tabs)
+<Tab.Group defaultValue="overview">
+  <Tab value="overview" label="Overview" icon="statistics">
+    <div>
+      <h3>Overview</h3>
+      <p>Dashboard overview with key metrics and insights.</p>
+    </div>
+  </Tab>
+  <Tab value="optimize" label="Optimize" icon="money">
+    <div>
+      <h3>Optimize</h3>
+      <p>Performance optimization settings and configurations.</p>
+    </div>
+  </Tab>
+  <Tab value="products" label="Products" icon="globe">
+    <div>
+      <h3>Products</h3>
+      <p>Product catalog and inventory management.</p>
+    </div>
+  </Tab>
+</Tab.Group>
+
+// Controlled Tab.Group
+<Tab.Group value={activeTab} onChange={setActiveTab}>
+  <Tab value="profile" label="Profile" icon="contacts">
+    <div>User profile information</div>
+  </Tab>
+  <Tab value="preferences" label="Preferences" icon="settings">
+    <div>User preferences and settings</div>
+  </Tab>
+</Tab.Group>
+
+// Tab.Group with className
+<Tab.Group
+  defaultValue="overview"
+  className="my-tab-group"
+>
+  <Tab value="overview" label="Overview">
+    <div>Overview content</div>
+  </Tab>
+  <Tab value="settings" label="Settings">
+    <div>Settings content</div>
+  </Tab>
+</Tab.Group>
+```
+
+## Props
+
+### Tab Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>Unique identifier for the tab</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>Text label displayed on the tab button</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>Optional icon to display next to the label</td>
+      <td>
+        <code>IconName</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>isSelected</code>
+      </td>
+      <td>Whether the tab is selected (for standalone usage)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onTabSelect</code>
+      </td>
+      <td>Callback when tab is clicked (for standalone usage)</td>
+      <td>
+        <code>(value: string) => void</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code>
+      </td>
+      <td>CSS class name for custom styling</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Tab.Group Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>defaultValue</code>
+      </td>
+      <td>Default selected tab value (uncontrolled)</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>Currently selected tab value (controlled)</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>Callback when tab selection changes (controlled)</td>
+      <td>
+        <code>(value: string) => void</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code>
+      </td>
+      <td>CSS class name for styling the tab group container</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Available Icons
+
+The Tab component supports these icons from the design system:
+
+- `statistics` - For analytics and data views
+- `money` - For financial and billing sections
+- `globe` - For global or network-related content
+- `article` - For documentation and articles
+- `complete` - For completed or success states
+- `help` - For help and support sections
+- `settings` - For configuration and preferences
+- `info-circle` - For informational content
+- `email` - For communication sections
+- `contacts` - For user profiles and contacts
