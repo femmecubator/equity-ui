@@ -47,8 +47,8 @@
     <symbol fill="none" viewBox="0 0 24 24" id="dismiss">
       <path
         fill="currentColor"
-        fill-rule="evenodd" 
-        clip-rule="evenodd" 
+        fill-rule="evenodd"
+        clip-rule="evenodd"
         d="M11.2524 12.6666L7.9999 9.4141C7.6094 9.0236 7.6094 8.3905 7.9999 7.9999C8.3905 7.6094 9.0236 7.6094 9.4141 7.9999L12.6666 11.2524L15.9191 7.9999C16.3096 7.6094 16.9427 7.6094 17.3332 7.9999C17.7238 8.3905 17.7238 9.0236 17.3332 9.4141L14.0808 12.6666L17.3332 15.9191C17.7238 16.3096 17.7238 16.9427 17.3332 17.3332C16.9427 17.7238 16.3096 17.7238 15.9191 17.3332L12.6666 14.0808L9.4141 17.3332C9.0236 17.7238 8.3905 17.7238 7.9999 17.3332C7.6094 16.9427 7.6094 16.3096 7.9999 15.9191L11.2524 12.6666Z"
       ></path>
     </symbol>
@@ -291,6 +291,44 @@
         fill="currentColor"
         fill-rule="evenodd"
         d="M9 16A7 7 0 1 1 9 2a7 7 0 0 1 0 14m0-1A6 6 0 1 0 9 3a6 6 0 0 0 0 12M8 8h2v4l1 1H7l1-1V8.857H7zm1-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="article">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M6 4h6a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1m0 1v9h6V5zm1 2h4v1H7zm0 2h4v1H7zm0 2h4v1H7z"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="complete">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M9 16A7 7 0 1 1 9 2a7 7 0 0 1 0 14m0-1A6 6 0 1 0 9 3a6 6 0 0 0 0 12m1.94-8A.75.75 0 0 1 12 8.06l-3.5 3.5L6 9.06A.75.75 0 0 1 7.06 8L8.5 9.44z"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="globe">
+      <path
+        fill="currentColor"
+        d="M9 16A7 7 0 1 1 9 2a7 7 0 0 1 0 14m6-7a6 6 0 0 0-.341-2h-1.825c.108.634.166 1.305.166 2s-.058 1.366-.166 2h1.825A6 6 0 0 0 15 9m-2.385 3c-.26.957-.64 1.794-1.106 2.452A6.03 6.03 0 0 0 14.197 12zm-7.45-1A12 12 0 0 1 5 9c0-.695.058-1.366.166-2H3.34A6 6 0 0 0 3 9c0 .701.12 1.374.341 2zm1.326 3.452c-.466-.658-.846-1.495-1.106-2.452H3.803a6.03 6.03 0 0 0 2.688 2.452M11.819 11c.116-.622.181-1.294.181-2a11 11 0 0 0-.181-2H6.18A11 11 0 0 0 6 9c0 .706.065 1.378.181 2zM9 15c1.016 0 2.026-1.188 2.576-3H6.424c.55 1.812 1.56 3 2.576 3m2.51-11.452c.465.658.845 1.495 1.105 2.452h1.582a6.03 6.03 0 0 0-2.688-2.452M5.384 6c.26-.957.64-1.794 1.106-2.452A6.03 6.03 0 0 0 3.803 6zm6.19 0C11.026 4.188 10.017 3 9 3S6.974 4.188 6.424 6z"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="money">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M8.5 1a7.5 7.5 0 1 1-7.35 9h1.024A6.5 6.5 0 1 0 8.5 2C5.796 2 3.717 3.651 2.796 6H5v1H1V3h1v2.3C3.127 2.758 5.503 1 8.5 1M6 10h1a1 1 0 0 0 1 1h1a1 1 0 1 0 0-2H8a2 2 0 1 1 0-4V4h1v1a2 2 0 0 1 2 2h-1a1 1 0 0 0-1-1H8a1 1 0 0 0 0 2h1a2 2 0 1 1 0 4v1H8v-1a2 2 0 0 1-2-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="statistics">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M3 15v-1h1v-4a1 1 0 0 1 1-1h2V8a1 1 0 0 1 1-1h2V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9h1v1zm8-10v9h2V5zM8 8v6h2V8zm-3 2v4h2v-4z"
         clip-rule="evenodd"
       ></path>
     </symbol>
