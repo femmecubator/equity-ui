@@ -332,5 +332,13 @@
         clip-rule="evenodd"
       ></path>
     </symbol>
+    <symbol fill="none" viewBox="0 0 24 24" id="add">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M12 12V6h-1v6H5v1h6v6h1v-6h6v-1z"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
   </defs>
 </svg>

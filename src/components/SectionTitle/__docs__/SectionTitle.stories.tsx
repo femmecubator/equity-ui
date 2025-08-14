@@ -4,7 +4,7 @@ import type { Meta } from '@storybook/react';
 import SectionTitle from '../SectionTitle';
 
 const meta: Meta<typeof SectionTitle> = {
-  title: 'SectionTitle',
+  title: 'Unsupported/SectionTitle',
   component: SectionTitle,
   argTypes: {
     children: {

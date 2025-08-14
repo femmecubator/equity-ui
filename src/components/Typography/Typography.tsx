@@ -54,6 +54,10 @@ const StyledTypography = styled.div<TypographyProps>((props) => {
     color,
   };
 
+  if (variant === 'meta') {
+    baseStyles.textTransform = 'uppercase';
+  }
+
   // Add link-specific styles
   if (variant === 'link') {
     return {

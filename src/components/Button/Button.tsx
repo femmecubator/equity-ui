@@ -6,106 +6,172 @@ import React, {
   HTMLAttributes,
 } from 'react';
 import styled from '@emotion/styled';
+import { Icon } from '../Icon';
+import { Typography } from '../Typography/Typography';
+import type { IconName } from '../../icons/icon-constant';
 
-export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
-  children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+export type ButtonProps = Omit<HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
+  children?: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  color?: 'purple' | 'blue';
+  shape?: 'square' | 'pill';
+  size?: 'medium' | 'small' | 'tiny';
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  containsIcon?: boolean;
+  iconStart?: IconName;
+  iconEnd?: IconName;
+  type?: 'button' | 'submit' | 'reset';
+  className?: string;
 };
 
-const PRIMARY = 'primary';
-// TODO Anh replace hard-coded vars with design tokens when available
-const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<{
+  variant: 'primary' | 'secondary' | 'tertiary';
+  color: 'purple' | 'blue';
+  shape: 'square' | 'pill';
+  size: 'medium' | 'small' | 'tiny';
+  disabled?: boolean;
+}>`
   position: relative;
   border: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   box-sizing: border-box;
   outline: none;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 22px;
   cursor: pointer;
-  ${({
-    variant,
-    theme: {
-      semantic: { border, spacing, color },
-    },
-  }) =>
-    ` 
-      border-radius: ${border.radius.pill}; 
-      padding: ${spacing.spacingXs} ${spacing.spacingL};
-      background-color: ${
-        variant === PRIMARY ? color.bg.brand : color.bg.transparent
-      };
-      color: ${variant === PRIMARY ? color.bg.transparent : color.bg.active};
-      box-shadow: ${variant === PRIMARY ? 'none' : '0px 1px 3px 0px #33333333'};
-      &:hover {
-        background-color:${
-          variant === PRIMARY ? color.bg.brandStrong : color.bg.transparent
-        } ;
-        box-shadow: ${variant === PRIMARY ? 'none' : '0px 0px 0px 2px #81B7F2'};
-      }
-      &:active {
-        background-color: ${color.bg.brand};
-      }
-      :active::before,
-      :focus::before, {
-        opacity: 1;
-      }
-      &::before {
-        opacity: 0;
-        position: absolute;
-        transition: opacity 0.2s ease-in-out;
-        content: '';
-        width: calc(100% - ${spacing.spacing3Xs});
-        height: calc(100% - ${spacing.spacing3Xs});
-        border: 2px solid ${color.bg.active};
-        border-radius: ${border.radius.pill};
-        left: 0;
-        top: 0;
-      }
-`}
-  ${({ disabled }) =>
-    disabled &&
-    `
-      background-color: #E0E0E0;
-      color: #9C9C9C;
-      cursor: not-allowed;
-      &::before {
-        opacity: 1;
-        position: absolute;
-        content: '';
-        width: calc(100% - 2px);
-        height: calc(100% - 2px);
-        border: 1px solid #9C9C9C;
-      }
-      &:hover {
-        background-color: #E0E0E0;
-        box-shadow: none;
-      }
-    `}
-  ${({
-    variant,
-    containsIcon,
-    theme: {
-      semantic: { spacing, color },
-    },
-  }) =>
-    containsIcon &&
-    `
-      padding: 0px;
-      borderRadius: 50%;
-      height: ${spacing.spacingXl};
-      width: ${spacing.spacingXl};
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      svg {
-        color: ${variant === PRIMARY ? color.bg.transparent : color.bg.active};
-      }
-    `}
+  transition: all 0.15s ease;
+
+  /* Size-based padding */
+  ${({ size }) => {
+    if (size === 'medium' || size === 'small') {
+      return 'padding: 6px 12px;';
+    }
+    if (size === 'tiny') {
+      return 'padding: 6px;';
+    }
+    return 'padding: 6px 12px;';
+  }}
+
+  /* Shape variants */
+  border-radius: ${({ shape, theme }) =>
+    shape === 'pill'
+      ? `${theme.prima.border.radius.button.round}px`
+      : `${theme.prima.border.radius.semantic.medium}px`};
+
+  /* Variant styles */
+  ${({ variant, color, theme }) => {
+    const colors = theme.prima.color;
+
+    const textColor = colors.content.knockout;
+
+    const brandColors = {
+      purple: {
+        strong: colors.bg['brand-01-strong'],
+        subtle: colors.bg['brand-01-subtle'],
+      },
+      blue: {
+        strong: colors.bg['brand-02-strong'],
+        subtle: colors.bg['brand-02-subtle'],
+      },
+    };
+
+    const currentBrand = brandColors[color];
+
+    if (variant === 'primary') {
+      return `
+        background-color: ${
+          color === 'purple' ? currentBrand.strong : currentBrand.subtle
+        };
+        color: ${textColor};
+        border: 1px solid ${
+          color === 'purple' ? currentBrand.strong : currentBrand.subtle
+        };
+        
+        &:hover:not(:disabled) {
+          background-color: ${
+            color === 'purple' ? currentBrand.subtle : currentBrand.strong
+          };
+          border-color: ${
+            color === 'purple' ? currentBrand.subtle : currentBrand.strong
+          };
+        }
+        
+        &:focus:not(:disabled) {
+          background-color: ${
+            color === 'purple' ? currentBrand.strong : currentBrand.subtle
+          };
+          border: 3px solid ${colors.border.focus};
+        }
+      `;
+    }
+
+    if (variant === 'secondary') {
+      const bgColor =
+        color === 'purple' ? currentBrand.strong : currentBrand.subtle;
+      return `
+        background-color: transparent;
+        color: ${bgColor};
+        border: 1px solid ${bgColor};
+        
+        &:hover:not(:disabled) {
+          background-color: transparent;
+          color: ${
+            color === 'purple'
+              ? colors.content['brand-01']
+              : colors.bg['brand-02-strong']
+          };
+          border-color: ${
+            color === 'purple'
+              ? colors.border['brand-01']
+              : colors.border['brand-02-strong']
+          };
+        }
+        
+        &:focus:not(:disabled) {
+          background-color: transparent;
+          border: 3px solid ${colors.border.focus};
+        }
+      `;
+    }
+
+    if (variant === 'tertiary') {
+      const textColor =
+        color === 'purple' ? currentBrand.strong : currentBrand.subtle;
+      return `
+        background-color: transparent;
+        color: ${textColor};
+        border: 1px solid transparent;
+        
+        &:hover:not(:disabled) {
+          background-color: transparent;
+          color: ${
+            color === 'purple'
+              ? colors.content['brand-01']
+              : colors.bg['brand-02-strong']
+          };
+        }
+        
+        &:focus:not(:disabled) {
+          background-color: transparent;
+          border: 3px solid ${colors.border.focus};
+        }
+      `;
+    }
+  }}
+
+  /* Disabled state */
+  &:disabled {
+    background-color: ${({ theme, variant }) =>
+      variant === 'tertiary' ? 'transparent' : theme.prima.color.bg.disabled};
+    color: ${({ theme }) => theme.prima.color.content.disabled};
+    border-color: ${({ theme, variant }) =>
+      variant === 'tertiary'
+        ? theme.prima.color.border.disabled
+        : theme.prima.color.border.disabled};
+    cursor: not-allowed;
+    transform: none;
+  }
 `;
 
 const Button: ForwardRefRenderFunction<
@@ -113,26 +179,60 @@ const Button: ForwardRefRenderFunction<
   PropsWithChildren<ButtonProps>
 > = (
   {
-    variant = PRIMARY,
+    variant = 'primary',
+    color = 'purple',
+    shape = 'pill',
+    size = 'medium',
     disabled,
-    containsIcon = false,
+    iconStart,
+    iconEnd,
     children,
     onClick,
+    type = 'button',
+    className,
     ...props
   },
   ref
 ) => {
   return (
     <StyledButton
-      type="button"
+      type={type}
       variant={variant}
-      containsIcon={containsIcon}
+      color={color}
+      shape={shape}
+      size={size}
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
+      className={className}
       ref={ref}
       {...props}
     >
-      {children}
+      {iconStart && (
+        <Icon
+          name={iconStart}
+          size={size === 'medium' ? 24 : 18}
+          css={{ color: 'inherit' }}
+        />
+      )}
+      {children && (
+        <Typography
+          variant="label"
+          size={size === 'medium' ? 2 : size === 'small' ? 3 : 4}
+          css={{
+            margin: 0,
+            color: 'inherit',
+          }}
+        >
+          {children}
+        </Typography>
+      )}
+      {iconEnd && (
+        <Icon
+          name={iconEnd}
+          size={size === 'medium' ? 24 : 18}
+          css={{ color: 'inherit' }}
+        />
+      )}
     </StyledButton>
   );
 };

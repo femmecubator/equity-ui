@@ -35,6 +35,7 @@ export const iconList = [
   'money',
   'statistics',
   'complete',
+  'add',
 ] as const;
 
 export type IconName = (typeof iconList)[number];
