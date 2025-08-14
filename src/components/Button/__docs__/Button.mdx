@@ -5,38 +5,188 @@ import * as Button from './Button.stories.tsx';
 
 # Button
 
-#### Basic
+The Button component is a versatile interactive element that supports multiple variants, sizes, and states.
 
-<Canvas of={Button.Basic} />
+## Examples
 
-#### Disabled
+### Default
 
-<Canvas of={Button.Disabled} />
+<Canvas of={Button.Default} />
 
-#### WithIcon
+### Variants
 
-<Canvas of={Button.WithIcon} />
+<Canvas of={Button.Variants} />
+
+### Sizes
+
+<Canvas of={Button.Sizes} />
+
+### Shapes
+
+<Canvas of={Button.Shapes} />
+
+### Colors
+
+<Canvas of={Button.Colors} />
+
+### With Icons
+
+<Canvas of={Button.WithIcons} />
 
 ## Usage
 
-```ts
-import { Button } from "@femmecubator/equity-ui";
+```tsx
+import { Button } from '@femmecubator/equity-ui';
 
-const Example = () => {
-  return (
-      <Button
-        onClick={()=> console.log("Clicked")}
-      >
-      Button!
-      </Button>
-  );
-};
+// Basic usage
+<Button>Click me</Button>
 
-export default Example;
+// Different variants
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="tertiary">Tertiary</Button>
+
+// Different sizes
+<Button size="medium">Medium</Button>
+<Button size="small">Small</Button>
+<Button size="tiny">Tiny</Button>
+
+// Different shapes
+<Button shape="pill">Pill Shape</Button>
+<Button shape="square">Square Shape</Button>
+
+// Different colors
+<Button color="purple">Purple Theme</Button>
+<Button color="blue">Blue Theme</Button>
+
+// With icons
+<Button iconStart="statistics">Left Icon</Button>
+<Button iconEnd="complete">Right Icon</Button>
+<Button iconStart="money" iconEnd="globe">Both Icons</Button>
+
+// Disabled state
+<Button disabled>Disabled Button</Button>
+
+// Complete example
+<Button
+  variant="primary"
+  color="purple"
+  size="medium"
+  shape="pill"
+  iconStart="statistics"
+  onClick={() => handleClick()}
+>
+  Interactive Button
+</Button>
 ```
 
-## Arguments
+## Props
 
-- **variant** - Indicates button's variant. Either primary or secondary.
-- **disabled** - A boolean indicating whether the button should be disabled or not. When disabled, the button cannot be clicked or interacted with.
-- **onClick** - A function that is called when the button is clicked. It receives a MouseEventHandler for handling the click event on the button element.
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>variant</code>
+      </td>
+      <td>Visual style variant of the button</td>
+      <td>
+        <code>'primary' | 'secondary' | 'tertiary'</code>
+      </td>
+      <td>
+        <code>'primary'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>color</code>
+      </td>
+      <td>Brand color theme to apply</td>
+      <td>
+        <code>'purple' | 'blue'</code>
+      </td>
+      <td>
+        <code>'purple'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>size</code>
+      </td>
+      <td>Size of the button</td>
+      <td>
+        <code>'medium' | 'small' | 'tiny'</code>
+      </td>
+      <td>
+        <code>'medium'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>shape</code>
+      </td>
+      <td>Border radius style of the button</td>
+      <td>
+        <code>'pill' | 'square'</code>
+      </td>
+      <td>
+        <code>'pill'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether the button is disabled</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>iconStart</code>
+      </td>
+      <td>Icon to display at the start of the button</td>
+      <td>
+        <code>IconName</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>iconEnd</code>
+      </td>
+      <td>Icon to display at the end of the button</td>
+      <td>
+        <code>IconName</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onClick</code>
+      </td>
+      <td>Callback when the button is clicked</td>
+      <td>
+        <code>() => void</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
