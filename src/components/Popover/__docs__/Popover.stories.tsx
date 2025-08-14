@@ -6,7 +6,7 @@ import SectionTitle from '../../SectionTitle/SectionTitle';
 import Divider from '../../Divider/Divider';
 
 const meta: Meta<typeof Popover> = {
-  title: 'Popover',
+  title: 'Unsupported/Popover',
   component: Popover,
 };
 

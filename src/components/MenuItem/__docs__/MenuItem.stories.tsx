@@ -15,7 +15,7 @@ const menuItemArgs = {
 };
 
 const meta: Meta<typeof MenuItem> = {
-  title: 'MenuItem',
+  title: 'Unsupported/MenuItem',
   component: MenuItem,
   argTypes: {
     iconSize: {
