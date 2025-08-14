@@ -182,7 +182,7 @@ export const primaTheme = {
       default: '#cfcfcf',
       disabled: '#9c9c9c',
       error: '#e93d82',
-      focus: '#0880ea',
+      focus: '#113264',
       info: '#0880ea',
       strong: '#828282',
       success: '#12a594',

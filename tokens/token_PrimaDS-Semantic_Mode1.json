@@ -201,7 +201,7 @@
       },
       "focus": {
         "$type": "color",
-        "$value": "{utility.sky-80}"
+        "$value": "{utility.sky-100}"
       },
       "info": {
         "$type": "color",
