@@ -1,0 +1,196 @@
+import { Canvas, Meta, ArgTypes, Story } from '@storybook/blocks';
+import * as ToggleStories from './Toggle.stories';
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+A switch control component that allows users to turn an option on or off. The Toggle component supports labels, required indicators, info icons, and different sizes.
+
+## Examples
+
+### Default
+
+<Canvas of={ToggleStories.Default} />
+
+### State Variants
+
+<Canvas of={ToggleStories.Variants} />
+
+### Sizes
+
+<Canvas of={ToggleStories.Sizes} />
+
+### With Labels
+
+<Canvas of={ToggleStories.WithLabels} />
+
+## Usage
+
+```tsx
+import { Toggle } from '@femmecubator/equity-ui';
+
+// Basic usage
+<Toggle />
+
+// With label
+<Toggle label="Enable notifications" />
+
+// With label and info
+<Toggle label="Subscribe to newsletter" info />
+
+// Required toggle
+<Toggle label="I agree to terms" required />
+
+// Disabled state
+<Toggle label="Disabled option" disabled />
+
+// Different sizes
+<Toggle label="Small toggle" size="small" />
+<Toggle label="Tiny toggle" size="tiny" />
+
+// Controlled usage
+const [enabled, setEnabled] = useState(false);
+
+<Toggle
+  label="Feature enabled"
+  checked={enabled}
+  onChange={(e) => setEnabled(e.target.checked)}
+/>
+
+// Form integration with name and value
+<form>
+  <Toggle
+    name="notifications"
+    value="email-notifications"
+    label="Email notifications"
+    checked={emailEnabled}
+    onChange={(e) => setEmailEnabled(e.target.checked)}
+  />
+  <Toggle
+    name="preferences"
+    value="dark-mode"
+    label="Dark mode"
+    checked={darkMode}
+    onChange={(e) => setDarkMode(e.target.checked)}
+  />
+</form>
+
+// With explicit ID for accessibility
+<Toggle
+  id="terms-toggle"
+  label="I agree to the terms and conditions"
+  required
+/>
+```
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>Label text displayed next to the toggle switch</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>checked</code>
+      </td>
+      <td>Controlled checked state of the toggle</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>Callback fired when toggle state changes</td>
+      <td>
+        <code>(event: ChangeEvent) => void</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether the toggle is disabled</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>Whether the toggle is required (shows asterisk)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>info</code>
+      </td>
+      <td>Whether to show info icon next to label</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>size</code>
+      </td>
+      <td>Size of the toggle switch</td>
+      <td>
+        <code>'small' | 'tiny'</code>
+      </td>
+      <td>
+        <code>'small'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code>
+      </td>
+      <td>Additional CSS class name for the component</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
