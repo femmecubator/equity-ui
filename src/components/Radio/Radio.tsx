@@ -183,6 +183,7 @@ export type RadioProps = Omit<
   info?: boolean;
   required?: boolean;
   value?: string;
+  className?: string;
 };
 
 export const BaseRadio = ({
@@ -195,6 +196,7 @@ export const BaseRadio = ({
   checked,
   onChange,
   name,
+  className,
   ...props
 }: RadioProps) => {
   const theme = useTheme();
@@ -236,22 +238,24 @@ export const BaseRadio = ({
 
   if (!label) {
     return (
-      <StyledRadio
-        role="radio"
-        type="radio"
-        name={effectiveName}
-        error={effectiveError}
-        disabled={effectiveDisabled}
-        checked={effectiveChecked}
-        value={value}
-        onChange={handleChange}
-        {...props}
-      />
+      <RadioContainer className={className}>
+        <StyledRadio
+          role="radio"
+          type="radio"
+          name={effectiveName}
+          error={effectiveError}
+          disabled={effectiveDisabled}
+          checked={effectiveChecked}
+          value={value}
+          onChange={handleChange}
+          {...props}
+        />
+      </RadioContainer>
     );
   }
 
   return (
-    <RadioContainer>
+    <RadioContainer className={className}>
       <RadioLabelGroup disabled={effectiveDisabled}>
         <StyledRadio
           role="radio"

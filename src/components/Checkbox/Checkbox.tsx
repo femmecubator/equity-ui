@@ -206,6 +206,7 @@ export type CheckboxProps = Omit<
   required?: boolean;
   indeterminate?: boolean;
   value?: string; // For use in Checkbox.Group
+  className?: string;
 };
 
 export const BaseCheckbox = ({
@@ -218,6 +219,7 @@ export const BaseCheckbox = ({
   value,
   checked,
   onChange,
+  className,
   ...props
 }: CheckboxProps) => {
   const theme = useTheme();
@@ -265,21 +267,23 @@ export const BaseCheckbox = ({
 
   if (!label) {
     return (
-      <StyledCheckbox
-        ref={checkboxRef}
-        role="checkbox"
-        type="checkbox"
-        error={effectiveError}
-        disabled={effectiveDisabled}
-        checked={effectiveChecked}
-        onChange={handleChange}
-        {...props}
-      />
+      <CheckboxContainer className={className}>
+        <StyledCheckbox
+          ref={checkboxRef}
+          role="checkbox"
+          type="checkbox"
+          error={effectiveError}
+          disabled={effectiveDisabled}
+          checked={effectiveChecked}
+          onChange={handleChange}
+          {...props}
+        />
+      </CheckboxContainer>
     );
   }
 
   return (
-    <CheckboxContainer>
+    <CheckboxContainer className={className}>
       <CheckboxLabelGroup disabled={effectiveDisabled}>
         <StyledCheckbox
           ref={checkboxRef}
