@@ -1,0 +1,205 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as FormFieldStories from './FormField.stories';
+
+<Meta of={FormFieldStories} />
+
+# FormField
+
+A text input field component supporting labels, required indicators, loading, warning, error, and disabled states. The FormField component is designed for flexible form usage and clear state feedback.
+
+## Examples
+
+<Canvas of={FormFieldStories.AllVariants} />
+
+## Usage
+
+```tsx
+import { FormField } from '@femmecubator/equity-ui';
+
+// Basic usage
+<FormField label="Name" placeholder="Enter your name" />
+
+// Required field
+<FormField label="Email" required placeholder="Enter your email" />
+
+// Loading state
+<FormField label="Loading" loading placeholder="Loading..." />
+
+// Disabled state
+<FormField label="Disabled" disabled placeholder="Can't edit" />
+
+// Warning state
+<FormField label="Username" warning placeholder="Choose a username" />
+
+// Inline warning
+<FormField label="Username" warningInline="Username is taken" placeholder="Choose a username" />
+
+// Error state
+<FormField label="Password" error placeholder="Enter password" />
+
+// Inline error
+<FormField label="Password" errorInline="Password is too short" placeholder="Enter password" />
+
+// Controlled usage
+const [value, setValue] = useState('');
+<FormField label="Controlled" value={value} onChange={e => setValue(e.target.value)} />
+```
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>Label text displayed above the input field</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>placeholder</code>
+      </td>
+      <td>Placeholder text for the input</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>Controlled value of the input</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>Whether the field is required (shows asterisk)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether the field is disabled</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>loading</code>
+      </td>
+      <td>Shows loading spinner in the field</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>warning</code>
+      </td>
+      <td>Shows warning icon and border</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>warningInline</code>
+      </td>
+      <td>Shows inline warning message below the field</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>error</code>
+      </td>
+      <td>Shows error icon and border</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>errorInline</code>
+      </td>
+      <td>Shows inline error message below the field</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>Callback fired when input value changes</td>
+      <td>
+        <code>(e: ChangeEvent) =&gt; void</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code>
+      </td>
+      <td>Additional CSS class name for the component</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
