@@ -36,6 +36,10 @@ export const iconList = [
   'statistics',
   'complete',
   'add',
+  'warning-filled-medium',
+  'warning-filled-small',
+  'alert-filled-medium',
+  'alert-filled-small',
 ] as const;
 
 export type IconName = (typeof iconList)[number];
