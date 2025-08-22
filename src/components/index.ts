@@ -10,3 +10,4 @@ export * from './Checkbox';
 export * from './Radio';
 export * from './Tag';
 export * from './Toggle';
+export * from './FormField';

@@ -340,5 +340,45 @@
         clip-rule="evenodd"
       ></path>
     </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="alert-filled-small">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M9 16A7 7 0 1 1 9 2a7 7 0 0 1 0 14M9 5a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0V6a1 1 0 0 0-1-1m0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 24 24" id="warning-filled-medium">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M20.676 16.444a2.354 2.354 0 0 1-.867 3.236c-.365.21-.78.32-1.201.32H5.392C4.07 20 3 18.94 3 17.633c0-.418.112-.828.323-1.189L9.932 5.179a2.405 2.405 0 0 1 4.136 0zM12 8a1 1 0 0 0-1 1v4a1 1 0 1 0 2 0V9a1 1 0 0 0-1-1m0 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="warning-filled-small">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m10.704 3.962 5.005 7.997A1.999 1.999 0 0 1 14 14.997L4 15a2 2 0 0 1-1.71-3.038l4.995-8a2 2 0 0 1 3.419 0M9 6a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0V7a1 1 0 0 0-1-1m0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 24 24" id="alert-filled-medium">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18m.729-13.725a.94.94 0 0 0-.727-.273.94.94 0 0 0-1 1v4a.94.94 0 0 0 1 1 .94.94 0 0 0 1-1v-4a.94.94 0 0 0-.273-.727m0 8a.94.94 0 0 0-.727-.273.94.94 0 0 0-1 1 .94.94 0 0 0 1 1 .94.94 0 0 0 1-1 .94.94 0 0 0-.273-.727"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
+    <symbol fill="none" viewBox="0 0 18 18" id="alert-filled-small">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M9 16A7 7 0 1 1 9 2a7 7 0 0 1 0 14M9 5a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0V6a1 1 0 0 0-1-1m0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+        clip-rule="evenodd"
+      ></path>
+    </symbol>
   </defs>
 </svg>
