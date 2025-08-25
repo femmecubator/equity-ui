@@ -163,11 +163,11 @@ const StyledButton = styled.button<{
   /* Disabled state */
   &:disabled {
     background-color: ${({ theme, variant }) =>
-      variant === 'tertiary' ? 'transparent' : theme.prima.color.bg.disabled};
+      variant === 'primary' ? theme.prima.color.bg.disabled : 'transparent'};
     color: ${({ theme }) => theme.prima.color.content.disabled};
     border-color: ${({ theme, variant }) =>
       variant === 'tertiary'
-        ? theme.prima.color.border.disabled
+        ? 'transparent'
         : theme.prima.color.border.disabled};
     cursor: not-allowed;
     transform: none;
