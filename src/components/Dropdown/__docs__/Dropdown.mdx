@@ -1,0 +1,286 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as DropdownStories from './Dropdown.stories';
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+A versatile dropdown component that provides three distinct variants: native HTML select, custom single-select, and multiselect with checkboxes. The Dropdown component matches FormField styling exactly and includes comprehensive support for states like loading, warning, error, and disabled. It offers flexible selection interfaces while maintaining consistent visual design and accessibility standards.
+
+## Examples
+
+### All Variants
+
+<Canvas of={DropdownStories.AllVariants} />
+
+### All States
+
+<Canvas of={DropdownStories.AllStates} />
+
+## Usage
+
+```tsx
+import { Dropdown } from '@femmecubator/equity-ui';
+
+// Basic native dropdown
+<Dropdown
+  label="Select option"
+  options={[
+    { value: 'opt1', label: 'Option 1' },
+    { value: 'opt2', label: 'Option 2' }
+  ]}
+/>
+
+// Custom single select
+<Dropdown
+  variant="single"
+  label="Choose one"
+  placeholder="Select an option"
+  options={options}
+/>
+
+// Multiselect with checkboxes
+<Dropdown
+  variant="multiselect"
+  label="Choose multiple"
+  placeholder="Select options"
+  options={options}
+/>
+
+// Required field
+<Dropdown label="Required" required options={options} />
+
+// Loading state
+<Dropdown label="Loading" loading options={options} />
+
+// Disabled state
+<Dropdown label="Disabled" disabled options={options} />
+
+// Warning state
+<Dropdown label="Warning" warning options={options} />
+
+// Error state
+<Dropdown label="Error" error options={options} />
+
+// With inline messages
+<Dropdown
+  label="Selection"
+  warningInline="Please select carefully"
+  options={options}
+/>
+
+<Dropdown
+  label="Selection"
+  errorInline="Selection is required"
+  options={options}
+/>
+
+// Controlled single select
+const [value, setValue] = useState('');
+
+<Dropdown
+  variant="single"
+  label="Controlled"
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+  options={options}
+/>
+
+// Controlled multiselect
+const [values, setValues] = useState([]);
+
+<Dropdown
+  variant="multiselect"
+  label="Multiple selection"
+  value={values}
+  onChange={(e) => {
+    if (Array.isArray(e.target.value)) {
+      setValues(e.target.value);
+    }
+  }}
+  options={options}
+/>
+```
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>variant</code>
+      </td>
+      <td>Type of dropdown implementation</td>
+      <td>
+        <code>'native' | 'single' | 'multiselect'</code>
+      </td>
+      <td>
+        <code>'native'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>Label text displayed above the dropdown</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>placeholder</code>
+      </td>
+      <td>Placeholder text for the dropdown</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>options</code>
+      </td>
+      <td>Array of options to display in the dropdown</td>
+      <td>
+        <code>DropdownOption[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>Controlled value (string for single, string[] for multiselect)</td>
+      <td>
+        <code>string | string[]</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>Callback fired when selection changes</td>
+      <td>
+        <code>(e: ChangeEvent) => void</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>Whether the field is required (shows asterisk)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether the dropdown is disabled</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>loading</code>
+      </td>
+      <td>Shows loading spinner in the dropdown</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>warning</code>
+      </td>
+      <td>Shows warning icon and border</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>warningInline</code>
+      </td>
+      <td>Shows inline warning message below the dropdown</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>error</code>
+      </td>
+      <td>Shows error icon and border</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>errorInline</code>
+      </td>
+      <td>Shows inline error message below the dropdown</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code>
+      </td>
+      <td>Additional CSS class name for the component</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
