@@ -17,8 +17,6 @@ export type FormFieldProps = {
   errorInline?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
-  id?: string;
-  name?: string;
 };
 const InlineMessageContainer = styled.div`
   display: flex;
@@ -180,8 +178,6 @@ export const FormField: React.FC<FormFieldProps> = ({
   errorInline,
   onChange,
   className,
-  id,
-  name,
   ...rest
 }) => {
   // Prioritize states: error > errorInline > warning > warningInline > loading
@@ -286,8 +282,6 @@ export const FormField: React.FC<FormFieldProps> = ({
 
       <InputContainer>
         <StyledInput
-          id={id}
-          name={name}
           value={value}
           placeholder={placeholder}
           disabled={disabled}
