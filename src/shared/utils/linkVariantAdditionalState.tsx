@@ -2,10 +2,10 @@ import type { Theme } from '@emotion/react';
 
 const linkVariantAdditionalState = (theme: Theme) => ({
   ':hover': {
-    color: theme.semantic.color.content.linkHover,
+    color: theme.prima.color.content['link-hover'],
   },
   ':active': {
-    color: theme.semantic.color.content.linkStrong,
+    color: theme.prima.color.content['link-active'],
   },
 });
 

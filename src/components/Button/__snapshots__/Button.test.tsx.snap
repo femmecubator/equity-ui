@@ -5,54 +5,193 @@ exports[`Button component > matches snapshot 1`] = `
   .emotion-0 {
   position: relative;
   border: none;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  gap: 6px;
   box-sizing: border-box;
   outline: none;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 22px;
   cursor: pointer;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  padding: 6px 12px;
   border-radius: 900px;
-  padding: 12px 24px;
-  background-color: #026fe4;
+  background-color: #761fb1;
   color: #ffffff;
-  box-shadow: none;
+  border: 1px solid #761fb1;
 }
 
-.emotion-0:hover {
-  background-color: #012144;
-  box-shadow: none;
+.emotion-0:hover:not(:disabled) {
+  background-color: #a82dfd;
+  border-color: #a82dfd;
 }
 
-.emotion-0:active {
-  background-color: #026fe4;
+.emotion-0:focus:not(:disabled) {
+  background-color: #761fb1;
+  border: 3px solid #113264;
 }
 
-.emotion-0:active::before,
-.emotion-0:focus::before,
-.emotion-0 {
-  opacity: 1;
+.emotion-0:disabled {
+  background-color: #e0e0e0;
+  color: #828282;
+  border-color: #9c9c9c;
+  cursor: not-allowed;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
-.emotion-0::before {
-  opacity: 0;
-  position: absolute;
-  -webkit-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-  content: '';
-  width: calc(100% - 4px);
-  height: calc(100% - 4px);
-  border: 2px solid #333333;
-  border-radius: 900px;
-  left: 0;
-  top: 0;
+.emotion-2 {
+  font-size: 16px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0;
+  line-height: 20px;
+  paragraph-indent: 0;
+  paragraph-spacing: 0;
+  text-case: none;
+  color: #222222;
+  margin: 0;
+  color: inherit;
 }
 
 <button
     class="emotion-0 emotion-1"
+    color="purple"
+    shape="pill"
     type="button"
   >
-    Hello!
+    <p
+      class="emotion-2 emotion-3"
+      size="2"
+    >
+      Hello!
+    </p>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button component > matches snapshot with all props 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+  border: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  gap: 6px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  padding: 6px 12px;
+  border-radius: 900px;
+  background-color: #761fb1;
+  color: #ffffff;
+  border: 1px solid #761fb1;
+}
+
+.emotion-0:hover:not(:disabled) {
+  background-color: #a82dfd;
+  border-color: #a82dfd;
+}
+
+.emotion-0:focus:not(:disabled) {
+  background-color: #761fb1;
+  border: 3px solid #113264;
+}
+
+.emotion-0:disabled {
+  background-color: #e0e0e0;
+  color: #828282;
+  border-color: #9c9c9c;
+  cursor: not-allowed;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.emotion-2 {
+  color: inherit;
+}
+
+.emotion-3 {
+  font-size: 16px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0;
+  line-height: 20px;
+  paragraph-indent: 0;
+  paragraph-spacing: 0;
+  text-case: none;
+  color: #222222;
+  margin: 0;
+  color: inherit;
+}
+
+<button
+    class="emotion-0 emotion-1"
+    color="purple"
+    shape="pill"
+    type="button"
+  >
+    <svg
+      class="emotion-2"
+      color="#222222"
+      height="24"
+      style="display: block; vertical-align: middle;"
+      width="24"
+    >
+      <use
+        href="/src/icons/sprite.svg#statistics"
+      />
+    </svg>
+    <p
+      class="emotion-3 emotion-4"
+      size="2"
+    >
+      Full Props Button
+    </p>
+    <svg
+      class="emotion-2"
+      color="#222222"
+      height="24"
+      style="display: block; vertical-align: middle;"
+      width="24"
+    >
+      <use
+        href="/src/icons/sprite.svg#complete"
+      />
+    </svg>
   </button>
 </DocumentFragment>
 `;
