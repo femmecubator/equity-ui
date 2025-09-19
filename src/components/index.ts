@@ -11,3 +11,6 @@ export * from './Radio';
 export * from './Tag';
 export * from './Toggle';
 export * from './FormField';
+export * from './Dropdown';
+export * from './Multiselect';
+export * from './Typography';

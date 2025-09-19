@@ -1,0 +1,240 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as MultiselectStories from './Multiselect.stories';
+
+<Meta of={MultiselectStories} />
+
+# Multiselect
+
+A multiselect dropdown component that allows users to select multiple options from a list. Selected options are displayed as removable tags within the dropdown button. The Multiselect component matches FormField styling exactly and includes comprehensive support for states like loading, warning, error, and disabled. It provides an intuitive interface for multiple selections while maintaining consistent visual design and accessibility standards.
+
+## Examples
+
+### All States
+
+<Canvas of={MultiselectStories.AllStates} />
+
+## Usage
+
+```tsx
+import { Multiselect } from '@aroris/prima-ds';
+
+// Basic multiselect
+<Multiselect
+  label="Select options"
+  placeholder="Choose multiple options..."
+  options={[
+    { value: 'opt1', label: 'Option 1' },
+    { value: 'opt2', label: 'Option 2' },
+    { value: 'opt3', label: 'Option 3' }
+  ]}
+/>
+
+// Required field
+<Multiselect label="Required" required options={options} />
+
+// Loading state
+<Multiselect label="Loading" loading options={options} />
+
+// Disabled state
+<Multiselect label="Disabled" disabled options={options} />
+
+// Warning state
+<Multiselect label="Warning" warning options={options} />
+
+// Error state
+<Multiselect label="Error" error options={options} />
+
+// With inline messages
+<Multiselect
+  label="Selection"
+  warningInline="Please select carefully"
+  options={options}
+/>
+
+<Multiselect
+  label="Selection"
+  errorInline="At least one selection is required"
+  options={options}
+/>
+
+// Controlled multiselect
+const [values, setValues] = useState([]);
+
+<Multiselect
+  label="Multiple selection"
+  value={values}
+  onChange={(newValues) => setValues(newValues)}
+  options={options}
+/>
+```
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>Label text displayed above the multiselect</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>placeholder</code>
+      </td>
+      <td>Placeholder text shown when no options are selected</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>options</code>
+      </td>
+      <td>Array of options to display in the dropdown</td>
+      <td>
+        <code>MultiselectOption[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>Array of selected option values</td>
+      <td>
+        <code>string[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>Callback fired when selection changes</td>
+      <td>
+        <code>(values: string[]) => void</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>Whether the field is required (shows asterisk)</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>Whether the multiselect is disabled</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>loading</code>
+      </td>
+      <td>Shows loading spinner in the multiselect</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>warning</code>
+      </td>
+      <td>Shows warning icon and border</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>warningInline</code>
+      </td>
+      <td>Shows inline warning message below the multiselect</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>error</code>
+      </td>
+      <td>Shows error icon and border</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>errorInline</code>
+      </td>
+      <td>Shows inline error message below the multiselect</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code>
+      </td>
+      <td>Additional CSS class name for the component</td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>-</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
