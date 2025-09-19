@@ -55,6 +55,10 @@ type Story = StoryObj<typeof meta>;
 const InteractiveToggle = (args: any) => {
   const [checked, setChecked] = useState(args.checked || false);
 
+  React.useEffect(() => {
+    setChecked(args.checked || false);
+  }, [args.checked]);
+
   return (
     <Toggle
       {...args}
