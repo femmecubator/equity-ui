@@ -14,9 +14,7 @@
   "license": "ISC",
   "packageManager": "pnpm@8.15.0",
   "scripts": {
-    "build-tokens": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./.style-dictionary/config.ts",
-    "build-prima-theme": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./.style-dictionary/prima-config.ts",
-    "build-typography": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./.style-dictionary/typography-config.ts",
+    "build-tokens": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./.style-dictionary/prima-config.ts && node --no-warnings=ExperimentalWarning --loader ts-node/esm ./.style-dictionary/typography-config.ts",
     "build": "pnpm clean & vite build",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx",
