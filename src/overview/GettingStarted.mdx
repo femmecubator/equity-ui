@@ -4,7 +4,7 @@ import { Meta } from '@storybook/blocks';
 
 # Getting Started
 
-### Topics: 
+### Topics:
 
 a. Generating the Prima Theme from ZeroHeight Tokens
 
@@ -19,26 +19,31 @@ d. Demo Videos
 ### a. Generating the Prima Theme from ZeroHeight Tokens
 
 #### 1. Link ZeroHeight to Your Repository
-* Connect your ZeroHeight design tokens to your repo.
-* Tokens are automatically exported as JSON files under tokens.
-* Example files: <strong>token_PrimaDS-Globals_Mode1.json</strong> and <strong>token_PrimaDS-Semantic_Mode1.json</strong>
+
+- Connect your ZeroHeight design tokens to your repo.
+- Tokens are automatically exported as JSON files under tokens.
+- Example files: <strong>token_PrimaDS-Globals_Mode1.json</strong> and <strong>token_PrimaDS-Semantic_Mode1.json</strong>
 
 #### 2. Convert Tokens to Theme & Typography Files
-* Uses the custom scripts: <strong>prima-config.ts</strong> and <strong>typography-config.ts</strong>.
-* These scripts read the JSON token files and generate a TypeScript theme file (<strong>prima-theme.ts</strong>) and typography file (<strong>typography.ts</strong>) in the <strong>/tokens</strong> directory.
-* Command to run the scripts: ```pnpm build-tokens```
+
+- Uses the custom scripts: <strong>prima-config.ts</strong> and <strong>typography-config.ts</strong>.
+- These scripts read the JSON token files and generate a TypeScript theme file (<strong>prima-theme.ts</strong>) and typography file (<strong>typography.ts</strong>) in the <strong>/tokens</strong> directory.
+- Command to run the scripts: `pnpm build-tokens`
 
 This will create or update <strong>prima-theme.ts</strong> and <strong>typography.ts</strong> based on the latest ZeroHeight tokens.
 
 #### 3. Using Prima Theme in Library Components
-* The generated <strong>prima-theme.ts</strong> is imported and integrated into the main theme object in <strong>theme.tsx</strong>.
-* Components access theme values through Emotion's styled-components system:
+
+- The generated <strong>prima-theme.ts</strong> is imported and integrated into the main theme object in <strong>theme.tsx</strong>.
+- Components access theme values through Emotion's styled-components system:
+
 ```tsx
 const StyledToggle = styled.input`
-  background: ${({ theme, checked }) =>
-    checked 
-      ? theme.prima.color.bg['info-strong']    // Active state
-      : theme.prima.color.bg['info-subtle']    // Inactive state
+  background: ${
+    ({ theme, checked }) =>
+      checked
+        ? theme.prima.color.bg['info-strong'] // Active state
+        : theme.prima.color.bg['info-subtle'] // Inactive state
   };
   border-radius: ${({ theme }) => theme.prima.border.radius.button.default}px;
 `;
@@ -49,11 +54,14 @@ const StyledToggle = styled.input`
 ### b. Hosting Library on Private NPM
 
 #### Prerequisites:
-* Create an npm account at [npmjs.com](npmjs.com)
-* Install npm CLI and login to you account using: ```npm login```
+
+- Create an npm account at [npmjs.com](npmjs.com)
+- Install npm CLI and login to you account using: `npm login`
 
 #### 1. Configure Package for Private Publishing
-* Update your <strong>package.json</strong> like this:
+
+- Update your <strong>package.json</strong> like this:
+
 ```tsx
 {
   "name": "@aroris/prima-ds",
@@ -66,30 +74,34 @@ const StyledToggle = styled.input`
 ```
 
 #### 2. Build the Library
-* Clean previous builds using: ```pnpm clean```
+
+- Clean previous builds using: `pnpm clean`
 
 This deletes the <strong>/dist</strong> directory where build files are stored.
- 
-* Ensure your library is built and ready for distribution using: ```pnpm build```
-This generates <strong>/dist</strong> directory with compiled components.
+
+- Ensure your library is built and ready for distribution using: `pnpm build`
+  This generates <strong>/dist</strong> directory with compiled components.
 
 #### 3. Local testing
-* Pack the library locally using: ```npm pack```
+
+- Pack the library locally using: `npm pack`
 
 This will pack the library within a <strong>.tgz</strong> file which we can use to install the package locally and test it.
 
-* In a local react project, install this package using: ```npm install ../{file-path}/{file-name}.tgz```
-
+- In a local react project, install this package using: `npm install ../{file-path}/{file-name}.tgz`
 
 #### 4. Publish to NPM
-* Publish your package as a private npm package using: ```npm publish –access=restricted```
+
+- Publish your package as a private npm package using: `npm publish –access=restricted`
 
 ---
 
 ### c. Installing and Using the Library in Client Projects
 
 #### 1. Install the package:
-* Users with access to the private package can install it using:
+
+- Users with access to the private package can install it using:
+
 ```bash
 npm install @femmecubator/equity-ui
 # or
@@ -97,20 +109,19 @@ pnpm add @femmecubator/equity-ui
 ```
 
 #### 2. Setup theme provider:
-* Wrap your application with the PrimaDSThemeProvider:
+
+- Wrap your application with the PrimaDSThemeProvider:
+
 ```tsx
 import { EquityThemeProvider } from '@femmecubator/equity-ui';
 
 function App() {
-  return (
-    <EquityThemeProvider>
-      {/* Your app content */}
-    </EquityThemeProvider>
-  );
+  return <EquityThemeProvider>{/* Your app content */}</EquityThemeProvider>;
 }
 ```
 
 #### 3. Import and Use Components
+
 ```tsx
 import { Button, Toggle, Radio, Checkbox } from '@femmecubator/equity-ui';
 
@@ -135,7 +146,8 @@ function MyComponent() {
 #### 2. Publishing Storybook [[Recording link](https://youtu.be/w1Z-9oi0C4U)]
 
 Video includes:
-* Part 1: Running Storybook locally
-* Part 2: Building and deploying Storybook
+
+- Part 1: Running Storybook locally
+- Part 2: Building and deploying Storybook
 
 #### 3. Generating the Prima Theme from ZeroHeight Tokens [COMING SOON]
