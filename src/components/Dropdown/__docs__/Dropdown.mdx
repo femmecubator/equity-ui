@@ -5,7 +5,7 @@ import * as DropdownStories from './Dropdown.stories';
 
 # Dropdown
 
-A versatile dropdown component that provides three distinct variants: native HTML select, custom single-select, and multiselect with checkboxes. The Dropdown component matches FormField styling exactly and includes comprehensive support for states like loading, warning, error, and disabled. It offers flexible selection interfaces while maintaining consistent visual design and accessibility standards.
+A versatile dropdown component that provides two distinct variants: native HTML select and custom single-select. The Dropdown component matches FormField styling exactly and includes comprehensive support for states like loading, warning, error, and disabled. It offers flexible selection interfaces while maintaining consistent visual design and accessibility standards.
 
 ## Examples
 
@@ -20,7 +20,7 @@ A versatile dropdown component that provides three distinct variants: native HTM
 ## Usage
 
 ```tsx
-import { Dropdown } from '@femmecubator/equity-ui';
+import { Dropdown } from '@aroris/prima-ds';
 
 // Basic native dropdown
 <Dropdown
@@ -36,14 +36,6 @@ import { Dropdown } from '@femmecubator/equity-ui';
   variant="single"
   label="Choose one"
   placeholder="Select an option"
-  options={options}
-/>
-
-// Multiselect with checkboxes
-<Dropdown
-  variant="multiselect"
-  label="Choose multiple"
-  placeholder="Select options"
   options={options}
 />
 
@@ -85,21 +77,6 @@ const [value, setValue] = useState('');
   onChange={(e) => setValue(e.target.value)}
   options={options}
 />
-
-// Controlled multiselect
-const [values, setValues] = useState([]);
-
-<Dropdown
-  variant="multiselect"
-  label="Multiple selection"
-  value={values}
-  onChange={(e) => {
-    if (Array.isArray(e.target.value)) {
-      setValues(e.target.value);
-    }
-  }}
-  options={options}
-/>
 ```
 
 ## Props
@@ -120,10 +97,10 @@ const [values, setValues] = useState([]);
       </td>
       <td>Type of dropdown implementation</td>
       <td>
-        <code>'native' | 'single' | 'multiselect'</code>
+        <code>'native' | 'single'</code>
       </td>
       <td>
-        <code>'native'</code>
+        <code>'single'</code>
       </td>
     </tr>
     <tr>
@@ -166,9 +143,9 @@ const [values, setValues] = useState([]);
       <td>
         <code>value</code>
       </td>
-      <td>Controlled value (string for single, string[] for multiselect)</td>
+      <td>Controlled value for the dropdown</td>
       <td>
-        <code>string | string[]</code>
+        <code>string</code>
       </td>
       <td>
         <code>-</code>

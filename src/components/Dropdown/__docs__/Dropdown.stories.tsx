@@ -33,6 +33,9 @@ export const Default: Story = {
     options: sampleOptions,
     variant: 'single',
   },
+  parameters: {
+    controls: { disable: true },
+  },
   render: (args) => {
     const [value, setValue] = React.useState<string>('');
     return (
@@ -48,12 +51,12 @@ export const Default: Story = {
 };
 
 export const AllVariants: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => {
     const [nativeValue, setNativeValue] = React.useState<string>('');
     const [singleValue, setSingleValue] = React.useState<string>('');
-    const [multiselectValue, setMultiselectValue] = React.useState<string[]>(
-      []
-    );
 
     return (
       <div
@@ -80,25 +83,15 @@ export const AllVariants: Story = {
           value={singleValue}
           onChange={(e) => setSingleValue(e.target.value as string)}
         />
-        <Dropdown
-          label="Multiselect Dropdown"
-          placeholder="Select multiple options"
-          options={sampleOptions}
-          variant="multiselect"
-          value={multiselectValue}
-          onChange={(e) => {
-            const value = e.target.value;
-            if (Array.isArray(value)) {
-              setMultiselectValue(value);
-            }
-          }}
-        />
       </div>
     );
   },
 };
 
 export const AllStates: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => (
     <div
       style={{
@@ -185,7 +178,7 @@ export const Playground: Story = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['native', 'single', 'multiselect'],
+      options: ['native', 'single'],
     },
     required: {
       control: { type: 'boolean' },
@@ -210,20 +203,14 @@ export const Playground: Story = {
     },
   },
   render: (args) => {
-    const [value, setValue] = React.useState<string | string[]>(
-      args.variant === 'multiselect' ? [] : ''
-    );
-
-    React.useEffect(() => {
-      setValue(args.variant === 'multiselect' ? [] : '');
-    }, [args.variant]);
+    const [value, setValue] = React.useState<string>('');
 
     return (
       <div style={{ width: '300px' }}>
         <Dropdown
           {...args}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value as string)}
         />
       </div>
     );

@@ -35,8 +35,8 @@ export const Default: Story = {
   },
 };
 
-// All variants showcase
-export const AllVariants: Story = {
+// All states showcase
+export const AllStates: Story = {
   render: () => (
     <div
       style={{
