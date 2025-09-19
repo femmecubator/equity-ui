@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Overview/Versioning" />
+
+# Version Status
+
+Your component library will evolve over time. Right now, you might still be in <strong>pre-release (v0)</strong> or planning your <strong>first release (Acme Company DS v1)</strong> with only the first 10 components. Either way, versioning is crucial for tracking changes as both design and development teams contribute over the long term.
+
+---
+
+### Semantic Versioning
+
+All updates should follow [semantic versioning](https://semver.org/) so changes can be tracked and communicated consistently.
+
+Design-driven changes usually fall into two categories:
+1. <strong>Token-level changes</strong> – Adjustments to design tokens such as colors or typography.
+2. <strong>Component-level changes</strong> – Structural updates or new variants to components.
+
+
+### Minor Version (Token Remapping)
+
+Example: Design requests a new color for the disabled button.
+* This requires updating the token mapping in code.
+* Considered a <strong>minor version bump</strong>.
+
+
+### Major Version (Component Redesign)
+
+Example: Adding an icon inside a form field.
+* This requires restructuring the component code.
+* Considered a <strong>major version bump</strong>.
+* Note: There’s no automated Figma-to-code sync—developers must align new Figma designs with Storybook manually.
+
+
+### Token Guidelines
+
+* Your JSON tokens are already available in code, so no dev time is needed when re-mapping the component’s color, text or radius tokens.
+* Only create new token names when absolutely necessary. The existing token set is designed to cover most cases. 
+* <u><strong>When a new token name is added on Figma, that triggers the ZH to Gitlab workflow.</strong></u>
+
+Note: Zeroheight is your Token Management space that connects new updates from Figma Variable API to Code (Gitlab).
+
+### [Refer to this video demo to learn more [COMING SOON]]()
