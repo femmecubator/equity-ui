@@ -1,38 +1,101 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import * as Icon from './Icon.stories.tsx';
+import { Canvas, Meta, ArgTypes, Story } from '@storybook/blocks';
+import * as IconStories from './Icon.stories.tsx';
 
-<Meta of={Icon} title="Icon" />
+<Meta of={IconStories} />
 
 # Icon
 
-#### Basic
+A versatile icon component that displays SVG icons from a sprite with customizable sizes and theme-based colors.
 
-<Canvas of={Icon.Basic} />
+## Examples
 
-#### Labels
+### Basic
 
-<Canvas of={Icon.Labels} />
+<Canvas of={IconStories.Basic} />
 
-#### No Labels
+### Size Variants
 
-<Canvas of={Icon.NoLabels} />
+<Canvas of={IconStories.Sizes} />
+
+### Color Variants
+
+<Canvas of={IconStories.Colors} />
+
+### All Available Icons
+
+<Canvas of={IconStories.AllIcons} />
 
 ## Usage
 
-```ts
-import { Icon } from "@femmecubator/equity-ui";
+```tsx
+import { Icon } from '@aroris/prima-ds';
 
-const Example = () => {
-  return (
-      <Icon name="email" />
-  );
-};
+// Basic usage
+<Icon name="settings" />
 
-export default Example;
+// Custom size
+<Icon name="email" size="small" />
+<Icon name="menu" size={32} />
+
+// With theme colors
+<Icon name="success-circle" color="success-icon" />
+<Icon name="error-triangle" color="error-icon" />
+
+// All props
+<Icon 
+  name="warning-circle" 
+  size="large" 
+  color="warning-icon" 
+/>
 ```
 
-## Arguments
+## Props
 
-- **name** - Specifies the name of the icon to be rendered.
-- **size** - Specifies the size of the icon to be rendered. Could be one of the following: `small`, `large`, or a numeric value in pixels.
-- **color** - Specifies the color of the icon to be rendered. The color should be one of our theme / semantic / color / content colors.
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'left' }}>Name</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+      <th style={{ textAlign: 'left' }}>Values</th>
+      <th style={{ textAlign: 'left' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>name</code>
+      </td>
+      <td>The name of the icon to display (required)</td>
+      <td>
+        One of 39 available icon names from the icon-constant file
+      </td>
+      <td>
+        <em>Required</em>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>size</code>
+      </td>
+      <td>Size of the icon</td>
+      <td>
+        <code>'small' | 'large' | number</code>
+      </td>
+      <td>
+        <code>'large'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>color</code>
+      </td>
+      <td>Color from theme content colors or custom value</td>
+      <td>
+        Theme color keys or CSS color value
+      </td>
+      <td>
+        <code>'default'</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
