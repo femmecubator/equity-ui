@@ -1,80 +1,69 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import * as DropdownStories from './Dropdown.stories';
+import * as MultiselectStories from './Multiselect.stories';
 
-<Meta of={DropdownStories} />
+<Meta of={MultiselectStories} />
 
-# Dropdown
+# Multiselect
 
-A versatile dropdown component that provides two distinct variants: native HTML select and custom single-select. The Dropdown component matches FormField styling exactly and includes comprehensive support for states like loading, warning, error, and disabled. It offers flexible selection interfaces while maintaining consistent visual design and accessibility standards.
+A multiselect dropdown component that allows users to select multiple options from a list. Selected options are displayed as removable tags within the dropdown button. The Multiselect component matches FormField styling exactly and includes comprehensive support for states like loading, warning, error, and disabled. It provides an intuitive interface for multiple selections while maintaining consistent visual design and accessibility standards.
 
 ## Examples
 
-### All Variants
-
-<Canvas of={DropdownStories.AllVariants} />
-
 ### All States
 
-<Canvas of={DropdownStories.AllStates} />
+<Canvas of={MultiselectStories.AllStates} />
 
 ## Usage
 
 ```tsx
-import { Dropdown } from '@aroris/prima-ds';
+import { Multiselect } from '@aroris/prima-ds';
 
-// Basic native dropdown
-<Dropdown
-  label="Select option"
+// Basic multiselect
+<Multiselect
+  label="Select options"
+  placeholder="Choose multiple options..."
   options={[
     { value: 'opt1', label: 'Option 1' },
-    { value: 'opt2', label: 'Option 2' }
+    { value: 'opt2', label: 'Option 2' },
+    { value: 'opt3', label: 'Option 3' }
   ]}
 />
 
-// Custom single select
-<Dropdown
-  variant="single"
-  label="Choose one"
-  placeholder="Select an option"
-  options={options}
-/>
-
 // Required field
-<Dropdown label="Required" required options={options} />
+<Multiselect label="Required" required options={options} />
 
 // Loading state
-<Dropdown label="Loading" loading options={options} />
+<Multiselect label="Loading" loading options={options} />
 
 // Disabled state
-<Dropdown label="Disabled" disabled options={options} />
+<Multiselect label="Disabled" disabled options={options} />
 
 // Warning state
-<Dropdown label="Warning" warning options={options} />
+<Multiselect label="Warning" warning options={options} />
 
 // Error state
-<Dropdown label="Error" error options={options} />
+<Multiselect label="Error" error options={options} />
 
 // With inline messages
-<Dropdown
+<Multiselect
   label="Selection"
   warningInline="Please select carefully"
   options={options}
 />
 
-<Dropdown
+<Multiselect
   label="Selection"
-  errorInline="Selection is required"
+  errorInline="At least one selection is required"
   options={options}
 />
 
-// Controlled single select
-const [value, setValue] = useState('');
+// Controlled multiselect
+const [values, setValues] = useState([]);
 
-<Dropdown
-  variant="single"
-  label="Controlled"
-  value={value}
-  onChange={(e) => setValue(e.target.value)}
+<Multiselect
+  label="Multiple selection"
+  value={values}
+  onChange={(newValues) => setValues(newValues)}
   options={options}
 />
 ```
@@ -93,21 +82,9 @@ const [value, setValue] = useState('');
   <tbody>
     <tr>
       <td>
-        <code>variant</code>
-      </td>
-      <td>Type of dropdown implementation</td>
-      <td>
-        <code>'native' | 'single'</code>
-      </td>
-      <td>
-        <code>'single'</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <code>label</code>
       </td>
-      <td>Label text displayed above the dropdown</td>
+      <td>Label text displayed above the multiselect</td>
       <td>
         <code>string</code>
       </td>
@@ -119,7 +96,7 @@ const [value, setValue] = useState('');
       <td>
         <code>placeholder</code>
       </td>
-      <td>Placeholder text for the dropdown</td>
+      <td>Placeholder text shown when no options are selected</td>
       <td>
         <code>string</code>
       </td>
@@ -133,7 +110,7 @@ const [value, setValue] = useState('');
       </td>
       <td>Array of options to display in the dropdown</td>
       <td>
-        <code>DropdownOption[]</code>
+        <code>MultiselectOption[]</code>
       </td>
       <td>
         <code>[]</code>
@@ -143,12 +120,12 @@ const [value, setValue] = useState('');
       <td>
         <code>value</code>
       </td>
-      <td>Controlled value for the dropdown</td>
+      <td>Array of selected option values</td>
       <td>
-        <code>string</code>
+        <code>string[]</code>
       </td>
       <td>
-        <code>-</code>
+        <code>[]</code>
       </td>
     </tr>
     <tr>
@@ -157,7 +134,7 @@ const [value, setValue] = useState('');
       </td>
       <td>Callback fired when selection changes</td>
       <td>
-        <code>(e: ChangeEvent) => void</code>
+        <code>(values: string[]) => void</code>
       </td>
       <td>
         <code>-</code>
@@ -179,7 +156,7 @@ const [value, setValue] = useState('');
       <td>
         <code>disabled</code>
       </td>
-      <td>Whether the dropdown is disabled</td>
+      <td>Whether the multiselect is disabled</td>
       <td>
         <code>boolean</code>
       </td>
@@ -191,7 +168,7 @@ const [value, setValue] = useState('');
       <td>
         <code>loading</code>
       </td>
-      <td>Shows loading spinner in the dropdown</td>
+      <td>Shows loading spinner in the multiselect</td>
       <td>
         <code>boolean</code>
       </td>
@@ -215,7 +192,7 @@ const [value, setValue] = useState('');
       <td>
         <code>warningInline</code>
       </td>
-      <td>Shows inline warning message below the dropdown</td>
+      <td>Shows inline warning message below the multiselect</td>
       <td>
         <code>string</code>
       </td>
@@ -239,7 +216,7 @@ const [value, setValue] = useState('');
       <td>
         <code>errorInline</code>
       </td>
-      <td>Shows inline error message below the dropdown</td>
+      <td>Shows inline error message below the multiselect</td>
       <td>
         <code>string</code>
       </td>

@@ -8,23 +8,23 @@ export default [
       'node_modules/**',
       'dist/**',
       'storybook-static/**',
-      '.eslintrc.cjs'
-    ]
+      '.eslintrc.cjs',
+    ],
   },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
-        ecmaFeatures: { jsx: true }
-      }
+        ecmaFeatures: { jsx: true },
+      },
     },
     plugins: {
       '@typescript-eslint': typescriptEslint,
-      'react': react
+      react: react,
     },
     rules: {
-      'react/prop-types': 'off'
-    }
-  }
+      'react/prop-types': 'off',
+    },
+  },
 ];

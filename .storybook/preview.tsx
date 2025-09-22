@@ -1,7 +1,22 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
+import { DocsContainer } from '@storybook/blocks';
 import { EquityThemeProvider } from '../src/theme';
 import '../src/styles/global.css';
+
+const MaxWidthDocsContainer = ({
+  children,
+  context,
+}: {
+  children: React.ReactNode;
+  context: any;
+}) => (
+  <DocsContainer context={context}>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
+      {children}
+    </div>
+  </DocsContainer>
+);
 
 const preview: Preview = {
   decorators: [
@@ -19,9 +34,19 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      container: MaxWidthDocsContainer,
+    },
     options: {
       storySort: {
-        order: ['Foundations', 'Components', 'Unsupported', '*'],
+        order: [
+          'Overview',
+          ['Welcome', 'Getting Started', 'Versioning', 'Release Notes'],
+          'Foundations',
+          'Components',
+          'Unsupported',
+          '*',
+        ],
       },
     },
   },

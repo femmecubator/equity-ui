@@ -73,6 +73,7 @@ const StyledInput = styled.input<{
   error?: boolean;
   warning?: boolean;
   hasIcon?: boolean;
+  required?: boolean;
 }>`
   width: 100%;
   padding: 6px 9px 6px 12px;
@@ -93,11 +94,10 @@ const StyledInput = styled.input<{
       ? theme.prima.color.content.disabled
       : theme.prima.color.content.default};
 
-  border-width: ${({ error, required }) =>
-    required ? '2px' : error ? '1px' : '1px'};
+  border-width: ${({ error }) => (error ? '1px' : '1px')};
   border-color: ${({ theme, disabled, error, required }) => {
     if (disabled) return theme.prima.color.border.disabled;
-    if (error) return theme.prima.color.border.default;
+    if (error) return theme.prima.color.border.error;
     if (required) return theme.prima.color.border['brand-01'];
     return theme.prima.color.border.default;
   }};
@@ -111,7 +111,7 @@ const StyledInput = styled.input<{
     background-color: ${({ theme }) =>
       theme.prima.color.bg['brand-02-xsubtle']};
     border-color: ${({ theme, error, required }) => {
-      if (error) return theme.prima.color.border.default;
+      if (error) return theme.prima.color.border.error;
       if (required) return theme.prima.color.border['brand-01'];
       return theme.prima.color.border.default;
     }};
@@ -287,6 +287,7 @@ export const FormField: React.FC<FormFieldProps> = ({
           disabled={disabled}
           error={isError}
           warning={state.warning}
+          required={required}
           hasIcon={hasIcon && !state.warningInline && !state.errorInline}
           style={
             state.warningInline || state.errorInline

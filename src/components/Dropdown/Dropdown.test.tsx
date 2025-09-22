@@ -13,21 +13,6 @@ vi.mock('../Icon/Icon', () => ({
   ),
 }));
 
-// Mock the Checkbox component
-vi.mock('../Checkbox/Checkbox', () => ({
-  Checkbox: ({ checked, onChange, children, ...props }: any) => (
-    <label {...props}>
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={onChange}
-        data-testid="checkbox"
-      />
-      {children}
-    </label>
-  ),
-}));
-
 const sampleOptions = [
   { value: 'option1', label: 'Option 1' },
   { value: 'option2', label: 'Option Two' },
@@ -163,17 +148,6 @@ describe('Dropdown Component', () => {
     expect(screen.getByText('Option 1')).toBeDefined();
   });
 
-  it('should render multiselect variant with button', () => {
-    contextRender(
-      <Dropdown
-        label="Multiselect Dropdown"
-        options={sampleOptions}
-        variant="multiselect"
-      />
-    );
-    expect(screen.getByRole('button')).toBeDefined();
-  });
-
   it('should support custom className', () => {
     const { container } = contextRender(
       <Dropdown
@@ -211,19 +185,6 @@ describe('Dropdown Component', () => {
     );
     const button = screen.getByRole('button');
     expect(button.textContent).toContain('Option Two');
-  });
-
-  it('should display selected count in multiselect variant', () => {
-    contextRender(
-      <Dropdown
-        label="Multiselect Dropdown"
-        options={sampleOptions}
-        variant="multiselect"
-        value={['option1', 'option2']}
-      />
-    );
-    const button = screen.getByRole('button');
-    expect(button.textContent).toContain('2 selected');
   });
 
   it('should handle empty options array', () => {

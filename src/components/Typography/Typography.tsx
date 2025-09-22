@@ -14,12 +14,11 @@ const StyledTypography = styled.div<TypographyProps>((props) => {
   // Get the design tokens from prima-semantic
   const tokens = typography['prima-semantic'] as any;
 
-  // Default color
-  let color = theme.semantic.color.content.default;
+  let color: string = theme.prima.color.content.default;
 
   // Set color for link variants
   if (variant === 'link') {
-    color = theme.semantic.color.content.link;
+    color = theme.prima.color.content['link-default'];
   }
 
   // Override with custom color if provided
@@ -43,6 +42,8 @@ const StyledTypography = styled.div<TypographyProps>((props) => {
       ...fallbackToken,
       ...transformValueToUnit(fallbackToken),
       color,
+      fontFamily:
+        "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
     };
   }
 
@@ -53,6 +54,15 @@ const StyledTypography = styled.div<TypographyProps>((props) => {
     ...transformValueToUnit(selectedToken),
     color,
   };
+
+  // Force proper font family based on variant
+  if (variant === 'display' || variant === 'headline') {
+    baseStyles.fontFamily =
+      "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif";
+  } else {
+    baseStyles.fontFamily =
+      "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif";
+  }
 
   if (variant === 'meta') {
     baseStyles.textTransform = 'uppercase';

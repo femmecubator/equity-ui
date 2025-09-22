@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { Typography } from '../Typography/Typography';
 import { Icon } from '../Icon';
-import { Checkbox } from '../Checkbox';
 import { useTheme } from '@emotion/react';
 
 export type DropdownOption = {
@@ -13,7 +12,7 @@ export type DropdownOption = {
 export type DropdownProps = {
   label?: string;
   placeholder?: string;
-  value?: string | string[];
+  value?: string;
   options?: DropdownOption[];
   required?: boolean;
   disabled?: boolean;
@@ -22,13 +21,9 @@ export type DropdownProps = {
   warningInline?: string;
   error?: boolean;
   errorInline?: string;
-  onChange?: (
-    e:
-      | React.ChangeEvent<HTMLSelectElement>
-      | { target: { value: string | string[] } }
-  ) => void;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   className?: string;
-  variant?: 'native' | 'single' | 'multiselect';
+  variant?: 'native' | 'single';
 };
 
 const InlineMessageContainer = styled.div`
@@ -91,8 +86,9 @@ const StyledSelect = styled.select<{
   padding: 6px 9px 6px 12px;
   padding-right: ${({ hasIcon }) => (hasIcon ? '48px' : '32px')};
   border-style: solid;
-  border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
+  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
   font-size: 16px;
+  font-family: 'Inter', sans-serif;
   outline: none;
   transition:
     border-color 0.2s,
@@ -111,7 +107,7 @@ const StyledSelect = styled.select<{
     required ? '2px' : error ? '1px' : '1px'};
   border-color: ${({ theme, disabled, error, required }) => {
     if (disabled) return theme.prima.color.border.disabled;
-    if (error) return theme.prima.color.border.default;
+    if (error) return theme.prima.color.border.error;
     if (required) return theme.prima.color.border['brand-01'];
     return theme.prima.color.border.default;
   }};
@@ -120,7 +116,7 @@ const StyledSelect = styled.select<{
     background-color: ${({ theme }) =>
       theme.prima.color.bg['brand-02-xsubtle']};
     border-color: ${({ theme, error, required }) => {
-      if (error) return theme.prima.color.border.default;
+      if (error) return theme.prima.color.border.error;
       if (required) return theme.prima.color.border['brand-01'];
       return theme.prima.color.border.default;
     }};
@@ -236,12 +232,13 @@ const CustomDropdownButton = styled.button<{
   required?: boolean;
 }>`
   width: 100%;
+  height: 36px;
   padding: 6px 9px 6px 12px;
   padding-right: ${({ hasIcon }) => (hasIcon ? '48px' : '32px')};
   border-style: solid;
-  border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
+  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
   font-size: 16px;
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
   outline: none;
   transition:
     border-color 0.2s,
@@ -260,9 +257,10 @@ const CustomDropdownButton = styled.button<{
       : theme.prima.color.content.default};
 
   border-width: ${({ error }) => (error ? '1px' : '1px')};
-  border-color: ${({ theme, disabled, error }) => {
+  border-color: ${({ theme, disabled, error, required }) => {
     if (disabled) return theme.prima.color.border.disabled;
-    if (error) return theme.prima.color.border.default;
+    if (error) return theme.prima.color.border.error;
+    if (required) return theme.prima.color.border['brand-01'];
     return theme.prima.color.border.default;
   }};
 
@@ -300,7 +298,7 @@ const CustomDropdownMenu = styled.div<{ isOpen: boolean }>`
   right: 0;
   z-index: 1000;
   background: ${({ theme }) => theme.prima.color.bg.default};
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
   box-shadow:
     0 0 18px 0 rgba(0, 6, 36, 0.12),
     0 6px 6px 0 rgba(0, 6, 36, 0.06);
@@ -314,7 +312,7 @@ const ScrollArea = styled.div`
   align-items: flex-start;
   align-self: stretch;
   background: ${({ theme }) => theme.prima.color.bg.default};
-  border-radius: 6px; /* Border radius moved here */
+  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
   overflow: hidden; /* Prevent any overflow beyond border radius */
   width: calc(100% - 10px);
   padding: 0 5px;
@@ -325,6 +323,7 @@ const ScrollArea = styled.div`
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    padding-block: 5px;
     scrollbar-gutter: stable; /* prevents layout shift on focus */
 
     /* WebKit (Chrome/Edge/Safari) */
@@ -333,12 +332,12 @@ const ScrollArea = styled.div`
     }
     &::-webkit-scrollbar-track {
       background: ${({ theme }) => theme.prima.color.bg.default};
-      border-radius: 4px;
+      border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
     }
     &::-webkit-scrollbar-thumb {
       /* your pill (thumb) */
       background: ${({ theme }) => theme.prima.color.bg.disabled};
-      border-radius: 4px;
+      border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
       min-height: 56px; /* scrollbar thumb height */
     }
 
@@ -379,7 +378,7 @@ const ScrollArea = styled.div`
     }
     &::-moz-scrollbar-thumb {
       background: ${({ theme }) => theme.prima.color.bg.disabled};
-      border-radius: 4px;
+      border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
     }
     &::-moz-scrollbar-track {
       background: ${({ theme }) => theme.prima.color.bg.default};
@@ -387,16 +386,14 @@ const ScrollArea = styled.div`
   }
 `;
 
-const OptionsList = styled.div`
-  /* no visual styles; the scrollbars are applied by ScrollArea > div */
-`;
+const OptionsList = styled.div``;
 
 const CustomDropdownOption = styled.div<{
   isSelected: boolean;
   isHovered: boolean;
 }>`
   padding: 6px 24px;
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -415,26 +412,6 @@ const CustomDropdownOption = styled.div<{
     isSelected
       ? theme.prima.color.content.knockout
       : theme.prima.color.content.default};
-`;
-
-const MultiselectOption = styled.div<{ isHovered: boolean }>`
-  padding: 6px 12px;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  background-color: ${({ theme, isHovered }) =>
-    isHovered
-      ? theme.prima.color.bg['brand-02-xsubtle']
-      : theme.prima.color.bg.default};
-
-  color: ${({ theme }) => theme.prima.color.content.default};
 `;
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -511,23 +488,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
   };
 
   const handleCustomOptionClick = (optionValue: string) => {
-    if (variant === 'multiselect') {
-      // Handle multiselect logic
-      const currentValues = Array.isArray(value) ? value : [];
-      const newValues = currentValues.includes(optionValue)
-        ? currentValues.filter((v) => v !== optionValue)
-        : [...currentValues, optionValue];
-
-      if (onChange) {
-        onChange({ target: { value: newValues } } as any);
-      }
-    } else {
-      // Handle single select logic
-      if (onChange) {
-        onChange({ target: { value: optionValue } } as any);
-      }
-      setIsOpen(false);
+    // Handle single select logic
+    if (onChange) {
+      onChange({ target: { value: optionValue } } as any);
     }
+    setIsOpen(false);
   };
 
   const handleCustomOptionHover = (index: number) => {
@@ -538,32 +503,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
     setHoveredIndex(null);
   };
 
-  // Helper functions for multiselect
+  // Helper functions for single select
   const isOptionSelected = (optionValue: string) => {
-    if (variant === 'multiselect') {
-      return Array.isArray(value) ? value.includes(optionValue) : false;
-    }
     return value === optionValue;
   };
 
-  const getSelectedValues = () => {
-    return Array.isArray(value) ? value : value ? [value] : [];
-  };
-
   const selectedOption = options.find((option) => option.value === value);
-  const selectedValues = getSelectedValues();
-  const selectedOptions = options.filter((option) =>
-    selectedValues.includes(option.value)
-  );
 
-  const displayText =
-    variant === 'multiselect'
-      ? selectedOptions.length > 0
-        ? `${selectedOptions.length} selected`
-        : placeholder || 'Select options...'
-      : selectedOption
-        ? selectedOption.label
-        : placeholder || '';
+  const displayText = selectedOption ? selectedOption.label : placeholder || '';
 
   const renderStateIcon = () => {
     if (state.loading) {
@@ -738,34 +685,18 @@ export const Dropdown: React.FC<DropdownProps> = ({
           <CustomDropdownMenu isOpen={isOpen}>
             <ScrollArea>
               <OptionsList>
-                {options.map((option, index) =>
-                  variant === 'multiselect' ? (
-                    <MultiselectOption
-                      key={option.value}
-                      isHovered={hoveredIndex === index}
-                      onClick={() => handleCustomOptionClick(option.value)}
-                      onMouseEnter={() => handleCustomOptionHover(index)}
-                      onMouseLeave={handleCustomOptionLeave}
-                    >
-                      <Checkbox
-                        checked={isOptionSelected(option.value)}
-                        onChange={() => {}}
-                      />
-                      <span>{option.label}</span>
-                    </MultiselectOption>
-                  ) : (
-                    <CustomDropdownOption
-                      key={option.value}
-                      isSelected={isOptionSelected(option.value)}
-                      isHovered={hoveredIndex === index}
-                      onClick={() => handleCustomOptionClick(option.value)}
-                      onMouseEnter={() => handleCustomOptionHover(index)}
-                      onMouseLeave={handleCustomOptionLeave}
-                    >
-                      {option.label}
-                    </CustomDropdownOption>
-                  )
-                )}
+                {options.map((option, index) => (
+                  <CustomDropdownOption
+                    key={option.value}
+                    isSelected={isOptionSelected(option.value)}
+                    isHovered={hoveredIndex === index}
+                    onClick={() => handleCustomOptionClick(option.value)}
+                    onMouseEnter={() => handleCustomOptionHover(index)}
+                    onMouseLeave={handleCustomOptionLeave}
+                  >
+                    {option.label}
+                  </CustomDropdownOption>
+                ))}
               </OptionsList>
             </ScrollArea>
           </CustomDropdownMenu>
