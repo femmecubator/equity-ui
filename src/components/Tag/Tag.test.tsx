@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { EquityThemeProvider } from '../../theme';
 import { Tag, TagProps } from './Tag';
 
 const renderTag = (props: Partial<TagProps> = {}) => {
@@ -9,11 +8,7 @@ const renderTag = (props: Partial<TagProps> = {}) => {
     ...props,
   };
 
-  return render(
-    <EquityThemeProvider>
-      <Tag {...defaultProps} />
-    </EquityThemeProvider>
-  );
+  return render(<Tag {...defaultProps} />);
 };
 
 describe('Tag Component', () => {
@@ -218,11 +213,9 @@ describe('Tag Component', () => {
       const tagClick = vi.fn();
 
       render(
-        <EquityThemeProvider>
-          <div onClick={parentClick}>
-            <Tag onClick={tagClick}>Test Tag</Tag>
-          </div>
-        </EquityThemeProvider>
+        <div onClick={parentClick}>
+          <Tag onClick={tagClick}>Test Tag</Tag>
+        </div>
       );
 
       const tag = screen.getByText('Test Tag');
@@ -237,13 +230,11 @@ describe('Tag Component', () => {
       const removeClick = vi.fn();
 
       render(
-        <EquityThemeProvider>
-          <div onClick={parentClick}>
-            <Tag withRemovableButton onRemove={removeClick}>
-              Test Tag
-            </Tag>
-          </div>
-        </EquityThemeProvider>
+        <div onClick={parentClick}>
+          <Tag withRemovableButton onRemove={removeClick}>
+            Test Tag
+          </Tag>
+        </div>
       );
 
       const removeButton = screen.getByRole('button', { name: /remove/i });

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from '../../theme';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography/Typography';
-import { useTheme } from '@emotion/react';
 
 // Define the context and types here to avoid circular imports
 export interface RadioGroupContextValue {
@@ -42,7 +42,7 @@ const StyledRadio = styled.input<RadioProps>`
   height: 16px;
   position: relative;
 
-  ${({ theme, error, disabled }) => {
+  ${({ error, disabled }) => {
     const getStateStyles = () => {
       if (disabled) {
         return {
@@ -152,7 +152,7 @@ const RequiredIndicator = styled.div`
     content: '';
     width: 7px;
     height: 7px;
-    background: ${({ theme }) => theme.prima.color.content['brand-02']};
+    background: ${theme.prima.color.content['brand-02']};
     mask: url('data:image/svg+xml,${encodeURIComponent(
       '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
     )}');
@@ -199,7 +199,6 @@ export const BaseRadio = ({
   className,
   ...props
 }: RadioProps) => {
-  const theme = useTheme();
   const groupContext = useRadioGroup();
 
   const isInGroup = !!groupContext && !!value;

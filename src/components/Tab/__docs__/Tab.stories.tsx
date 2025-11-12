@@ -179,7 +179,7 @@ export const Playground: Story = {
       value="playground-tab"
       label={args.label}
       isSelected={args.isSelected}
-      icon="complete"
+      icon={args.icon}
     >
       <div>
         <p>Content.</p>

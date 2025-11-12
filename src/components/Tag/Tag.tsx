@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useTheme } from '@emotion/react';
+import { theme } from '../../theme';
 import type { CSSObject } from '@emotion/react';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography/Typography';
@@ -102,15 +102,14 @@ const StyledTag = styled.div<{
 }>`
   display: inline-flex;
   align-items: center;
-  border-radius: ${({ theme }) =>
-    theme.prima.radius.semantic['radius-round']}px;
-  border: 1px solid ${({ theme }) => theme.prima.color.border.default};
+  border-radius: ${theme.prima.radius.semantic['radius-round']}px;
+  border: 1px solid ${theme.prima.color.border.default};
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
   user-select: none;
 
   ${({ size, withRemovableButton }) => getSizeStyles(size, withRemovableButton)}
-  ${({ disabled, active, theme }) => getStateStyles(disabled, active, theme)}
+  ${({ disabled, active }) => getStateStyles(disabled, active, theme)}
   
   cursor: ${({ clickable, disabled }) => {
     if (disabled) return 'not-allowed';
@@ -119,7 +118,7 @@ const StyledTag = styled.div<{
   }};
 
   &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.prima.color.border.focus};
+    outline: 2px solid ${theme.prima.color.border.focus};
     outline-offset: 2px;
   }
 
@@ -159,7 +158,7 @@ const RemoveButton = styled.button<{ size: TagSize; disabled: boolean }>`
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme }) => theme.prima.color.border.focus};
+    outline: 1px solid ${theme.prima.color.border.focus};
     outline-offset: 1px;
   }
 `;
@@ -195,7 +194,6 @@ export const Tag: React.FC<TagProps> = ({
   css,
   'data-testid': testId,
 }) => {
-  const theme = useTheme();
   const isClickable = !disabled && !!onClick;
 
   const handleClick = (e: React.MouseEvent) => {

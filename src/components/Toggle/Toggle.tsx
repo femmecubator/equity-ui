@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from '../../theme';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography/Typography';
-import { useTheme } from '@emotion/react';
 
 export type ToggleProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -51,7 +51,7 @@ const StyledToggle = styled.input<InternalToggleProps>`
     toggleSize === 'tiny' ? '8px' : '10px'};
   transition: all 0.2s ease;
   overflow: visible;
-  background: ${({ theme, checked, disabled }) => {
+  background: ${({ checked, disabled }) => {
     if (disabled) return theme.prima.color.bg.strong;
     return checked
       ? theme.prima.color.bg['info-strong']
@@ -75,7 +75,7 @@ const StyledToggle = styled.input<InternalToggleProps>`
     height: ${({ toggleSize = 'small' }) =>
       toggleSize === 'tiny' ? '14px' : '18px'};
     border-radius: 50%;
-    background: ${({ theme, disabled }) =>
+    background: ${({ disabled }) =>
       disabled ? theme.prima.color.bg.default : theme.prima.color.bg.default};
     box-shadow:
       0 0 3px 0 rgba(0, 6, 36, 0.12),
@@ -85,7 +85,7 @@ const StyledToggle = styled.input<InternalToggleProps>`
 
   /* Toggle circle icon (only for small/medium size) */
   &::before {
-    ${({ toggleSize = 'small', checked, disabled, theme }: any) => {
+    ${({ toggleSize = 'small', checked, disabled }: any) => {
       if (toggleSize === 'tiny') return '';
 
       const circleLeft = checked ? '17px' : '1px';
@@ -159,7 +159,7 @@ const RequiredIndicator = styled.div`
     content: '';
     width: 7px;
     height: 7px;
-    background: ${({ theme }) => theme.prima.color.content['info-icon']};
+    background: ${theme.prima.color.content['info-icon']};
     mask: url('data:image/svg+xml,${encodeURIComponent(
       '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
     )}');
@@ -186,8 +186,6 @@ export const BaseToggle = ({
   className,
   ...props
 }: ToggleProps) => {
-  const theme = useTheme();
-
   const getTextColor = () => {
     return theme.prima.color.content.default;
   };

@@ -1,1 +1,1 @@
-export { EquityThemeProvider, theme, type EquityTheme } from './theme';
+export { theme, type EquityTheme } from './theme';

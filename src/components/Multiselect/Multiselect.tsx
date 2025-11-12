@@ -4,7 +4,7 @@ import { Typography } from '../Typography/Typography';
 import { Icon } from '../Icon';
 import { Checkbox } from '../Checkbox';
 import { Tag } from '../Tag';
-import { useTheme } from '@emotion/react';
+import { theme } from '../../theme';
 
 export type MultiselectOption = {
   value: string;
@@ -31,7 +31,7 @@ const InlineMessageContainer = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  margin-top: ${({ theme }) => theme.prima.spacing.global['space-8']}px;
+  margin-top: ${theme.prima.spacing.global['space-8']}px;
 `;
 
 const MultiselectContainer = styled.div`
@@ -55,7 +55,7 @@ const RequiredIndicator = styled.div`
     content: '';
     width: 7px;
     height: 7px;
-    background: ${({ theme }) => theme.prima.color.content['brand-02']};
+    background: ${theme.prima.color.content['brand-02']};
     mask: url('data:image/svg+xml,${encodeURIComponent(
       '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
     )}');
@@ -95,7 +95,7 @@ const CustomMultiselectButton = styled.button<{
   padding: 6px 9px 6px 12px;
   padding-right: ${({ hasIcon }) => (hasIcon ? '60px' : '32px')};
   border-style: solid;
-  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
+  border-radius: ${theme.prima.radius.global['radius-8']}px;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
   outline: none;
@@ -112,15 +112,15 @@ const CustomMultiselectButton = styled.button<{
   overflow: hidden;
   box-sizing: border-box;
 
-  background-color: ${({ theme, disabled }) =>
+  background-color: ${({ disabled }) =>
     disabled ? theme.prima.color.bg.disabled : theme.prima.color.bg.default};
-  color: ${({ theme, disabled }) =>
+  color: ${({ disabled }) =>
     disabled
       ? theme.prima.color.content.disabled
       : theme.prima.color.content.default};
 
   border-width: ${({ error }) => (error ? '1px' : '1px')};
-  border-color: ${({ theme, disabled, error, required }) => {
+  border-color: ${({ disabled, error, required }) => {
     if (disabled) return theme.prima.color.border.disabled;
     if (error) return theme.prima.color.border.error;
     if (required) return theme.prima.color.border['brand-01'];
@@ -128,9 +128,8 @@ const CustomMultiselectButton = styled.button<{
   }};
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) =>
-      theme.prima.color.bg['brand-02-xsubtle']};
-    border-color: ${({ theme, error, required }) => {
+    background-color: ${theme.prima.color.bg['brand-02-xsubtle']};
+    border-color: ${({ error, required }) => {
       if (error) return theme.prima.color.border.error;
       if (required) return theme.prima.color.border['brand-01'];
       return theme.prima.color.border.default;
@@ -139,10 +138,9 @@ const CustomMultiselectButton = styled.button<{
 
   &:focus {
     z-index: 1;
-    background-color: ${({ theme }) =>
-      theme.prima.color.bg['brand-02-xsubtle']};
+    background-color: ${theme.prima.color.bg['brand-02-xsubtle']};
     border-width: 2px;
-    border-color: ${({ theme, error, required }) => {
+    border-color: ${({ error, required }) => {
       if (error) return theme.prima.color.border.error;
       if (required) return theme.prima.color.border['brand-01'];
       return theme.prima.color.border['brand-02-strong'];
@@ -160,8 +158,8 @@ const CustomMultiselectMenu = styled.div<{ isOpen: boolean }>`
   left: 0;
   right: 0;
   z-index: 1000;
-  background: ${({ theme }) => theme.prima.color.bg.default};
-  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
+  background: ${theme.prima.color.bg.default};
+  border-radius: ${theme.prima.radius.global['radius-8']}px;
   box-shadow:
     0 0 18px 0 rgba(0, 6, 36, 0.12),
     0 6px 6px 0 rgba(0, 6, 36, 0.06);
@@ -173,8 +171,8 @@ const ScrollArea = styled.div`
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
-  background: ${({ theme }) => theme.prima.color.bg.default};
-  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
+  background: ${theme.prima.color.bg.default};
+  border-radius: ${theme.prima.radius.global['radius-8']}px;
   overflow: hidden;
   width: calc(100% - 10px);
   padding: 0 5px;
@@ -193,13 +191,13 @@ const OptionsList = styled.div`
     width: 8px;
   }
   &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.prima.color.bg.default};
-    border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
+    background: ${theme.prima.color.bg.default};
+    border-radius: ${theme.prima.radius.global['radius-4']}px;
   }
   &::-webkit-scrollbar-thumb {
     /* your pill (thumb) */
-    background: ${({ theme }) => theme.prima.color.bg.disabled};
-    border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
+    background: ${theme.prima.color.bg.disabled};
+    border-radius: ${theme.prima.radius.global['radius-4']}px;
     min-height: 56px; /* scrollbar thumb height */
   }
 
@@ -228,8 +226,8 @@ const OptionsList = styled.div`
 
   /* Firefox */
   scrollbar-width: thick;
-  scrollbar-color: ${({ theme }) => theme.prima.color.bg.disabled}
-    ${({ theme }) => theme.prima.color.bg.default};
+  scrollbar-color: ${theme.prima.color.bg.disabled}
+    ${theme.prima.color.bg.default};
 
   /* Additional Firefox styling attempts */
   scrollbar-gutter: stable;
@@ -239,11 +237,11 @@ const OptionsList = styled.div`
     width: 8px;
   }
   &::-moz-scrollbar-thumb {
-    background: ${({ theme }) => theme.prima.color.bg.disabled};
-    border-radius: ${({ theme }) => theme.prima.radius.global['radius-4']}px;
+    background: ${theme.prima.color.bg.disabled};
+    border-radius: ${theme.prima.radius.global['radius-4']}px;
   }
   &::-moz-scrollbar-track {
-    background: ${({ theme }) => theme.prima.color.bg.default};
+    background: ${theme.prima.color.bg.default};
   }
 `;
 
@@ -292,7 +290,7 @@ const ChevronIcon = styled.div<{ disabled?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ theme, disabled }) =>
+  color: ${({ disabled }) =>
     disabled
       ? theme.prima.color.content.disabled
       : theme.prima.color.content.default};
@@ -310,12 +308,12 @@ const MultiselectOption = styled.div<{ isHovered: boolean }>`
   align-items: center;
   gap: 8px;
 
-  background-color: ${({ theme, isHovered }) =>
+  background-color: ${({ isHovered }) =>
     isHovered
       ? theme.prima.color.bg['brand-02-xsubtle']
       : theme.prima.color.bg.default};
 
-  color: ${({ theme }) => theme.prima.color.content.default};
+  color: ${theme.prima.color.content.default};
 `;
 
 const TagsContainer = styled.div`
@@ -330,7 +328,7 @@ const TagsContainer = styled.div`
 `;
 
 const PlaceholderText = styled.span<{ isEmpty: boolean }>`
-  color: ${({ theme, isEmpty }) =>
+  color: ${({ isEmpty }) =>
     isEmpty
       ? theme.prima.color.content.subtle
       : theme.prima.color.content.default};
@@ -351,8 +349,6 @@ export const Multiselect: React.FC<MultiselectProps> = ({
   onChange,
   className,
 }) => {
-  const theme = useTheme();
-
   // State for custom multiselect
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

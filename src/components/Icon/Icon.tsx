@@ -1,8 +1,7 @@
 import { type SVGProps, useMemo } from 'react';
 import spriteHref from '../../icons/sprite.svg';
 import type { IconName } from '../../icons/icon-constant';
-import { useTheme } from '@emotion/react';
-import { EquityTheme } from '../../theme';
+import { theme, EquityTheme } from '../../theme';
 
 export const defaultIconSizes = {
   small: 18,
@@ -21,15 +20,13 @@ const Icon = ({
   size?: DefaultIconSizes | number;
   color?: keyof EquityTheme['prima']['color']['content'];
 }) => {
-  const theme = useTheme();
-
   const actualSize = useMemo(() => {
     return typeof size === 'string' ? defaultIconSizes[size] : size;
   }, [size]);
 
   const actualColor = useMemo(() => {
     return theme.prima?.color?.content[color] || color;
-  }, [color, theme.prima?.color?.content]);
+  }, [color]);
 
   return (
     <svg

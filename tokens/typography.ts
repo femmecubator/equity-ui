@@ -3,7 +3,7 @@
 // Any modifications made directly to this file will be
 // overwritten the next time StyleDictionary script runs.
 //
-// Last updated: 30/7/2025, 10:50:25 pm
+// Last updated: 19/9/2025, 8:27:24 pm
 // ---------------------------------------------------
 
 export const typography = {

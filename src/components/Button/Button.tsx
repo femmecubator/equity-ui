@@ -9,6 +9,7 @@ import styled from '@emotion/styled';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography/Typography';
 import type { IconName } from '../../icons/icon-constant';
+import { theme } from '../../theme';
 
 export type ButtonProps = Omit<HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
   children?: React.ReactNode;
@@ -54,13 +55,13 @@ const StyledButton = styled.button<{
   }}
 
   /* Shape variants */
-  border-radius: ${({ shape, theme }) =>
+  border-radius: ${({ shape }) =>
     shape === 'pill'
       ? `${theme.prima.border.radius.button.round}px`
       : `${theme.prima.border.radius.semantic.medium}px`};
 
   /* Variant styles */
-  ${({ variant, color, theme }) => {
+  ${({ variant, color }) => {
     const colors = theme.prima.color;
 
     const textColor = colors.content.knockout;
@@ -162,10 +163,10 @@ const StyledButton = styled.button<{
 
   /* Disabled state */
   &:disabled {
-    background-color: ${({ theme, variant }) =>
+    background-color: ${({ variant }) =>
       variant === 'primary' ? theme.prima.color.bg.disabled : 'transparent'};
-    color: ${({ theme }) => theme.prima.color.content.disabled};
-    border-color: ${({ theme, variant }) =>
+    color: ${theme.prima.color.content.disabled};
+    border-color: ${({ variant }) =>
       variant === 'tertiary'
         ? 'transparent'
         : theme.prima.color.border.disabled};
