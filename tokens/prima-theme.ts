@@ -3,7 +3,7 @@
 // Any modifications made directly to this file will be
 // overwritten the next time StyleDictionary script runs.
 //
-// Last updated: 28/7/2025, 3:28:20 am
+// Last updated: 19/9/2025, 8:27:21 pm
 // ---------------------------------------------------
 
 export const primaTheme = {

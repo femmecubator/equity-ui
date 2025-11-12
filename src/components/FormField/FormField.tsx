@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Typography } from '../Typography/Typography';
 import { Icon } from '../Icon';
-import { useTheme } from '@emotion/react';
+import { theme } from '../../theme';
 
 export type FormFieldProps = {
   label?: string;
@@ -22,7 +22,7 @@ const InlineMessageContainer = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  margin-top: ${({ theme }) => theme.prima.spacing.global['space-8']}px;
+  margin-top: ${theme.prima.spacing.global['space-8']}px;
 `;
 
 const FormFieldContainer = styled.div`
@@ -46,7 +46,7 @@ const RequiredIndicator = styled.div`
     content: '';
     width: 7px;
     height: 7px;
-    background: ${({ theme }) => theme.prima.color.content['brand-02']};
+    background: ${theme.prima.color.content['brand-02']};
     mask: url('data:image/svg+xml,${encodeURIComponent(
       '<svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.80902 7L1 6.39704L2.74007 3.94021L0 3.02615L0.309998 2.05163L3 2.94845V0H4V2.97598L6.69 2.05163L7 3.02723L4.28118 3.96124L6 6.39704L5.19 7L3.50269 4.60869L1.80902 7Z" fill="currentColor"/></svg>'
     )}');
@@ -79,7 +79,7 @@ const StyledInput = styled.input<{
   padding: 6px 9px 6px 12px;
   padding-right: ${({ hasIcon }) => (hasIcon ? '48px' : '9px')};
   border-style: solid;
-  border-radius: ${({ theme }) => theme.prima.radius.global['radius-8']}px;
+  border-radius: ${theme.prima.radius.global['radius-8']}px;
   font-size: 16px;
   outline: none;
   transition:
@@ -87,15 +87,15 @@ const StyledInput = styled.input<{
     border-width 0.2s,
     background-color 0.2s;
 
-  background-color: ${({ theme, disabled }) =>
+  background-color: ${({ disabled }) =>
     disabled ? theme.prima.color.bg.disabled : theme.prima.color.bg.default};
-  color: ${({ theme, disabled }) =>
+  color: ${({ disabled }) =>
     disabled
       ? theme.prima.color.content.disabled
       : theme.prima.color.content.default};
 
   border-width: ${({ error }) => (error ? '1px' : '1px')};
-  border-color: ${({ theme, disabled, error, required }) => {
+  border-color: ${({ disabled, error, required }) => {
     if (disabled) return theme.prima.color.border.disabled;
     if (error) return theme.prima.color.border.error;
     if (required) return theme.prima.color.border['brand-01'];
@@ -103,14 +103,13 @@ const StyledInput = styled.input<{
   }};
 
   &::placeholder {
-    color: ${({ theme }) => theme.prima.color.content.subtle};
+    color: ${theme.prima.color.content.subtle};
     font-size: 16px;
   }
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) =>
-      theme.prima.color.bg['brand-02-xsubtle']};
-    border-color: ${({ theme, error, required }) => {
+    background-color: ${theme.prima.color.bg['brand-02-xsubtle']};
+    border-color: ${({ error, required }) => {
       if (error) return theme.prima.color.border.error;
       if (required) return theme.prima.color.border['brand-01'];
       return theme.prima.color.border.default;
@@ -119,10 +118,9 @@ const StyledInput = styled.input<{
 
   &:focus {
     z-index: 1;
-    background-color: ${({ theme }) =>
-      theme.prima.color.bg['brand-02-xsubtle']};
+    background-color: ${theme.prima.color.bg['brand-02-xsubtle']};
     border-width: 2px;
-    border-color: ${({ theme, error, required }) => {
+    border-color: ${({ error, required }) => {
       if (error) return theme.prima.color.border.error;
       if (required) return theme.prima.color.border['brand-01'];
       return theme.prima.color.border['brand-02-strong'];
@@ -202,7 +200,6 @@ export const FormField: React.FC<FormFieldProps> = ({
 
   const isError = state.error || !!state.errorInline;
   const hasIcon = state.loading || state.warning || isError;
-  const theme = useTheme();
 
   const renderIcon = () => {
     if (loading) {

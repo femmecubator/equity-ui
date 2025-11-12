@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
-import { useTheme } from '@emotion/react';
+import { theme } from '../../theme';
 import { Icon } from '../Icon';
 import type { IconName } from '../../icons/icon-constant';
 import { Typography } from '../Typography/Typography';
@@ -46,15 +46,9 @@ const StyledBadge = styled.div<BadgeProps>`
     }
   `}
 
-  ${({
-    size = 'medium',
-    status = 'info',
-    icon = false,
-    theme: {
-      prima: { color },
-    },
-  }) => {
+  ${({ size = 'medium', status = 'info', icon = false }) => {
     const isSmall = size === 'small';
+    const { color } = theme.prima;
 
     // Size-specific styling - different padding based on icon presence
     const sizeStyles = isSmall
@@ -111,7 +105,6 @@ export default function Badge({
   children,
 }: BadgeProps) {
   const iconSize = 18;
-  const theme = useTheme();
 
   // Get icon colors
   const getIconColor = () => {

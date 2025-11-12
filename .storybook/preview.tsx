@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { DocsContainer } from '@storybook/blocks';
-import { EquityThemeProvider } from '../src/theme';
 import '../src/styles/global.css';
 
 const MaxWidthDocsContainer = ({
@@ -19,13 +18,7 @@ const MaxWidthDocsContainer = ({
 );
 
 const preview: Preview = {
-  decorators: [
-    (Story) => (
-      <EquityThemeProvider>
-        <Story />
-      </EquityThemeProvider>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {

@@ -6,9 +6,10 @@ import {
 import { TypographyProps } from '../../shared/types';
 import { transformValueToUnit } from '../../shared/utils';
 import { linkVariantAdditionalState } from '../../shared/utils';
+import { theme } from '../../theme';
 
 const StyledTypography = styled.div<TypographyProps>((props) => {
-  const { variant = 'body', size = 2, theme, color: colorOverride } = props;
+  const { variant = 'body', size = 2, color: colorOverride } = props;
   const { typography } = theme;
 
   // Get the design tokens from prima-semantic

@@ -8,6 +8,7 @@ import React, {
   isValidElement,
 } from 'react';
 import styled from '@emotion/styled';
+import { theme } from '../../theme';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography/Typography';
 import type { IconName } from '../../icons/icon-constant';
@@ -55,7 +56,7 @@ const StyledTabButton = styled.button<{
   position: relative;
 
   /* Full-width border under each tab - only for groups */
-  ${({ isInGroup, theme }) =>
+  ${({ isInGroup }) =>
     isInGroup &&
     `
     &::before {
@@ -71,7 +72,7 @@ const StyledTabButton = styled.button<{
   `}
 
   /* Individual tab border - only for standalone tabs */
-  ${({ isInGroup, theme }) =>
+  ${({ isInGroup }) =>
     !isInGroup &&
     `
     border-bottom: 2px solid ${theme.prima.color.border.default};
@@ -85,31 +86,29 @@ const StyledTabButton = styled.button<{
     left: 0;
     right: 0;
     height: 2px;
-    background-color: ${({ theme, isSelected }) =>
+    background-color: ${({ isSelected }) =>
       isSelected ? theme.prima.color.border['brand-02-strong'] : 'transparent'};
     transition: background-color 0.1s ease;
     z-index: 1;
   }
 
   /* Default colors */
-  color: ${({ theme, isSelected }) =>
+  color: ${({ isSelected }) =>
     isSelected
       ? theme.prima.color.content.default
       : theme.prima.color.content.default};
 
   &:hover {
-    color: ${({ theme }) => theme.prima.color.content['brand-02-strong']};
-    background-color: ${({ theme }) =>
-      theme.prima.color.bg['brand-02-xsubtle']};
+    color: ${theme.prima.color.content['brand-02-strong']};
+    background-color: ${theme.prima.color.bg['brand-02-xsubtle']};
     font-weight: 600;
 
     &::after {
-      background-color: ${({ theme }) =>
-        theme.prima.color.border['brand-02-strong']};
+      background-color: ${theme.prima.color.border['brand-02-strong']};
     }
 
     /* Hover border for individual tabs */
-    ${({ isInGroup, theme }) =>
+    ${({ isInGroup }) =>
       !isInGroup &&
       `
       border-bottom-color: ${theme.prima.color.border['brand-02-strong']};
